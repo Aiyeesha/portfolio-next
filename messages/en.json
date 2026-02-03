@@ -1,0 +1,149 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact",
+    "testimonials": "Testimonials",
+    "blog": "Blog",
+    "menu": "Menu",
+    "tagline": "Salesforce · IT Ops"
+  },
+  "hero": {
+    "title": "Salesforce Developer & Consultant",
+    "subtitle": "with Systems & DevOps background",
+    "intro_salesforce": "I help teams design, build and run secure, scalable Salesforce and cloud solutions that are genuinely useful for the people who use them.",
+    "intro_itops": "I help teams design, maintain and secure resilient and scalable IT and DevOps infrastructures.",
+    "avatar_alt": "Profile photo",
+    "note": "Tip: switch tracks using the toggle above.",
+    "title_salesforce": "Salesforce developer & consultant",
+    "subtitle_salesforce": "with a strong systems & DevOps background",
+    "title_itops": "Systems & network admin · IT Ops & DevOps",
+    "subtitle_itops": "Reliability, security and automation in production"
+  },
+  "cta": {
+    "call": "Schedule a discovery call",
+    "projects": "View selected projects",
+    "downloadCv": "Download my CV",
+    "workWithMe": "Work with me"
+  },
+  "projects": {
+    "search": "Search a project...",
+    "requirements": "Requirements (PDF)",
+    "details": "View project details →",
+    "featured": "Featured projects",
+    "featuredSubtitle": "Quick highlights before the full list."
+  },
+  "sections": {
+    "testimonials_title": "Testimonials",
+    "testimonials_subtitle": "A few words from people I worked with.",
+    "skills_title": "Skills",
+    "skills_subtitle": "A mix of Salesforce, administration, infrastructure and DevOps practices.",
+    "experience_title": "Experience",
+    "experience_subtitle": "Expand items to see details (accordion-style).",
+    "roles_title": "Roles",
+    "certifications_title": "Certifications",
+    "services_title": "Services",
+    "services_subtitle": "Tailored services depending on your needs (Salesforce or IT Ops).",
+    "projects_title": "Projects",
+    "projects_subtitle": "Use the search and filters. The IT Ops / Salesforce toggle changes the list.",
+    "contact_title": "Contact",
+    "contact_subtitle": "Prefer email or the form below (protected against spam).",
+    "blog_title": "Blog / Tutorials",
+    "blog_subtitle": "Short, practical guides you can apply immediately."
+  },
+  "contact": {
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@example.com",
+    "messagePlaceholder": "Tell me about your project…",
+    "send": "Send",
+    "sending": "Sending…",
+    "success": "Message sent.",
+    "error": "Error:",
+    "privacyNote": "Your message is sent securely. Avoid sharing sensitive secrets (passwords, tokens).",
+    "otherWays": "Other ways",
+    "bookCall": "Book a call (Calendly)",
+    "bookCallMissing": "Calendly link not configured yet.",
+    "emailMe": "Email me",
+    "emailMissing": "Email not configured yet.",
+    "envHint": "Configure FORMSPREE_ENDPOINT / NEXT_PUBLIC_CALENDLY_URL / NEXT_PUBLIC_CONTACT_EMAIL in .env.local.",
+    "calendlyHint": "Book a slot directly below.",
+    "openInNewTab": "Open in new tab",
+    "close": "Close",
+    "errors": {
+      "invalid_json": "Invalid request.",
+      "name_too_short": "Please enter your name (at least 2 characters).",
+      "invalid_email": "Please enter a valid email address.",
+      "message_too_short": "Please write a longer message (at least 10 characters).",
+      "rate_limited": "Too many requests. Please try again in a few minutes.",
+      "upstream_failed": "Delivery failed. Please try again later or use another channel.",
+      "generic": "Something went wrong. Please try again."
+    },
+    "homeIntro": "You can reach me by email or use the secure form. Anti-spam and rate limiting are enabled.",
+    "homeMethodsTitle": "Quick links",
+    "homeCv": "Download CV",
+    "homeLinkedIn": "LinkedIn",
+    "homeEmail": "Email",
+    "homeFormTitle": "Send a message",
+    "homeFormSubtitle": "I usually reply within 24–48 hours."
+  },
+  "blog": {
+    "card_tutorials_kicker": "New",
+    "card_tutorials_title": "Read tutorials",
+    "card_tutorials_desc": "Implementation-focused posts: Salesforce, CI/CD, Next.js.",
+    "card_topics_kicker": "Topics",
+    "card_topics_desc": "I publish practical notes, patterns, and checklists.",
+    "card_cta": "Open blog",
+    "latest_loading": "Loading latest posts…",
+    "latest_empty": "No posts yet.",
+    "latest_cta": "View all posts"
+  },
+  "blogIndex": {
+    "meta": {
+      "title": "Blog / Tutorials",
+      "description": "Practical tutorials focused on implementation."
+    },
+    "kicker": "Blog & tutorials",
+    "title": "Posts",
+    "subtitle": "Step-by-step guides, experience feedback, concrete implementations.",
+    "backHome": "Home",
+    "tags": {
+      "all": "All",
+      "allTags": "All tags"
+    },
+    "readCta": "Read",
+    "pagination": {
+      "page": "Page",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "ctaAllPosts": "See all posts"
+  },
+  "blogPost": {
+    "back": "Back",
+    "previous": "Previous post",
+    "next": "Next post"
+  },
+  "blogToc": {
+    "title": "Table of contents",
+    "backToList": "Back to list"
+  },
+  "blogTags": {
+    "meta": {
+      "title": "Blog tags",
+      "description": "Browse articles by topic."
+    },
+    "kicker": "Topics",
+    "title": "All tags",
+    "subtitle": "Pick a tag to filter the blog index.",
+    "back": "Back"
+  },
+  "a11y": {
+    "skip": "Skip to content"
+  }
+}
