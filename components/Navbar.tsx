@@ -142,7 +142,7 @@ const linkClass = (id: string) =>
               S
             </div>
             <div className="leading-tight">
-              <div className="text-sm font-semibold">SWANN</div>
+              <div className="text-sm font-semibold">Aïcha Imène DAHOUMANE</div>
               <div className="text-xs text-muted-2">{t("nav.tagline")}</div>
             </div>
           </Link>

@@ -163,7 +163,7 @@ export default function Home() {
 
         <footer className="border-t border-black/10 dark:border-white/10 py-10">
           <div className="mx-auto max-w-6xl px-6 text-sm text-muted-2">
-            © {new Date().getFullYear()} Your Name — Built with Next.js
+            © {new Date().getFullYear()} Aïcha Imène DAHOUMANE — Built with Next.js
           </div>
         </footer>
       </div>

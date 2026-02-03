@@ -55,13 +55,17 @@ export default async function BlogTagsPage({ params }: { params: Promise<Params>
         </div>
 
         <div className="mt-10 flex flex-wrap gap-2">
-          {tags.map((tag) => (
+          {tags.map(({ tag, count }) => (
             <Link
               key={tag}
               href={`/${locale}/blog?tag=${encodeURIComponent(tag)}`}
               className="chip hover:opacity-90"
+              title={`${tag} (${count})`}
             >
-              {tag}
+              <span>{tag}</span>
+              <span className="ml-2 rounded-full bg-black/10 px-2 py-0.5 text-xs dark:bg-white/10">
+                {count}
+              </span>
             </Link>
           ))}
         </div>

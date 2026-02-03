@@ -4,7 +4,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function Image() {
-  const name = process.env.NEXT_PUBLIC_OG_NAME || "SWANN";
+  const name = process.env.NEXT_PUBLIC_OG_NAME || "Aïcha Imène DAHOUMANE";
   const headline = process.env.NEXT_PUBLIC_OG_HEADLINE || "Salesforce / IT Ops";
 
   return new ImageResponse(

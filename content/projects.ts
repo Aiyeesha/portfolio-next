@@ -198,7 +198,7 @@ export const projects: Project[] = [
     categories: ["Software", "Testing"],
     tags: ["JUnit", "Integration Tests", "CI"],
     badge: {"label": "TRAINING PROJECT", "tone": "training"},
-    pdfUrl: "/docs/projects/parkit-java-testing/Testez l'implémentation d'une nouvelle fonctionnalité Java - Guide d'étapes clés - Testez+l'implémentation+d'une+nouvelle+fonctionnalité+Java+-+Guide+d'étapes+clés.pdf",
+    pdfUrl: "/docs/projects/parkit-java-testing/guide-etapes-cles.pdf",
   },
   {
     slug: "pochlib-ui",

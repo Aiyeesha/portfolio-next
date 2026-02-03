@@ -17,7 +17,7 @@
     "intro_salesforce": "J’aide les équipes à concevoir, construire et exploiter des solutions Salesforce et cloud sécurisées, scalables et réellement utiles pour les personnes qui les utilisent.",
     "intro_itops": "J’aide les équipes à concevoir, maintenir et sécuriser des infrastructures IT et DevOps résilientes et évolutives.",
     "avatar_alt": "Photo de profil",
-    "note": "Astuce : tu peux changer de track avec le switch ci-dessus.",
+    "note": "Astuce : vous pouvez changer de track avec le switch ci-dessus.",
     "title_salesforce": "Développeuse & consultante Salesforce",
     "subtitle_salesforce": "avec un bagage systèmes & DevOps",
     "title_itops": "Administratrice systèmes & réseaux · Ops IT & DevOps",
@@ -72,7 +72,7 @@
     "emailMe": "M’écrire par email",
     "emailMissing": "Email non configuré.",
     "envHint": "Configurez FORMSPREE_ENDPOINT / NEXT_PUBLIC_CALENDLY_URL / NEXT_PUBLIC_CONTACT_EMAIL dans .env.local.",
-    "calendlyHint": "Réserve un créneau directement ci-dessous.",
+    "calendlyHint": "Réservez un créneau directement ci-dessous.",
     "openInNewTab": "Ouvrir dans un nouvel onglet",
     "close": "Fermer",
     "errors": {
@@ -84,7 +84,7 @@
       "upstream_failed": "Échec d’envoi. Réessayez plus tard ou utilisez un autre canal.",
       "generic": "Une erreur est survenue. Réessayez."
     },
-    "homeIntro": "Tu peux me contacter par email ou via le formulaire sécurisé. Anti-spam et limitation de débit activés.",
+    "homeIntro": "Vous pouvez me contacter par email ou via le formulaire sécurisé. Anti-spam et limitation de débit activés.",
     "homeMethodsTitle": "Liens rapides",
     "homeCv": "Télécharger le CV",
     "homeLinkedIn": "LinkedIn",

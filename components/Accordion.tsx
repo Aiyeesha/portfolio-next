@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useState, type ReactNode } from "react";
 import Image from "next/image";
 
 export type AccordionItem = {
@@ -8,7 +8,12 @@ export type AccordionItem = {
   title: string;
   subtitle?: string;
   rightMeta?: string;
-  content: string | JSX.Element;
+  /**
+   * Any renderable React content (string, element, fragments, etc.).
+   * We intentionally avoid `JSX.Element` here because some TS configurations
+   * (or missing React JSX typings) can make the `JSX` namespace unavailable.
+   */
+  content: ReactNode;
 
   // Optional company logo shown in the header
   logoSrc?: string;

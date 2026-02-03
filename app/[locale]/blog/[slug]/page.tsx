@@ -165,7 +165,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
               dateModified: meta.date,
               author: {
                 "@type": "Person",
-                name: process.env.NEXT_PUBLIC_OG_NAME || "Your Name"
+                name: process.env.NEXT_PUBLIC_OG_NAME || "Aïcha Imène DAHOUMANE"
               },
               url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000") + `/${locale}/blog/${slug}`
             })

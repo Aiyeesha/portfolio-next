@@ -14,11 +14,16 @@ const tones: Record<string, string> = {
   training: "badge badge-training"
 };
 
-export default function ProjectsSection() {
+type ProjectsSectionProps = {
+  locale?: "en" | "fr";
+};
+
+export default function ProjectsSection({ locale: localeProp }: ProjectsSectionProps) {
   const t = useTranslations();
   const { track } = useTrack();
   const pathname = usePathname();
-  const locale = pathname.split("/")[1] || "en";
+  const pathnameLocale = pathname.split("/")[1];
+  const locale: "en" | "fr" = localeProp ?? (pathnameLocale === "fr" ? "fr" : "en");
 
   const [q, setQ] = useState("");
   const [active, setActive] = useState<string>("All");
