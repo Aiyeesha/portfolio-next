@@ -1,0 +1,65 @@
+"use client";
+
+import Image from "next/image";
+import { useMemo, useState } from "react";
+
+export type GalleryImage = { src: string; alt: string };
+
+/**
+ * ImageGallery
+ * ------------
+ * Lightweight gallery:
+ * - Main 16:9 preview
+ * - Thumbnail strip (horizontal scroll)
+ * - No external dependencies
+ */
+export default function ImageGallery({
+  images,
+  className = ""
+}: {
+  images: GalleryImage[];
+  className?: string;
+}) {
+  const safeImages = useMemo(() => images.filter(Boolean), [images]);
+  const [idx, setIdx] = useState(0);
+
+  if (safeImages.length === 0) return null;
+
+  const current = safeImages[Math.min(idx, safeImages.length - 1)];
+
+  return (
+    <div className={className}>
+      <div className="card overflow-hidden">
+        <div className="relative aspect-[16/9] w-full">
+          <Image
+            src={current.src}
+            alt={current.alt}
+            fill
+            sizes="(max-width: 768px) 100vw, 900px"
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
+
+      {safeImages.length > 1 && (
+        <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
+          {safeImages.map((img, i) => (
+            <button
+              key={`${img.src}-${i}`}
+              type="button"
+              onClick={() => setIdx(i)}
+              className={[
+                "relative h-16 w-28 flex-shrink-0 overflow-hidden rounded-xl border transition-colors",
+                i === idx ? "border-cyan-400/50" : "border-white/10 hover:border-white/20"
+              ].join(" ")}
+              aria-label={`Show image ${i + 1}`}
+            >
+              <Image src={img.src} alt={img.alt} fill sizes="112px" className="object-cover" />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
