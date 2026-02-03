@@ -1,12 +1,12 @@
-
+# Normalize text files to LF in the repository
 * text=auto eol=lf
 
-# Scripts Windows (si tu en as)
+# Windows scripts
 *.bat text eol=crlf
 *.cmd text eol=crlf
 *.ps1 text eol=crlf
 
-# Binaires (évite toute tentative de conversion)
+# Binary assets (never transform line endings)
 *.pdf binary
 *.png binary
 *.jpg binary
@@ -15,3 +15,7 @@
 *.webp binary
 *.ico binary
 *.zip binary
+*.svg binary
+*.woff binary
+*.woff2 binary
+*.ttf binary

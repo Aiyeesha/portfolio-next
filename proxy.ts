@@ -1,4 +1,5 @@
 import createMiddleware from "next-intl/middleware";
+import type { NextRequest } from "next/server";
 import {routing} from "./i18n/routing";
 
 /**
@@ -13,7 +14,7 @@ const handler = createMiddleware({
   localePrefix: "always"
 });
 
-export function proxy(request: Request) {
+export function proxy(request: NextRequest) {
   return handler(request);
 }
 

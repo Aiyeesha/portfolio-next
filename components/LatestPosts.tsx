@@ -12,9 +12,17 @@ type Post = {
   tags: string[];
 };
 
-export default function LatestPosts({ className = "" }: { className?: string }) {
+type LatestPostsProps = {
+  /** Optional locale forwarded from a Server Component (e.g. app/[locale]/page.tsx). */
+  locale?: "en" | "fr";
+  className?: string;
+};
+
+export default function LatestPosts({ className = "", locale: localeProp }: LatestPostsProps) {
   const t = useTranslations();
-  const locale = useLocale() as "en" | "fr";
+  // Hook must be called unconditionally; we use `localeProp` when provided.
+  const hookLocale = useLocale() as "en" | "fr";
+  const locale = localeProp ?? hookLocale;
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
 
