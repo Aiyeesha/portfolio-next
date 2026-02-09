@@ -52,7 +52,14 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
   return (
     <div>
       <div className="mb-6">
+        <label htmlFor="projects-search" className="sr-only">
+          {t("search")}
+        </label>
         <input
+          id="projects-search"
+          name="projects-search"
+          type="search"
+          autoComplete="off"
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder={t("search")}

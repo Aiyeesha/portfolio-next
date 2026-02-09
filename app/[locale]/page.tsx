@@ -24,18 +24,18 @@ export default function Home() {
     <>
       {/* HERO (landing premium)
           - The LocaleLayout already applies top padding to clear the fixed navbar.
-          - We keep the hero full-height relative to the remaining viewport.
+          - IMPORTANT: We do NOT force a viewport height here.
+            Forcing a min-height (e.g. 70–80vh) creates a large empty gap on desktop,
+            because the hero content has a natural height smaller than the viewport.
+            The profile narrative must start immediately after the hero.
       */}
-      <section className="py-10 md:py-14">
-        {/* HERO (landing premium)
-            - The LocaleLayout already applies top padding to clear the fixed navbar.
-        */}
-        <div className="md:min-h-[calc(78vh-var(--nav-offset))] flex items-center">
+      <section className="py-8 md:py-10">
+        <div className="pt-4 md:pt-6">
           <TrackAwareHero />
         </div>
 
         {/* Profile narrative directly under the hero (no separate nav section) */}
-        <div className="mt-8">
+        <div className="mt-6 md:mt-8">
           <ProfileNarrative />
         </div>
 

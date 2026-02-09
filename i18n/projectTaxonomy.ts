@@ -11,6 +11,17 @@
 export type SupportedLocale = "en" | "fr";
 export type TaxonomyKind = "category" | "tag" | "badge";
 
+/**
+ * Normalize a potentially unsafe locale value to a supported one.
+ *
+ * Why: Some client components derive the locale from the pathname and cast it
+ * for TypeScript. At runtime that value can be undefined or something other than
+ * "en"/"fr" (during hydration, unexpected routes, etc.).
+ */
+function normalizeLocale(value: unknown): SupportedLocale {
+  return value === "fr" ? "fr" : "en";
+}
+
 const CATEGORY_LABELS: Record<SupportedLocale, Record<string, string>> = {
   en: {
   "All": "All",
@@ -229,14 +240,22 @@ export function translateTaxonomyLabel(
   locale: SupportedLocale,
   kind: TaxonomyKind
 ): string {
+  // Runtime safety:
+  // Some client components derive the locale from the pathname and cast it.
+  // During hydration or on unexpected routes, the runtime value can be
+  // undefined or not one of the SupportedLocale union values.
+  const safeLocale: SupportedLocale = locale === "fr" ? "fr" : "en";
+
   const dict =
     kind === "category"
-      ? CATEGORY_LABELS[locale]
+      ? CATEGORY_LABELS[safeLocale]
       : kind === "tag"
-        ? TAG_LABELS[locale]
-        : BADGE_LABELS[locale];
+        ? TAG_LABELS[safeLocale]
+        : BADGE_LABELS[safeLocale];
 
-  return dict[label] ?? label;
+  // Another safety net: if a dictionary is missing for any reason, fall back
+  // gracefully to the original label.
+  return (dict?.[label] ?? label) as string;
 }
 
 export function tCategory(label: string, locale: SupportedLocale): string {
