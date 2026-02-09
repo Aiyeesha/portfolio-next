@@ -1,10 +1,65 @@
 import { projects } from "@/content/projects";
+import { tBadge, tCategory, tTag } from "@/i18n/projectTaxonomy";
 import { projectDetails } from "@/content/projectDetails";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ImageGallery from "@/components/ImageGallery";
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 
 type Params = { slug: string; locale: string };
+
+function absolutizeUrl(pathOrUrl: string, base: string) {
+  if (!pathOrUrl) return base;
+  if (pathOrUrl.startsWith("http://") || pathOrUrl.startsWith("https://")) return pathOrUrl;
+  if (pathOrUrl.startsWith("/")) return `${base}${pathOrUrl}`;
+  return `${base}/${pathOrUrl}`;
+}
+
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<Params>;
+}): Promise<Metadata> {
+  const { slug, locale } = await params;
+  const project = projects.find((p) => p.slug === slug);
+  if (!project) return {};
+
+  const extra = projectDetails.find((d) => d.slug === slug);
+  const localized = extra?.locales?.[locale as "en" | "fr"] ?? extra?.locales?.en;
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? "Portfolio";
+  const title = `${project.title} | ${siteName}`;
+  const description = localized?.heroSubtitle ?? project.excerpt;
+
+  const ogImage = extra?.gallery?.[0]?.src
+    ? absolutizeUrl(extra.gallery[0].src, siteUrl)
+    : absolutizeUrl("/opengraph-image", siteUrl);
+
+  const canonical = `${siteUrl}/${locale}/projects/${slug}`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName,
+      locale,
+      type: "article",
+      images: [{ url: ogImage }]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage]
+    }
+  };
+}
 
 function Stat({ label, value, note }: { label: string; value: string; note?: string }) {
   return (
@@ -28,6 +83,8 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 export default async function ProjectDetailsPage({ params }: { params: Promise<Params> }) {
   const { slug, locale } = await params;
 
+  const t = await getTranslations({ locale, namespace: "projects" });
+
   const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
 
@@ -35,29 +92,27 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<P
   const localized = extra?.locales?.[locale as "en" | "fr"] ?? extra?.locales?.en;
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 dark:bg-[#070B1A] dark:text-white">
-      <div className="page-gradient" />
-      <main className="relative z-10 mx-auto max-w-6xl px-6 py-16">
+    <section className="py-12">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div className="min-w-0">
-            <div className="text-sm text-muted-2">Project</div>
+            <div className="text-sm text-muted-2">{t("labelProject")}</div>
             <h1 className="mt-2 text-4xl font-semibold leading-tight">{project.title}</h1>
             <p className="mt-4 max-w-3xl text-muted">{localized?.heroSubtitle ?? project.excerpt}</p>
 
             <div className="mt-5 flex flex-wrap gap-2">
               {project.tags.map((t) => (
                 <span key={t} className="chip">
-                  {t}
+                  {tTag(t, locale as "en" | "fr")}
                 </span>
               ))}
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
-                href={`/${locale}#projects`}
-                className="rounded-full border border-white/15 bg-white/5 px-5 py-2 text-sm hover:bg-white/10 soft-ring"
+                href={`/${locale}/#projects`}
+                className="rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm hover:bg-black/10 dark:border-white/15 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
               >
-                ← Back to projects
+                {t("backToProjects")}
               </Link>
 
               {project.pdfUrl && (
@@ -65,27 +120,22 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<P
                   href={project.pdfUrl}
                   className="rounded-full bg-cyan-500 px-5 py-2 text-sm font-medium text-black hover:opacity-90 soft-ring"
                 >
-                  Requirements (PDF)
+                  {t("requirements")}
                 </a>
               )}
             </div>
           </div>
 
           <div className="grid w-full gap-3 md:max-w-sm">
-            <Stat label="Track" value={project.track === "salesforce" ? "Salesforce" : "IT Ops"} />
-            <Stat label="Type" value={project.categories[0] ?? "—"} />
-            <Stat label="Scope" value={project.badge?.label ?? "—"} />
+            <Stat label={t("trackLabel")} value={project.track === "salesforce" ? t("trackSalesforce") : t("trackItOps")} />
+            <Stat label={t("typeLabel")} value={(project.categories[0] ? tCategory(project.categories[0], locale as "en" | "fr") : "—")} />
+            <Stat label={t("scopeLabel")} value={(project.badge?.label ? tBadge(project.badge.label, locale as "en" | "fr") : "—")} />
           </div>
         </div>
 
         {extra?.gallery?.length ? (
-          <Section title={locale === "fr" ? "Aperçu" : "Overview"}>
+          <Section title={t("overview")}>
             <ImageGallery images={extra.gallery} />
-            <p className="mt-4 text-sm text-muted-2">
-              {locale === "fr"
-                ? "Place tes captures dans /public/projects/<slug>/ (png/jpg/svg) et mets à jour content/projectDetails.ts."
-                : "Put your screenshots in /public/projects/<slug>/ (png/jpg/svg) and update content/projectDetails.ts."}
-            </p>
           </Section>
         ) : null}
 
@@ -130,7 +180,7 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<P
           if (s.type === "timeline") {
             return (
               <Section key={`${s.title}-${idx}`} title={s.title}>
-                <ol className="relative border-l border-white/10 pl-5 text-muted space-y-4">
+                <ol className="relative border-l border-black/10 pl-5 text-muted space-y-4 dark:border-white/10">
                   {s.steps.map((st, i) => (
                     <li key={`${st.title}-${i}`} className="relative">
                       <div className="absolute -left-[6px] mt-1 h-3 w-3 rounded-full bg-cyan-400/70" />
@@ -143,9 +193,52 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<P
             );
           }
 
+
+          if (s.type === "resources") {
+            return (
+              <Section key={`${s.title}-${idx}`} title={s.title}>
+                <ul className="space-y-3">
+                  {s.items.map((it, i) => (
+                    <li key={`${it.label}-${i}`} className="flex flex-col gap-1">
+                      <a
+                        href={it.href}
+                        className="text-sm font-medium text-cyan-700 hover:underline dark:text-cyan-300"
+                      >
+                        {it.label}
+                      </a>
+                      {it.note ? <div className="text-sm text-muted-2">{it.note}</div> : null}
+                    </li>
+                  ))}
+                </ul>
+              </Section>
+            );
+          }
+
+          if (s.type === "code") {
+            return (
+              <Section key={`${s.title}-${idx}`} title={s.title}>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="text-xs text-muted-2">
+                    {s.language ? s.language.toUpperCase() : "CODE"}
+                  </div>
+                  {s.downloadUrl ? (
+                    <a
+                      href={s.downloadUrl}
+                      className="rounded-full border border-black/10 bg-black/5 px-4 py-1.5 text-xs hover:bg-black/10 dark:border-white/15 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
+                    >
+                      {t("downloadCode")}
+                    </a>
+                  ) : null}
+                </div>
+                <pre className="mt-4 max-h-[520px] overflow-auto rounded-xl border border-black/10 bg-black/5 p-4 text-sm text-strong dark:border-white/10 dark:bg-white/5">
+                  <code>{s.code}</code>
+                </pre>
+              </Section>
+            );
+          }
+
           return null;
         })}
-      </main>
-    </div>
+    </section>
   );
 }

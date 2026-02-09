@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 type Payload = {
   name: string;
   email: string;
+  topic?: string;
   message: string;
   // Honeypot: should remain empty
   company?: string;
@@ -73,6 +74,7 @@ export async function POST(req: Request) {
 
   const name = (body.name || "").trim();
   const email = (body.email || "").trim();
+  const topic = String(body.topic || "general").trim();
   const message = (body.message || "").trim();
   const company = (body.company || "").trim(); // honeypot
 
@@ -87,7 +89,7 @@ export async function POST(req: Request) {
     const resp = await fetch(FORMSPREE_ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify({ name, email, message, source: "portfolio-next" })
+      body: JSON.stringify({ name, email, topic, message, source: "portfolio-next" })
     });
 
     if (!resp.ok) {
@@ -107,6 +109,6 @@ export async function POST(req: Request) {
   }
 
   // Dev fallback
-  console.log("[CONTACT]", { name, email, message });
+  console.log("[CONTACT]", { name, email, topic, message });
   return NextResponse.json({ ok: true }, { status: 200 });
 }

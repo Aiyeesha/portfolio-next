@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 
 export type GalleryImage = { src: string; alt: string };
@@ -20,6 +21,7 @@ export default function ImageGallery({
   images: GalleryImage[];
   className?: string;
 }) {
+  const t = useTranslations();
   const safeImages = useMemo(() => images.filter(Boolean), [images]);
   const [idx, setIdx] = useState(0);
 
@@ -51,9 +53,11 @@ export default function ImageGallery({
               onClick={() => setIdx(i)}
               className={[
                 "relative h-16 w-28 flex-shrink-0 overflow-hidden rounded-xl border transition-colors",
-                i === idx ? "border-cyan-400/50" : "border-white/10 hover:border-white/20"
+                i === idx
+                  ? "border-cyan-400/50"
+                  : "border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20"
               ].join(" ")}
-              aria-label={`Show image ${i + 1}`}
+              aria-label={t("a11y.showImage", { index: i + 1 })}
             >
               <Image src={img.src} alt={img.alt} fill sizes="112px" className="object-cover" />
             </button>

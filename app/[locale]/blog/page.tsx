@@ -70,23 +70,13 @@ export default async function BlogIndexPage({
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 dark:bg-[#070B1A] dark:text-white">
-      <div className="page-gradient" />
-
-      <main className="relative z-10 mx-auto max-w-6xl px-6 py-16">
+    <section className="py-12">
         <div className="flex items-start justify-between gap-4">
           <div>
             <div className="text-xs text-muted-2">{t("kicker")}</div>
             <h1 className="mt-2 text-4xl font-semibold">{t("title")}</h1>
             <p className="mt-3 text-muted">{t("subtitle")}</p>
           </div>
-
-          <Link
-            href={`/${locale}`}
-            className="rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
-          >
-            ← {t("backHome")}
-          </Link>
         </div>
 
         {/* Tags bar */}
@@ -175,7 +165,6 @@ export default async function BlogIndexPage({
             </Link>
           </div>
         </div>
-      </main>
-    </div>
+    </section>
   );
 }

@@ -63,7 +63,8 @@ export function getServices(locale: Locale, track: Track): ServiceCard[] {
         bullets: [
           "Évaluation d’infrastructure & bilan de santé",
           "Durcissement & bonnes pratiques de sécurité",
-          "Supervision & alerting"
+          "Mise en place de supervision & alerting",
+          "Planification de runbooks & de sauvegardes"
         ]
       },
       {
@@ -71,9 +72,10 @@ export function getServices(locale: Locale, track: Track): ServiceCard[] {
         description:
           "Déployer et gérer serveurs, réseaux, virtualisation et environnements cloud sous Windows/Linux.",
         bullets: [
-          "Serveurs Windows & Linux",
-          "Active Directory, DNS, DHCP",
-          "pfSense, segmentation & sécurité"
+          "Installation de serveurs Windows & Linux",
+          "Active Directory & services réseau (DNS, DHCP)",
+          "Virtualisation & conteneurisation",
+          "Configuration pfSense & sécurité"
         ]
       },
       {
@@ -83,7 +85,8 @@ export function getServices(locale: Locale, track: Track): ServiceCard[] {
         bullets: [
           "Conception de pipelines CI/CD",
           "Automatisation avec GitHub Actions",
-          "Dockerisation & environnements reproductibles"
+          "Dockerisation & provisionnement d’environnements",
+          "Collaboration & gestion de versions"
         ]
       },
       {
@@ -134,19 +137,19 @@ export function getServices(locale: Locale, track: Track): ServiceCard[] {
       title: "Infra audit & hardening",
       description:
         "Assess and secure your infrastructure: monitoring, hardening, backups and runbooks.",
-      bullets: ["Infrastructure health check", "Hardening & security best practices", "Monitoring & alerting"]
+      bullets: ["Infrastructure health check", "Hardening & security best practices", "Monitoring & alerting", "Runbooks & backup planning"]
     },
     {
       title: "Setup & administration",
       description:
         "Deploy and manage servers, networks, virtualization and cloud environments on Windows/Linux.",
-      bullets: ["Windows & Linux servers", "Active Directory, DNS, DHCP", "pfSense, segmentation & security"]
+      bullets: ["Windows & Linux server installation", "Active Directory & network services (DNS, DHCP)", "Virtualization & containerization", "pfSense configuration & security"]
     },
     {
       title: "CI/CD & DevOps pipelines",
       description:
         "Implement automated pipelines with solid delivery and versioning practices.",
-      bullets: ["CI/CD pipeline design", "Automation with GitHub Actions", "Docker & reproducible environments"]
+      bullets: ["CI/CD pipeline design", "Automation with GitHub Actions", "Dockerization & environment provisioning", "Collaboration & version control"]
     },
     {
       title: "Support, training & documentation",

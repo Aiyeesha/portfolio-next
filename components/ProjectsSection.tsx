@@ -7,6 +7,7 @@ import { projects } from "@/content/projects";
 import { useTrack } from "@/app/[locale]/providers";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { tBadge, tCategory, tTag } from "@/i18n/projectTaxonomy";
 
 const tones: Record<string, string> = {
   client: "badge badge-client",
@@ -19,7 +20,9 @@ type ProjectsSectionProps = {
 };
 
 export default function ProjectsSection({ locale: localeProp }: ProjectsSectionProps) {
-  const t = useTranslations();
+  // Keep project UI strings under the "projects" namespace in messages/{locale}.json.
+  // This avoids runtime MISSING_MESSAGE errors for keys like "search", "details", "requirements".
+  const t = useTranslations("projects");
   const { track } = useTrack();
   const pathname = usePathname();
   const pathnameLocale = pathname.split("/")[1];
@@ -52,7 +55,7 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder={t("projects.search")}
+          placeholder={t("search")}
           className="w-full rounded-full border border-black/10 bg-black/5 soft-ring dark:border-white/10 dark:bg-white/5 px-5 py-3 text-sm outline-none placeholder:text-slate-400 dark:text-muted-2 focus:border-cyan-400/40 soft-ring"
         />
       </div>
@@ -69,7 +72,7 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
                 : "border-white/10 text-muted hover:text-foreground"
             }`}
           >
-            {c}
+            {tCategory(c, locale)}
           </button>
         ))}
       </div>
@@ -81,7 +84,7 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
               <h3 className="text-lg font-semibold">{p.title}</h3>
               {p.badge && (
                 <span className={tones[p.badge.tone]}>
-                  {p.badge.label}
+                  {tBadge(p.badge.label, locale)}
                 </span>
               )}
             </div>
@@ -94,7 +97,7 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
                   key={tag}
                   className="chip"
                 >
-                  {tag}
+                  {tTag(tag, locale)}
                 </span>
               ))}
             </div>
@@ -104,7 +107,7 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
                 href={`/${locale}/projects/${p.slug}`}
                 className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
               >
-                {t("projects.details")}
+                {t("details")}
               </Link>
 
               {p.pdfUrl && (
@@ -112,7 +115,7 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
                   href={p.pdfUrl}
                   className="rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-black hover:opacity-90"
                 >
-                  {t("projects.requirements")}
+                  {t("requirements")}
                 </a>
               )}
             </div>
