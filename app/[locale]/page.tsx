@@ -1,13 +1,11 @@
-import SkipToContent from "@/components/SkipToContent";
-import Navbar from "@/components/Navbar";
 import TrackAwareHero from "./track-aware-hero";
+import ProfileNarrative from "@/components/ProfileNarrative";
 import Reveal from "@/components/Reveal";
 import Accordion from "@/components/Accordion";
 import Testimonials from "@/components/Testimonials";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactForm from "@/components/ContactForm";
-import ContactQuickLinks from "@/components/ContactQuickLinks";
 import TrackAwareSkills from "@/components/TrackAwareSkills";
 import TrackAwareServices from "@/components/TrackAwareServices";
 import LatestPosts from "@/components/LatestPosts";
@@ -23,20 +21,32 @@ export default function Home() {
   const certificationItems = getCertificationItems(locale);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 dark:bg-[#070B1A] dark:text-white">
-      <div className="page-gradient" />
-      <div className="relative z-10">
-        <SkipToContent targetId="main" label={t("a11y.skip")} />
-      <Navbar />
+    <>
+      {/* HERO (landing premium)
+          - The LocaleLayout already applies top padding to clear the fixed navbar.
+          - We keep the hero full-height relative to the remaining viewport.
+      */}
+      <section className="py-10 md:py-14">
+        {/* HERO (landing premium)
+            - The LocaleLayout already applies top padding to clear the fixed navbar.
+        */}
+        <div className="md:min-h-[calc(78vh-var(--nav-offset))] flex items-center">
+          <TrackAwareHero />
+        </div>
 
-        <main id="main" className="mx-auto max-w-6xl px-6 pt-28">
-          {/* HERO */}
-          <section id="about" className="py-10">
-            <TrackAwareHero />
-          </section>
+        {/* Profile narrative directly under the hero (no separate nav section) */}
+        <div className="mt-8">
+          <ProfileNarrative />
+        </div>
 
-          {/* SKILLS */}
-          <section id="skills" className="py-14">
+        {/* subtle divider before the next sections */}
+        <div className="mt-12">
+          <div className="h-px w-full bg-black/10 dark:bg-white/10" />
+        </div>
+      </section>
+
+{/* SKILLS */}
+      <section id="skills" className="py-14">
             <Reveal>
               <h2 className="text-3xl font-semibold">{t("sections.skills_title")}</h2>
             </Reveal>
@@ -45,10 +55,10 @@ export default function Home() {
             </Reveal>
 
                         <TrackAwareSkills locale={locale} />
-          </section>
+      </section>
 
           {/* EXPERIENCE */}
-          <section id="experience" className="py-14">
+      <section id="experience" className="py-14">
             <Reveal>
               <h2 className="text-3xl font-semibold">{t("sections.experience_title")}</h2>
             </Reveal>
@@ -75,10 +85,10 @@ export default function Home() {
                 </div>
               </Reveal>
             </div>
-          </section>
+      </section>
 
           {/* SERVICES */}
-          <section id="services" className="py-14">
+      <section id="services" className="py-14">
             <Reveal>
               <h2 className="text-3xl font-semibold">{t("sections.services_title")}</h2>
             </Reveal>
@@ -87,10 +97,10 @@ export default function Home() {
             </Reveal>
 
                         <TrackAwareServices locale={locale} />
-          </section>
+      </section>
 
           {/* TESTIMONIALS */}
-          <section id="testimonials" className="py-14">
+      <section id="testimonials" className="py-14">
             <Reveal>
               <h2 className="text-3xl font-semibold">{t("sections.testimonials_title")}</h2>
             </Reveal>
@@ -101,10 +111,10 @@ export default function Home() {
             <div className="mt-8">
               <Testimonials items={testimonials} />
             </div>
-          </section>
+      </section>
 
           {/* PROJECTS */}
-          <section id="projects" className="py-14">
+      <section id="projects" className="py-14">
             <Reveal>
               <h2 className="text-3xl font-semibold">{t("sections.projects_title")}</h2>
             </Reveal>
@@ -113,12 +123,25 @@ export default function Home() {
             </Reveal>
 
             <div className="mt-8">
-              <ProjectsSection locale={locale} />
+              <Reveal>
+                <h3 className="text-xl font-semibold">{t("projects.featured")}</h3>
+              </Reveal>
+              <Reveal delayMs={60}>
+                <p className="mt-2 text-sm text-muted">{t("projects.featuredSubtitle")}</p>
+              </Reveal>
+
+              <div className="mt-5">
+                <FeaturedProjects />
+              </div>
+
+              <div className="mt-10">
+                <ProjectsSection locale={locale} />
+              </div>
             </div>
-          </section>
+      </section>
 
           {/* BLOG */}
-          <section id="blog" className="py-14">
+      <section id="blog" className="py-14">
             <Reveal>
               <h2 className="text-3xl font-semibold">{t("sections.blog_title")}</h2>
             </Reveal>
@@ -138,10 +161,10 @@ export default function Home() {
                 {t("blogIndex.ctaAllPosts")} →
               </Link>
             </div>
-          </section>
+      </section>
 
           {/* CONTACT */}
-          <section id="contact" className="py-14">
+      <section id="contact" className="py-14">
             <Reveal>
               <h2 className="text-3xl font-semibold">{t("sections.contact_title")}</h2>
             </Reveal>
@@ -149,24 +172,12 @@ export default function Home() {
               <p className="mt-3 text-muted">{t("sections.contact_subtitle")}</p>
             </Reveal>
 
-            <div className="mt-6 grid gap-4 lg:grid-cols-[320px_1fr]">
+            <div className="mt-6">
               <Reveal delayMs={110}>
-                <ContactQuickLinks />
-              </Reveal>
-
-              <Reveal delayMs={170}>
                 <ContactForm />
               </Reveal>
             </div>
-          </section>
-        </main>
-
-        <footer className="border-t border-black/10 dark:border-white/10 py-10">
-          <div className="mx-auto max-w-6xl px-6 text-sm text-muted-2">
-            © {new Date().getFullYear()} Aïcha Imène DAHOUMANE — Built with Next.js
-          </div>
-        </footer>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }

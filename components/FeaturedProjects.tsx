@@ -3,19 +3,22 @@
 import Link from "next/link";
 import { useMemo } from "react";
 import { useTranslations } from "next-intl";
-import { projects, featuredProjectSlugs } from "@/content/projects";
+import { projects, featuredProjectSlugsByTrack } from "@/content/projects";
+import { tBadge, tTag } from "@/i18n/projectTaxonomy";
 import { usePathname } from "next/navigation";
 import Reveal from "./Reveal";
+import { useTrack } from "@/app/[locale]/providers";
 
 export default function FeaturedProjects() {
   const t = useTranslations();
+  const { track } = useTrack();
   const pathname = usePathname();
   const locale = pathname.split("/")[1] || "en";
 
   const featured = useMemo(() => {
-    const set = new Set(featuredProjectSlugs);
+    const set = new Set(featuredProjectSlugsByTrack[track]);
     return projects.filter((p) => set.has(p.slug as any));
-  }, []);
+  }, [track]);
 
   return (
     <div className="grid gap-4 lg:grid-cols-3">
@@ -32,7 +35,7 @@ export default function FeaturedProjects() {
                         ? "badge badge-personal"
                         : "badge badge-training"
                   }>
-                    {p.badge.label}
+                    {tBadge(p.badge.label, locale as "en" | "fr")}
                   </span>
               )}
             </div>
@@ -42,7 +45,7 @@ export default function FeaturedProjects() {
             <div className="mt-4 flex flex-wrap gap-2">
               {p.tags.slice(0, 4).map((tag) => (
                 <span key={tag} className="chip">
-                  {tag}
+                  {tTag(tag, locale as "en" | "fr")}
                 </span>
               ))}
             </div>
@@ -60,7 +63,7 @@ export default function FeaturedProjects() {
                   href={p.pdfUrl}
                   className="rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-black hover:opacity-90 soft-ring"
                 >
-                  PDF
+                  {t("projects.requirements")}
                 </a>
               )}
             </div>

@@ -2,7 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-behavior: smooth; }
+/*
+  Fixed navbar offset
+  -------------------
+  The navbar is position: fixed. We keep a single source of truth for:
+  - navbar height (layout padding)
+  - anchor scroll offset (scroll-padding-top)
+*/
+:root {
+  --nav-h: 80px;
+  --nav-gap: 24px; /* extra breathing room when scrolling to anchors */
+  --nav-offset: calc(var(--nav-h) + var(--nav-gap));
+}
+
+@media (min-width: 768px) {
+  :root {
+    --nav-h: 88px;
+    --nav-gap: 28px;
+    --nav-offset: calc(var(--nav-h) + var(--nav-gap));
+  }
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-offset); }
+
+/* Native form controls (select, date, etc.) follow the active theme */
+html { color-scheme: light; }
+html.dark { color-scheme: dark; }
+
+/* Improve <select> dropdown readability (options) */
+html select option {
+  background-color: #ffffff;
+  color: #0f172a; /* slate-900 */
+}
+html.dark select option {
+  background-color: #070B1A;
+  color: #ffffff;
+}
 
 /**
  * THEME STRATEGY
@@ -144,3 +179,12 @@ html.dark .mdx pre {
 .text-strong { @apply text-slate-900 dark:text-white/90; }
 .text-muted { @apply text-slate-600 dark:text-white/70; }
 .text-muted-2 { @apply text-slate-500 dark:text-white/60; }
+
+html select option {
+  background-color: #ffffff;
+  color: #0f172a; /* slate-900 */
+}
+html.dark select option {
+  background-color: #070B1A;
+  color: #ffffff;
+}

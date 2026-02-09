@@ -77,10 +77,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
   const { default: Post } = await import(`@/content/blog/posts/${locale}/${slug}.mdx`);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 dark:bg-[#070B1A] dark:text-white">
-      <div className="page-gradient" />
-
-      <main className="relative z-10 mx-auto max-w-6xl px-6 py-16">
+      <section className="py-12">
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
           <div className="min-w-0">
             <div className="flex items-start justify-between gap-4">
@@ -171,7 +168,6 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
             })
           }}
         />
-      </main>
-    </div>
+      </section>
   );
 }

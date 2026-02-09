@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 import type { Testimonial } from "@/content/testimonials";
 import Reveal from "./Reveal";
 
@@ -13,6 +14,7 @@ import Reveal from "./Reveal";
  * - List selector on the side (desktop)
  */
 export default function Testimonials({ items }: { items: Testimonial[] }) {
+  const t = useTranslations();
   const [index, setIndex] = useState(0);
 
   const current = useMemo(() => items[index], [items, index]);
@@ -24,7 +26,7 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
     <div className="grid gap-4 lg:grid-cols-[1fr_320px]">
       <Reveal>
         <div className="card p-6">
-          <div className="text-sm text-muted-2">Testimonials</div>
+          <div className="text-sm text-muted-2">{t("testimonials.kicker")}</div>
           <p className="mt-4 text-lg leading-relaxed text-strong">
             “{current.quote}”
           </p>
@@ -42,16 +44,16 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
               <button
                 type="button"
                 onClick={prev}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 soft-ring"
-                aria-label="Previous testimonial"
+                className="rounded-full border border-black/10 bg-black/5 px-4 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
+                aria-label={t("a11y.previousTestimonial")}
               >
                 ←
               </button>
               <button
                 type="button"
                 onClick={next}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 soft-ring"
-                aria-label="Next testimonial"
+                className="rounded-full border border-black/10 bg-black/5 px-4 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
+                aria-label={t("a11y.nextTestimonial")}
               >
                 →
               </button>
@@ -62,7 +64,7 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
 
       <Reveal delayMs={120}>
         <div className="card p-6">
-          <div className="text-sm text-muted-2">All</div>
+          <div className="text-sm text-muted-2">{t("testimonials.all")}</div>
           <div className="mt-4 space-y-2">
             {items.map((t, i) => (
               <button
@@ -73,7 +75,7 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
                   "w-full text-left rounded-xl border px-4 py-3 transition-colors",
                   i === index
                     ? "border-cyan-400/40 bg-cyan-500/10 text-cyan-700 dark:text-cyan-200"
-                    : "border-white/10 bg-white/5 text-slate-700 dark:text-white/80 hover:bg-white/10 soft-ring"
+                    : "border-black/10 bg-black/5 text-slate-700 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:text-white/80 dark:hover:bg-white/10 soft-ring"
                 ].join(" ")}
               >
                 <div className="text-sm font-semibold">{t.name}</div>

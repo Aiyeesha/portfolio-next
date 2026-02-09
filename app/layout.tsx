@@ -10,7 +10,9 @@ import type { ReactNode } from "react";
  * We also inject basic JSON-LD (WebSite + Person) for SEO.
  */
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000")
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")
+  )
 };
 
 function buildJsonLd(locale: string) {

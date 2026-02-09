@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 
 export default function Modal({
   open,
@@ -13,6 +14,7 @@ export default function Modal({
   onClose: () => void;
   children: React.ReactNode;
 }) {
+  const t = useTranslations();
   const panelRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -63,7 +65,7 @@ export default function Modal({
     <div className="fixed inset-0 z-[80]">
       <button
         type="button"
-        aria-label="Close modal"
+        aria-label={t("a11y.closeModal")}
         onClick={onClose}
         className="absolute inset-0 bg-black/60"
       />
@@ -75,12 +77,12 @@ export default function Modal({
           aria-label={title}
           className="card w-full max-w-3xl overflow-hidden"
         >
-          <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-black/10 px-5 py-4 dark:border-white/10">
             <div className="font-semibold">{title}</div>
             <button
               type="button"
               onClick={onClose}
-              className="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm hover:bg-white/10 soft-ring"
+              className="rounded-full border border-black/10 bg-black/5 px-3 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
             >
               ✕
             </button>

@@ -16,7 +16,7 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
             "Apex (triggers, classes, batchs)",
             "Flow Builder & bonnes pratiques d’automatisation",
             "Lightning App Builder & Lightning Web Components",
-            "Modélisation de données & sécurité (rôles, profils, permission sets)",
+            "Modélisation de données & sécurité (types d’enregistrement, rôles, profils, permission sets)",
             "Déploiements via Change Sets & Salesforce CLI"
           ]
         },
@@ -107,7 +107,7 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
           "Apex (triggers, classes, batch jobs)",
           "Flow Builder & automation best practices",
           "Lightning App Builder & Lightning Web Components",
-          "Data modeling & security (roles, profiles, permission sets)",
+          "Data modeling & security (record types, roles, profiles, permission sets)",
           "Deployments via Change Sets & Salesforce CLI"
         ]
       },

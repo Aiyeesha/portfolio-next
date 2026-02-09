@@ -35,10 +35,8 @@ export default async function BlogTagsPage({ params }: { params: Promise<Params>
   const tags = getAllTags(locale);
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 dark:bg-[#070B1A] dark:text-white">
-      <div className="page-gradient" />
-
-      <main className="relative z-10 mx-auto max-w-4xl px-6 py-16">
+    <section className="py-12">
+      <div className="mx-auto max-w-4xl">
         <div className="flex items-start justify-between gap-4">
           <div>
             <div className="text-xs text-muted-2">{t("kicker")}</div>
@@ -69,7 +67,7 @@ export default async function BlogTagsPage({ params }: { params: Promise<Params>
             </Link>
           ))}
         </div>
-      </main>
-    </div>
+      </div>
+    </section>
   );
 }

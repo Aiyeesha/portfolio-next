@@ -9,32 +9,50 @@
     "testimonials": "Témoignages",
     "blog": "Blog",
     "menu": "Menu",
-    "tagline": "Salesforce · IT Ops"
+    "tagline": "Salesforce · IT Ops",
+    "workWithMeMenu": "Travailler avec moi"
   },
   "hero": {
-    "title": "Développeur & Consultant Salesforce",
-    "subtitle": "avec un background Systèmes & DevOps",
+    "title": "Développeuse & Consultante Salesforce",
+    "subtitle": "avec un bagage systèmes & DevOps",
     "intro_salesforce": "J’aide les équipes à concevoir, construire et exploiter des solutions Salesforce et cloud sécurisées, scalables et réellement utiles pour les personnes qui les utilisent.",
     "intro_itops": "J’aide les équipes à concevoir, maintenir et sécuriser des infrastructures IT et DevOps résilientes et évolutives.",
     "avatar_alt": "Photo de profil",
     "note": "Astuce : vous pouvez changer de track avec le switch ci-dessus.",
-    "title_salesforce": "Développeuse & consultante Salesforce",
+    "title_salesforce": "Développeuse & Consultante Salesforce",
     "subtitle_salesforce": "avec un bagage systèmes & DevOps",
-    "title_itops": "Administratrice systèmes & réseaux · Ops IT & DevOps",
-    "subtitle_itops": "Fiabilité, sécurité et automatisation au quotidien"
+    "title_itops": "Administratrice systèmes & réseaux",
+    "subtitle_itops": "Ingénieure opérations IT & DevOps",
+    "value_salesforce": "Je conçois des solutions Salesforce utiles, robustes, et livrées proprement en production.",
+    "value_itops": "Je sécurise et fiabilise des environnements IT/DevOps avec des procédures claires et des résultats mesurables.",
+    "proof1": "Sécurité d’abord",
+    "proof2": "Scalable",
+    "proof3": "Documenté & maintenable"
   },
   "cta": {
     "call": "Planifier un appel",
     "projects": "Voir les projets",
     "downloadCv": "Télécharger mon CV",
-    "workWithMe": "Travailler avec moi"
+    "workWithMe": "Travailler avec moi",
+    "message": "Message",
+    "call15": "Appel 15 min",
+    "downloadProfile": "Télécharger mon profil (PDF)"
   },
   "projects": {
     "search": "Rechercher un projet...",
     "requirements": "Exigences (PDF)",
     "details": "Voir le détail →",
     "featured": "Projets à la une",
-    "featuredSubtitle": "Les meilleurs exemples avant la liste complète."
+    "featuredSubtitle": "Les meilleurs exemples avant la liste complète.",
+    "labelProject": "Projet",
+    "backToProjects": "← Retour aux projets",
+    "trackLabel": "Parcours",
+    "typeLabel": "Type",
+    "scopeLabel": "Périmètre",
+    "trackSalesforce": "Salesforce",
+    "trackItOps": "IT Ops",
+    "overview": "Aperçu",
+    "downloadCode": "Télécharger le code"
   },
   "sections": {
     "testimonials_title": "Témoignages",
@@ -52,15 +70,17 @@
     "contact_title": "Contact",
     "contact_subtitle": "Email ou formulaire ci-dessous (protégé contre le spam).",
     "blog_title": "Blog / Tutoriels",
-    "blog_subtitle": "Guides courts et concrets, applicables immédiatement."
+    "blog_subtitle": "Guides courts et concrets, applicables immédiatement.",
+    "profile_title": "Profil",
+    "profile_subtitle": "Des systèmes & réseaux au développement Salesforce"
   },
   "contact": {
     "nameLabel": "Nom",
     "emailLabel": "Email",
     "messageLabel": "Message",
-    "namePlaceholder": "Votre nom",
-    "emailPlaceholder": "vous@exemple.com",
-    "messagePlaceholder": "Parlez-moi de votre projet…",
+    "namePlaceholder": "Votre nom complet",
+    "emailPlaceholder": "vous@domaine.com",
+    "messagePlaceholder": "Décrivez votre besoin, le contexte et vos objectifs…",
     "send": "Envoyer",
     "sending": "Envoi…",
     "success": "Message envoyé.",
@@ -90,7 +110,14 @@
     "homeLinkedIn": "LinkedIn",
     "homeEmail": "Email",
     "homeFormTitle": "Envoyer un message",
-    "homeFormSubtitle": "Je réponds généralement sous 24–48h."
+    "homeFormSubtitle": "Je réponds généralement sous 24–48h.",
+    "topicLabel": "Sujet",
+    "topicPlaceholder": "Choisir un sujet",
+    "topicGeneral": "Général",
+    "topicSalesforce": "Projet Salesforce",
+    "topicItOps": "IT Ops / DevOps",
+    "topicAvailability": "Mission / disponibilité",
+    "topicOther": "Autre"
   },
   "blog": {
     "card_tutorials_kicker": "Nouveau",
@@ -144,6 +171,67 @@
     "back": "Retour"
   },
   "a11y": {
-    "skip": "Aller au contenu"
+    "skip": "Aller au contenu",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "closeMenuOverlay": "Fermer le menu",
+    "previousTestimonial": "Témoignage précédent",
+    "nextTestimonial": "Témoignage suivant",
+    "closeModal": "Fermer la fenêtre",
+    "toggleTheme": "Changer le thème",
+    "showImage": "Afficher l’image {index}",
+    "chooseTrack": "Choisir un parcours",
+    "chooseItOps": "Passer sur le parcours IT Ops",
+    "chooseSalesforce": "Passer sur le parcours Salesforce"
+  },
+  "tracks": {
+    "itops": "IT Ops",
+    "salesforce": "Salesforce"
+  },
+  "metadata": {
+    "title": "Aïcha Imène DAHOUMANE — Salesforce & IT Ops",
+    "description": "Portfolio : projets, articles et services en Salesforce, intégration, DevOps et IT Ops."
+  },
+  "testimonials": {
+    "kicker": "Témoignages",
+    "all": "Tous"
+  },
+  "footer": {
+    "builtWith": "Propulsé par Next.js",
+    "privacy": "Confidentialité"
+  },
+  "profile": {
+    "kicker": "Profil",
+    "title": "Des systèmes & réseaux au développement Salesforce",
+    "p1": "Un profil technique avec un solide background en infrastructures IT, désormais pleinement orienté vers le conseil Salesforce et cloud.",
+    "p2": "J’ai commencé ma carrière côté infrastructure en tant qu’administratrice systèmes et réseaux junior. J’ai assuré le support aux utilisateurs, géré des environnements Windows, surveillé des réseaux et géré des incidents de sécurité. Cette expérience de terrain m’a appris comment les systèmes se comportent dans la réalité, comment les équipes collaborent sous pression et pourquoi des fondations robustes sont essentielles.",
+    "p3": "Aujourd’hui, je suis spécialisée en développement et administration Salesforce. Après avoir complété le parcours Salesforce Developer chez OpenClassrooms et travaillé sur Apex, les Flows et la CI/CD avec Salesforce CLI, j’aide désormais les organisations à automatiser leurs processus, améliorer la qualité des données et construire des solutions sécurisées et maintenables.",
+    "p4": "Je donne le meilleur de moi-même dans des environnements où l’autonomie, la transparence et l’apprentissage continu sont valorisés. Mon objectif pour 2026 est de travailler comme développeuse & consultante Salesforce freelance à l’international, en collaborant avec des équipes distribuées et des clients en France et à l'international.",
+    "atAGlanceTitle": "En bref",
+    "basedInLabel": "Basée à",
+    "basedInValue": "Paris — ouverte à la relocalisation, au full-remote, hybride",
+    "languagesLabel": "Langues",
+    "languagesValue": "Français (natif), Anglais (C2), Espagnol (B1), Italien (A1)",
+    "rolesLabel": "Postes visés",
+    "rolesValue": "Développeuse Salesforce, Administratrice Salesforce, Consultante Salesforce / IT",
+    "availabilityLabel": "Disponibilité",
+    "availabilityValue": "Missions freelance · temps partiel ou temps plein",
+    "goalLabel": "Objectif",
+    "goalValue": "À partir de début 2026, développer progressivement une activité freelance internationale en tant que développeuse Salesforce tout en continuant à renforcer mon expertise technique et fonctionnelle chez LD Digitales."
+  },
+  "mdx": {
+    "copy": "Copier",
+    "copied": "Copié"
+  },
+  "privacy": {
+    "title": "Confidentialité & mentions",
+    "analyticsTitle": "Analytics",
+    "analyticsBody": "Ce site n’utilise pas d’analytics de tracking par défaut.",
+    "cookiesTitle": "Cookies",
+    "cookiesBody": "Aucun cookie marketing n’est déposé. Seuls des cookies techniques essentiels peuvent être utilisés par la plateforme (sécurité, fonctionnement).",
+    "formTitle": "Données du formulaire",
+    "formBody": "Lorsque vous envoyez le formulaire, votre nom, email, sujet et message sont traités pour vous répondre. Si Formspree est activé, les données sont transmises à Formspree pour l’acheminement.",
+    "retention": "Conservation : les messages sont conservés uniquement le temps nécessaire au traitement de votre demande.",
+    "contact": "Contact : {email}"
   }
 }
