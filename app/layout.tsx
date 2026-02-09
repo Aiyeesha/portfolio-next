@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import type { ReactNode } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 /**
  * Root layout
@@ -59,7 +60,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
