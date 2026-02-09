@@ -10,7 +10,8 @@
     "blog": "Blog",
     "menu": "Menu",
     "tagline": "Salesforce · IT Ops",
-    "workWithMeMenu": "Work with me"
+    "workWithMeMenu": "Work with me",
+    "home": "Home"
   },
   "hero": {
     "title": "Salesforce Developer & Consultant",

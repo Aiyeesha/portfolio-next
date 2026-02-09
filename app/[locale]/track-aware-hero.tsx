@@ -25,17 +25,17 @@ export default function TrackAwareHero() {
   const [src, setSrc] = useState<string>(avatarUrl);
 
   return (
-    <div className="grid items-center gap-8 lg:gap-10 lg:grid-cols-[120px_1fr_400px]">
+    <div className="grid items-center gap-8 lg:grid-cols-[120px_1fr_380px] xl:grid-cols-[120px_1fr_420px]">
       {/* Avatar */}
       <div className="mx-auto lg:mx-0">
-        <div className="relative h-[108px] w-[108px] lg:h-[112px] lg:w-[112px] overflow-hidden rounded-full ring-1 ring-black/10 dark:ring-white/10 shadow-[0_0_0_6px_rgba(34,211,238,0.08)]">
+        <div className="relative h-[112px] w-[112px] overflow-hidden rounded-full ring-1 ring-black/10 dark:ring-white/10 shadow-[0_0_0_6px_rgba(34,211,238,0.08)]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <Image
   src={src}
   alt={t("hero.avatar_alt")}
   fill
   priority
-  sizes="120px"
+  sizes="112px"
   className="object-cover"
   onError={() => setSrc("/avatar-placeholder.svg")}
 />
@@ -50,11 +50,11 @@ export default function TrackAwareHero() {
           {track === "salesforce" ? t("hero.value_salesforce") : t("hero.value_itops")}
         </p>
 
-        <h1 className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
+        <h1 className="mt-2 text-4xl sm:text-5xl font-semibold leading-tight">
           <span className="block">
             {track === "salesforce" ? t("hero.title_salesforce") : t("hero.title_itops")}
           </span>
-          <span className="mt-2 block text-lg sm:text-xl font-semibold text-cyan-700 dark:text-cyan-200">
+          <span className="mt-1 block text-xl sm:text-2xl font-semibold text-cyan-700 dark:text-cyan-200">
             {track === "salesforce" ? t("hero.subtitle_salesforce") : t("hero.subtitle_itops")}
           </span>
         </h1>

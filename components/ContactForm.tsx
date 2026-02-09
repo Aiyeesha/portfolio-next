@@ -104,6 +104,7 @@ export default function ContactForm() {
           <input
             id="contact-name"
             name="name"
+            autoComplete="name"
             required
             className="mt-2 w-full rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-4 py-2 text-sm text-slate-900 dark:text-white outline-none focus:border-cyan-400/40 soft-ring"
             placeholder={t("contact.namePlaceholder")}
@@ -116,6 +117,7 @@ export default function ContactForm() {
             id="contact-email"
             name="email"
             type="email"
+            autoComplete="email"
             required
             className="mt-2 w-full rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-4 py-2 text-sm text-slate-900 dark:text-white outline-none focus:border-cyan-400/40 soft-ring"
             placeholder={t("contact.emailPlaceholder")}
@@ -127,6 +129,7 @@ export default function ContactForm() {
           <select
             id="contact-topic"
             name="topic"
+            autoComplete="off"
             required
             defaultValue="general"
             className="mt-2 w-full rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-4 py-2 text-sm text-slate-900 dark:text-white outline-none focus:border-cyan-400/40 soft-ring [color-scheme:light] dark:[color-scheme:dark]"
@@ -147,6 +150,7 @@ export default function ContactForm() {
           <textarea
             id="contact-message"
             name="message"
+            autoComplete="off"
             required
             rows={5}
             className="mt-2 w-full rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-4 py-2 text-sm text-slate-900 dark:text-white outline-none focus:border-cyan-400/40 soft-ring"
