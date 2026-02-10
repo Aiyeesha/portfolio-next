@@ -10,6 +10,7 @@ import { useTranslations } from "next-intl";
  * Configure:
  * - NEXT_PUBLIC_CONTACT_EMAIL
  * - NEXT_PUBLIC_LINKEDIN_URL
+ * - NEXT_PUBLIC_CV_PDF_URL (preferred)
  * - NEXT_PUBLIC_CV_URL
  */
 export default function ContactQuickLinks() {
@@ -17,7 +18,10 @@ export default function ContactQuickLinks() {
 
   const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "";
   const linkedIn = process.env.NEXT_PUBLIC_LINKEDIN_URL || "";
-  const cvUrl = process.env.NEXT_PUBLIC_CV_URL || "/cv.pdf";
+  const cvUrl =
+    process.env.NEXT_PUBLIC_CV_PDF_URL ||
+    process.env.NEXT_PUBLIC_CV_URL ||
+    "/cv.pdf";
 
   return (
     <div className="card p-6">

@@ -12,7 +12,10 @@ type Status =
 
 const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "";
 const LINKEDIN_URL = process.env.NEXT_PUBLIC_LINKEDIN_URL || "";
-const CV_URL = process.env.NEXT_PUBLIC_CV_URL || "/cv.pdf";
+const CV_URL =
+  process.env.NEXT_PUBLIC_CV_PDF_URL ||
+  process.env.NEXT_PUBLIC_CV_URL ||
+  "/cv.pdf";
 
 // Convert API error codes into i18n keys
 function errorToKey(code: string) {
@@ -250,10 +253,6 @@ export default function ContactForm() {
           )}
           </div>
         </div>
-
-        {showEnvHint ? (
-          <div className="mt-5 text-xs text-muted-2">{t("contact.envHint")}</div>
-        ) : null}
       </div>
     </div>
   );
