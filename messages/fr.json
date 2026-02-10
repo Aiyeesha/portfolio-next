@@ -117,7 +117,9 @@
     "topicSalesforce": "Projet Salesforce",
     "topicItOps": "IT Ops / DevOps",
     "topicAvailability": "Mission / disponibilité",
-    "topicOther": "Autre"
+    "topicOther": "Autre",
+    "envHint": "Configuration manquante : certaines informations de contact ne sont pas renseignées.",
+    "linkedInMissing": "Le lien LinkedIn n'est pas disponible pour le moment."
   },
   "blog": {
     "card_tutorials_kicker": "Nouveau",

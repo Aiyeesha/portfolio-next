@@ -117,7 +117,9 @@
     "topicSalesforce": "Salesforce project",
     "topicItOps": "IT Ops / DevOps",
     "topicAvailability": "Mission / availability",
-    "topicOther": "Other"
+    "topicOther": "Other",
+    "envHint": "Missing configuration: some contact information is not set.",
+    "linkedInMissing": "The LinkedIn link is not available right now."
   },
   "blog": {
     "card_tutorials_kicker": "New",
@@ -208,6 +210,14 @@
     "p2": "I started my career on the infrastructure side as a junior systems and network administrator. I provided user support, managed Windows environments, monitored networks, and handled security incidents. This hands-on experience taught me how systems behave in real life, how teams collaborate under pressure, and why solid foundations matter.",
     "p3": "Today, I specialize in Salesforce development and administration. After completing the Salesforce Developer path at OpenClassrooms and working on Apex, Flows, and CI/CD with Salesforce CLI, I help organizations automate processes, improve data quality, and build secure, maintainable solutions.",
     "p4": "I do my best work in environments that value autonomy, transparency, and continuous learning. My 2026 goal is to work internationally as a freelance Salesforce developer & consultant, collaborating with distributed teams and clients in France and abroad.",
+    "p1_salesforce": "Salesforce developer & consultant: I design reliable, secure, maintainable solutions with a strong focus on user experience and delivery quality.",
+    "p2_salesforce": "I work with Apex, Flows, data models, security (permission sets, sharing), and CI/CD pipelines (Salesforce CLI, GitHub Actions) to ship cleanly to production.",
+    "p3_salesforce": "My systems & DevOps background helps me approach Salesforce with an operations mindset: observability, risk management, documentation, and automation—so solutions stay robust over time.",
+    "p4_salesforce": "My 2026 goal: grow an international Salesforce freelance activity, collaborating with distributed teams while continuing to strengthen both my technical and functional expertise.",
+    "p1_itops": "IT Ops & DevOps: I help teams design, maintain, and secure resilient infrastructure, with pragmatic operations processes (runbooks, monitoring, remediation).",
+    "p2_itops": "I implement operations standards: actionable monitoring/alerting, noise reduction, escalation procedures, documentation, and automation (scripts, jobs, playbooks).",
+    "p3_itops": "I pay close attention to security and continuity: backups, hardening, access management, and change practices to reduce incidents.",
+    "p4_itops": "My 2026 goal: take on IT Ops / SRE / DevOps missions focused on reliability, automation, and security—in France and internationally.",
     "atAGlanceTitle": "At a glance",
     "basedInLabel": "Based in",
     "basedInValue": "Paris — open to relocation, full-remote, or hybrid",
