@@ -20,7 +20,9 @@ type ProjectsSectionProps = {
 };
 
 export default function ProjectsSection({ locale: localeProp }: ProjectsSectionProps) {
-  const t = useTranslations();
+  // Keep project UI strings under the "projects" namespace in messages/{locale}.json.
+  // This avoids runtime MISSING_MESSAGE errors for keys like "search", "details", "requirements".
+  const t = useTranslations("projects");
   const { track } = useTrack();
   const pathname = usePathname();
   const pathnameLocale = pathname.split("/")[1];
@@ -50,11 +52,18 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
   return (
     <div>
       <div className="mb-6">
+        <label htmlFor="projects-search" className="sr-only">
+          {t("search")}
+        </label>
         <input
+          id="projects-search"
+          name="projects-search"
+          type="search"
+          autoComplete="off"
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder={t("search")}
-          className="w-full rounded-full border border-black/10 bg-black/5 soft-ring dark:border-white/10 dark:bg-white/5 px-5 py-3 text-sm outline-none placeholder:text-slate-400 dark:text-muted-2 focus:border-cyan-400/40 soft-ring"
+          className="w-full rounded-full border border-black/10 bg-black/5 px-5 py-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 hover:bg-black/10 focus:border-cyan-400/40 soft-ring dark:border-white/10 dark:bg-white/5 dark:text-white/80 dark:placeholder:text-white/40 dark:hover:bg-white/10"
         />
       </div>
 
@@ -67,7 +76,7 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
             className={`rounded-full border px-4 py-2 text-sm soft-ring ${
               active === c
                 ? "border-cyan-400/40 bg-cyan-500/10 text-cyan-700 dark:text-cyan-200"
-                : "border-white/10 text-muted hover:text-foreground"
+                : "border-black/10 bg-black/5 text-slate-700 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:text-white/80 dark:hover:bg-white/10"
             }`}
           >
             {tCategory(c, locale)}
@@ -77,47 +86,36 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {filtered.map((p, idx) => (
-          <Reveal key={p.slug} delayMs={Math.min(280, idx * 60)}><div className="card p-5">
-            <div className="flex items-start justify-between gap-3">
-              <h3 className="text-lg font-semibold">{p.title}</h3>
-              {p.badge && (
-                <span className={tones[p.badge.tone]}>
-                  {tBadge(p.badge.label, locale)}
-                </span>
-              )}
-            </div>
+          <Reveal key={p.slug} delayMs={Math.min(280, idx * 60)}>
+            <div className="card p-5">
+              <div className="flex items-start justify-between gap-3">
+                <h3 className="text-lg font-semibold">{p.title}</h3>
+                {p.badge ? (
+                  <span className={tones[p.badge.tone]}>{tBadge(p.badge.label, locale)}</span>
+                ) : null}
+              </div>
 
-            <p className="mt-3 text-sm text-muted">{p.excerpt}</p>
+              <p className="mt-3 text-sm text-muted">{p.excerpt}</p>
 
-            <div className="mt-4 flex flex-wrap gap-2">
-              {p.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="chip"
+              <div className="mt-4 flex flex-wrap gap-2">
+                {p.tags.map((tag) => (
+                  <span key={tag} className="chip">
+                    {tTag(tag, locale)}
+                  </span>
+                ))}
+              </div>
+
+              {/* Single CTA: keep cards simple. (PDF lives on the details page) */}
+              <div className="mt-5">
+                <Link
+                  href={`/${locale}/projects/${p.slug}`}
+                  className="inline-flex items-center rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-black hover:opacity-90 soft-ring"
                 >
-                  {tTag(tag, locale)}
-                </span>
-              ))}
+                  {t("details")}
+                </Link>
+              </div>
             </div>
-
-            <div className="mt-5 flex items-center justify-between">
-              <Link
-                href={`/${locale}/projects/${p.slug}`}
-                className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm hover:bg-white/10"
-              >
-                {t("details")}
-              </Link>
-
-              {p.pdfUrl && (
-                <a
-                  href={p.pdfUrl}
-                  className="rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-black hover:opacity-90"
-                >
-                  {t("requirements")}
-                </a>
-              )}
-            </div>
-          </div></Reveal>
+          </Reveal>
         ))}
       </div>
     </div>

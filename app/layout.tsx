@@ -1,7 +1,10 @@
-import "./globals.css";
 import type { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 import type { ReactNode } from "react";
+import "./globals.css";
+
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 /**
  * Root layout
@@ -49,7 +52,6 @@ function buildJsonLd(locale: string) {
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const locale = await getLocale(); // "en" | "fr"
   const jsonLd = buildJsonLd(locale);
-
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
@@ -59,7 +61,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>{children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
