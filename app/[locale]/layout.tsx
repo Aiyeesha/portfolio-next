@@ -4,6 +4,7 @@ import Providers from "./providers";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import Navbar from "@/components/Navbar";
+import { cookies } from "next/headers";
 import SkipToContent from "@/components/SkipToContent";
 
 /**
@@ -80,9 +81,14 @@ export default async function LocaleLayout({
   const messages = await getMessages({ locale: locale });
   const t = await getTranslations({ locale });
 
+  // Read the preferred track from a cookie so SSR and the client agree.
+  const cookieStore = await cookies();
+  const rawTrack = cookieStore.get("track")?.value;
+  const initialTrack = rawTrack === "itops" || rawTrack === "salesforce" ? rawTrack : "salesforce";
+
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
-      <Providers>
+      <Providers initialTrack={initialTrack}>
         <div className="min-h-screen bg-white text-slate-900 dark:bg-[#070B1A] dark:text-white">
           <div className="page-gradient" />
 
@@ -101,7 +107,17 @@ export default async function LocaleLayout({
 
             <footer className="border-t border-black/10 dark:border-white/10 py-10 mt-14">
               <div className="mx-auto max-w-6xl px-6 text-sm text-muted-2">
-                © {new Date().getFullYear()} Aïcha Imène DAHOUMANE — {t("footer.builtWith")}
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <span>
+                    © {new Date().getFullYear()} Aïcha Imène DAHOUMANE — {t("footer.builtWith")}
+                  </span>
+                  <a
+                    className="underline underline-offset-4 hover:opacity-80 soft-ring rounded"
+                    href={`/${locale}/privacy`}
+                  >
+                    {t("footer.privacy")}
+                  </a>
+                </div>
               </div>
             </footer>
           </div>
