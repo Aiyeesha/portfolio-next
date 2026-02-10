@@ -10,7 +10,6 @@ import { useTranslations } from "next-intl";
  * Configure:
  * - NEXT_PUBLIC_CONTACT_EMAIL
  * - NEXT_PUBLIC_LINKEDIN_URL
- * - NEXT_PUBLIC_CV_PDF_URL (preferred)
  * - NEXT_PUBLIC_CV_URL
  */
 export default function ContactQuickLinks() {
@@ -18,13 +17,7 @@ export default function ContactQuickLinks() {
 
   const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "";
   const linkedIn = process.env.NEXT_PUBLIC_LINKEDIN_URL || "";
-  const linkedInHref = linkedIn
-    ? (linkedIn.startsWith("http") ? linkedIn : `https://${linkedIn}`)
-    : "";
-  const cvUrl =
-    process.env.NEXT_PUBLIC_CV_PDF_URL ||
-    process.env.NEXT_PUBLIC_CV_URL ||
-    "/cv.pdf";
+  const cvUrl = process.env.NEXT_PUBLIC_CV_URL || "/cv.pdf";
 
   return (
     <div className="card p-6">
@@ -46,14 +39,14 @@ export default function ContactQuickLinks() {
 
         <a
           className="rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
-          href={linkedInHref || "#"}
+          href={linkedIn || "#"}
           target="_blank"
           rel="noreferrer"
-          aria-disabled={!linkedInHref}
+          aria-disabled={!linkedIn}
           onClick={(e) => {
-            if (!linkedInHref) e.preventDefault();
+            if (!linkedIn) e.preventDefault();
           }}
-          title={!linkedInHref ? t(process.env.NODE_ENV === "production" ? "contact.linkedInMissing" : "contact.envHint") : undefined}
+          title={!linkedIn ? t("contact.envHint") : undefined}
         >
           {t("contact.homeLinkedIn")}
         </a>

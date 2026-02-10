@@ -9,9 +9,7 @@
     "testimonials": "Testimonials",
     "blog": "Blog",
     "menu": "Menu",
-    "tagline": "Salesforce · IT Ops",
-    "workWithMeMenu": "Work with me",
-    "home": "Home"
+    "tagline": "Salesforce · IT Ops"
   },
   "hero": {
     "title": "Salesforce Developer & Consultant",
@@ -19,25 +17,17 @@
     "intro_salesforce": "I help teams design, build, and run secure, scalable Salesforce and cloud solutions that are genuinely useful for the people who use them.",
     "intro_itops": "I help teams design, maintain, and secure resilient, scalable IT and DevOps infrastructures.",
     "avatar_alt": "Profile photo",
+    "note": "Tip: switch tracks using the toggle above.",
     "title_salesforce": "Salesforce Developer & Consultant",
     "subtitle_salesforce": "with a Systems & DevOps background",
     "title_itops": "Systems & Network Administrator",
-    "subtitle_itops": "IT Operations & DevOps Engineer",
-    "value_salesforce": "I build Salesforce solutions that ship reliably and are easy to adopt.",
-    "value_itops": "I run secure, resilient IT/DevOps systems with clear runbooks and measurable outcomes.",
-    "proof1": "Security-first",
-    "proof2": "Scalable by design",
-    "proof3": "Documented & maintainable",
-    "startHere": "Start here:"
+    "subtitle_itops": "IT Operations & DevOps Engineer"
   },
   "cta": {
     "call": "Schedule a discovery call",
     "projects": "View selected projects",
-    "downloadCv": "Download my CV (PDF)",
-    "workWithMe": "Work with me",
-    "message": "Message",
-    "call15": "Call 15 min",
-    "downloadProfile": "Download my profile (PDF)"
+    "downloadCv": "Download my CV",
+    "workWithMe": "Work with me"
   },
   "projects": {
     "search": "Search a project...",
@@ -92,6 +82,7 @@
     "bookCallMissing": "Calendly link not configured yet.",
     "emailMe": "Email me",
     "emailMissing": "Email not configured yet.",
+    "envHint": "Configure FORMSPREE_ENDPOINT / NEXT_PUBLIC_CALENDLY_URL / NEXT_PUBLIC_CONTACT_EMAIL in .env.local.",
     "calendlyHint": "Book a slot directly below.",
     "openInNewTab": "Open in new tab",
     "close": "Close",
@@ -110,16 +101,7 @@
     "homeLinkedIn": "LinkedIn",
     "homeEmail": "Email",
     "homeFormTitle": "Send a message",
-    "homeFormSubtitle": "I usually reply within 24–48 hours.",
-    "topicLabel": "Topic",
-    "topicPlaceholder": "Select a topic",
-    "topicGeneral": "General",
-    "topicSalesforce": "Salesforce project",
-    "topicItOps": "IT Ops / DevOps",
-    "topicAvailability": "Mission / availability",
-    "topicOther": "Other",
-    "envHint": "Missing configuration: some contact information is not set.",
-    "linkedInMissing": "The LinkedIn link is not available right now."
+    "homeFormSubtitle": "I usually reply within 24–48 hours."
   },
   "blog": {
     "card_tutorials_kicker": "New",
@@ -130,8 +112,7 @@
     "card_cta": "Open blog",
     "latest_loading": "Loading latest posts…",
     "latest_empty": "No posts yet.",
-    "latest_cta": "View all posts",
-    "readingTime": "min read"
+    "latest_cta": "View all posts"
   },
   "blogIndex": {
     "meta": {
@@ -200,8 +181,7 @@
     "all": "All"
   },
   "footer": {
-    "builtWith": "Built with Next.js",
-    "privacy": "Privacy"
+    "builtWith": "Built with Next.js"
   },
   "profile": {
     "kicker": "Profile",
@@ -210,14 +190,6 @@
     "p2": "I started my career on the infrastructure side as a junior systems and network administrator. I provided user support, managed Windows environments, monitored networks, and handled security incidents. This hands-on experience taught me how systems behave in real life, how teams collaborate under pressure, and why solid foundations matter.",
     "p3": "Today, I specialize in Salesforce development and administration. After completing the Salesforce Developer path at OpenClassrooms and working on Apex, Flows, and CI/CD with Salesforce CLI, I help organizations automate processes, improve data quality, and build secure, maintainable solutions.",
     "p4": "I do my best work in environments that value autonomy, transparency, and continuous learning. My 2026 goal is to work internationally as a freelance Salesforce developer & consultant, collaborating with distributed teams and clients in France and abroad.",
-    "p1_salesforce": "Salesforce developer & consultant: I design reliable, secure, maintainable solutions with a strong focus on user experience and delivery quality.",
-    "p2_salesforce": "I work with Apex, Flows, data models, security (permission sets, sharing), and CI/CD pipelines (Salesforce CLI, GitHub Actions) to ship cleanly to production.",
-    "p3_salesforce": "My systems & DevOps background helps me approach Salesforce with an operations mindset: observability, risk management, documentation, and automation—so solutions stay robust over time.",
-    "p4_salesforce": "My 2026 goal: grow an international Salesforce freelance activity, collaborating with distributed teams while continuing to strengthen both my technical and functional expertise.",
-    "p1_itops": "IT Ops & DevOps: I help teams design, maintain, and secure resilient infrastructure, with pragmatic operations processes (runbooks, monitoring, remediation).",
-    "p2_itops": "I implement operations standards: actionable monitoring/alerting, noise reduction, escalation procedures, documentation, and automation (scripts, jobs, playbooks).",
-    "p3_itops": "I pay close attention to security and continuity: backups, hardening, access management, and change practices to reduce incidents.",
-    "p4_itops": "My 2026 goal: take on IT Ops / SRE / DevOps missions focused on reliability, automation, and security—in France and internationally.",
     "atAGlanceTitle": "At a glance",
     "basedInLabel": "Based in",
     "basedInValue": "Paris — open to relocation, full-remote, or hybrid",
@@ -228,25 +200,10 @@
     "availabilityLabel": "Availability",
     "availabilityValue": "Freelance missions · part-time or full-time",
     "goalLabel": "Goal",
-    "goalValue": "From early 2026, gradually build an international freelance activity as a Salesforce developer while continuing to strengthen my technical and functional expertise at LD Digitales.",
-    "focusLabel": "Focus",
-    "focusValueSalesforce": "Apex · Flows · CI/CD · Quality · Security",
-    "focusValueItOps": "Monitoring · Runbooks · Automation · Security",
-    "readMore": "Read more"
+    "goalValue": "From early 2026, gradually build an international freelance activity as a Salesforce developer while continuing to strengthen my technical and functional expertise at LD Digitales."
   },
   "mdx": {
     "copy": "Copy",
     "copied": "Copied"
-  },
-  "privacy": {
-    "title": "Privacy & legal notice",
-    "analyticsTitle": "Analytics",
-    "analyticsBody": "This site does not use tracking analytics by default.",
-    "cookiesTitle": "Cookies",
-    "cookiesBody": "No marketing cookies are set. Only essential technical cookies may be used by the platform (e.g., for security).",
-    "formTitle": "Contact form data",
-    "formBody": "When you submit the contact form, your name, email, topic and message are processed to reply to you. If Formspree is enabled, the data is forwarded to Formspree for delivery.",
-    "retention": "Retention: messages are kept only as long as necessary to handle your request.",
-    "contact": "Contact: {email}"
   }
 }

@@ -31,10 +31,6 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
             “{current.quote}”
           </p>
 
-          {current.context ? (
-            <div className="mt-3 text-sm text-muted-2">{current.context}</div>
-          ) : null}
-
           <div className="mt-6 flex items-center justify-between gap-4">
             <div>
               <div className="font-semibold">{current.name}</div>

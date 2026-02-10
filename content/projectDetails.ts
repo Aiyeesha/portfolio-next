@@ -54,134 +54,6 @@ export const projectDetails: ProjectDetails[] = [
             ]
           },
           {
-            type: "bullets",
-            title: "REST endpoints covered",
-            items: [
-              "POST /services/oauth2/token — OAuth token (Password Flow / client credentials).",
-              "POST /services/apexrest/v1/contacts — Create Contact (create-or-return per spec).",
-              "GET /services/apexrest/v1/contacts/{idOrExt} — Retrieve Contact by Id or External Id.",
-              "PATCH /services/apexrest/v1/contacts/{externalId} — Update Contact by External Id.",
-              "PATCH /services/apexrest/v1/contacts/{id} — Deactivate Contact (soft-delete behavior).",
-              "POST /services/apexrest/v1/accounts — Create Account.",
-              "GET /services/apexrest/v1/accounts/{idOrExt} — Retrieve Account by Id or External Id.",
-              "PATCH /services/apexrest/v1/accounts/{externalId} — Update Account by External Id.",
-              "POST /services/apexrest/v1/contracts — Create Contract.",
-              "GET /services/apexrest/v1/contracts/{idOrExt} — Retrieve Contract by Id or External Id.",
-              "PATCH /services/apexrest/v1/contracts/{externalId} — Update Contract by External Id."
-            ]
-          },
-          {
-            type: "code",
-            title: "Endpoint parameters (from Postman)",
-            language: "text",
-            code: `POST <instance_url>/services/apexrest/v1/contacts
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-  Body (JSON): fields LastName, city, Email
-  Example:
-    {
-      "LastName": "axG -tests Contact Test",
-      "city" : "Berlin",
-      "Email": "test.Contact@example.com"
-    }
-
-GET <instance_url>/services/apexrest/v1/contacts/{{idOrExt}}
-  Path params: idOrExt
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-
-PATCH <instance_url>/services/apexrest/v1/contacts/{{lastContactExt}}
-  Path params: lastContactExt
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-  Body (JSON): fields MobilePhone
-  Example:
-    {
-      "MobilePhone": "+491111"
-    }
-
-PATCH <instance_url>/services/apexrest/v1/contacts/{{lastContactId}}
-  Path params: lastContactId
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-  Body (JSON): fields Active
-  Example:
-    {
-      "Active": "false"
-    }
-
-POST <instance_url>/services/apexrest/v1/accounts
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-  Body (JSON): fields Name, Phone
-  Example:
-    {
-      "Name": "AXG GmbH",
-      "Phone": "12345"
-    }
-
-GET <instance_url>/services/apexrest/v1/accounts/{{idOrExt}}
-  Path params: idOrExt
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-
-PATCH <instance_url>/services/apexrest/v1/accounts/{{lastAccountExt}}
-  Path params: lastAccountExt
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-  Body (JSON): fields Website
-  Example:
-    {
-      "Website": "https://axg.de"
-    }
-
-POST <instance_url>/services/apexrest/v1/contracts
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-  Body (JSON): fields AccountId, Status, StartDate, ContractTerm
-  Example:
-    {
-      "AccountId": "<axgAccountId>",
-      "Status": "Draft",
-      "StartDate": "2025-01-01",
-      "ContractTerm": 12
-    }
-
-GET <instance_url>/services/apexrest/v1/contracts/{{idOrExt}}
-  Path params: idOrExt
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-
-PATCH <instance_url>/services/apexrest/v1/contracts/{{lastContractExt}}
-  Path params: lastContractExt
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-  Body (JSON): fields Description
-  Example:
-    {
-      "Description": "Mis \u00e0 jour"
-    }
-
-GET <instance_url>/services/data/v59.0/limits
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-
-POST <instance_url>/services/oauth2/token
-  Body (x-www-form-urlencoded): grant_type, client_id, client_secret`
-          },
-
-          {
             type: "timeline",
             title: "Implementation workflow",
             steps: [
@@ -230,10 +102,6 @@ POST <instance_url>/services/oauth2/token
               { label: "Heroku changes (PDF)", href: "/docs/projects/legarant-axg-salesforce-deployment/heroku-changes.pdf" },
               { label: "Deployment guide (PDF)", href: "/docs/projects/legarant-axg-salesforce-deployment/deployment.pdf" },
               { label: "Requirements / spec (PDF)", href: "/docs/projects/legarant-axg-salesforce-deployment/requirements.pdf" },
-              { label: "Project brief (DOCX)", href: "/docs/projects/legarant-axg-salesforce-deployment/brief.docx" },
-              { label: "Legacy Heroku guide (PDF)", href: "/docs/projects/legarant-axg-salesforce-deployment/legacy-heroku-guide.pdf" },
-              { label: "Azure free tier thresholds (PDF)", href: "/docs/projects/legarant-axg-salesforce-deployment/azure-free-tier-thresholds.pdf" },
-              { label: "Repository link (TXT)", href: "/docs/projects/legarant-axg-salesforce-deployment/repository-link.txt" },
               { label: "Staging link (TXT)", href: "/docs/projects/legarant-axg-salesforce-deployment/sandbox-link.txt" }
             ]
           },
@@ -242,6 +110,7 @@ POST <instance_url>/services/oauth2/token
             title: "Links (repo + staging)",
             language: "text",
             code: `Repository: https://github.com/Aiyeesha/Projet-12/tree/main\nStaging app: https://legarant-staging-78a7880351d1.herokuapp.com`,
+            downloadUrl: "/docs/projects/legarant-axg-salesforce-deployment/implementation-repo.txt"
           }
         ]
       },
@@ -267,134 +136,6 @@ POST <instance_url>/services/oauth2/token
               "Un package de déploiement + runbook : liste des composants, actions manuelles, et checklist de validation (test puis production)."
             ]
           },
-          {
-            type: "bullets",
-            title: "Endpoints REST couverts",
-            items: [
-              "POST /services/oauth2/token — Token OAuth (Password Flow / client credentials).",
-              "POST /services/apexrest/v1/contacts — Création Contact (création ou renvoi selon la spécification).",
-              "GET /services/apexrest/v1/contacts/{idOrExt} — Lecture Contact par Id ou External Id.",
-              "PATCH /services/apexrest/v1/contacts/{externalId} — Mise à jour Contact par External Id.",
-              "PATCH /services/apexrest/v1/contacts/{id} — Désactivation Contact (suppression logique).",
-              "POST /services/apexrest/v1/accounts — Création Account.",
-              "GET /services/apexrest/v1/accounts/{idOrExt} — Lecture Account par Id ou External Id.",
-              "PATCH /services/apexrest/v1/accounts/{externalId} — Mise à jour Account par External Id.",
-              "POST /services/apexrest/v1/contracts — Création Contract.",
-              "GET /services/apexrest/v1/contracts/{idOrExt} — Lecture Contract par Id ou External Id.",
-              "PATCH /services/apexrest/v1/contracts/{externalId} — Mise à jour Contract par External Id."
-            ]
-          },
-          {
-            type: "code",
-            title: "Paramètres des endpoints (depuis Postman)",
-            language: "text",
-            code: `POST <instance_url>/services/apexrest/v1/contacts
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-  Corps (JSON): champs LastName, city, Email
-  Example:
-    {
-      "LastName": "axG -tests Contact Test",
-      "city" : "Berlin",
-      "Email": "test.Contact@example.com"
-    }
-
-GET <instance_url>/services/apexrest/v1/contacts/{{idOrExt}}
-  Paramètres d’URL: idOrExt
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-
-PATCH <instance_url>/services/apexrest/v1/contacts/{{lastContactExt}}
-  Paramètres d’URL: lastContactExt
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-  Corps (JSON): champs MobilePhone
-  Example:
-    {
-      "MobilePhone": "+491111"
-    }
-
-PATCH <instance_url>/services/apexrest/v1/contacts/{{lastContactId}}
-  Paramètres d’URL: lastContactId
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-  Corps (JSON): champs Active
-  Example:
-    {
-      "Active": "false"
-    }
-
-POST <instance_url>/services/apexrest/v1/accounts
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-  Corps (JSON): champs Name, Phone
-  Example:
-    {
-      "Name": "AXG GmbH",
-      "Phone": "12345"
-    }
-
-GET <instance_url>/services/apexrest/v1/accounts/{{idOrExt}}
-  Paramètres d’URL: idOrExt
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-
-PATCH <instance_url>/services/apexrest/v1/accounts/{{lastAccountExt}}
-  Paramètres d’URL: lastAccountExt
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-  Corps (JSON): champs Website
-  Example:
-    {
-      "Website": "https://axg.de"
-    }
-
-POST <instance_url>/services/apexrest/v1/contracts
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-  Corps (JSON): champs AccountId, Status, StartDate, ContractTerm
-  Example:
-    {
-      "AccountId": "<axgAccountId>",
-      "Status": "Draft",
-      "StartDate": "2025-01-01",
-      "ContractTerm": 12
-    }
-
-GET <instance_url>/services/apexrest/v1/contracts/{{idOrExt}}
-  Paramètres d’URL: idOrExt
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-
-PATCH <instance_url>/services/apexrest/v1/contracts/{{lastContractExt}}
-  Paramètres d’URL: lastContractExt
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-  Corps (JSON): champs Description
-  Example:
-    {
-      "Description": "Mis \u00e0 jour"
-    }
-
-GET <instance_url>/services/data/v59.0/limits
-  Headers:
-    - Authorization: Bearer <access_token>
-    - Content-Type: application/json
-
-POST <instance_url>/services/oauth2/token
-  Corps (x-www-form-urlencoded): grant_type, client_id, client_secret`
-          },
-
           {
             type: "timeline",
             title: "Workflow d’implémentation",
@@ -444,10 +185,6 @@ POST <instance_url>/services/oauth2/token
               { label: "Changements Heroku (PDF)", href: "/docs/projects/legarant-axg-salesforce-deployment/heroku-changes.pdf" },
               { label: "Document de déploiement (PDF)", href: "/docs/projects/legarant-axg-salesforce-deployment/deployment.pdf" },
               { label: "Cahier des charges (PDF)", href: "/docs/projects/legarant-axg-salesforce-deployment/requirements.pdf" },
-              { label: "Brief projet (DOCX)", href: "/docs/projects/legarant-axg-salesforce-deployment/brief.docx" },
-              { label: "Ancien guide Heroku (PDF)", href: "/docs/projects/legarant-axg-salesforce-deployment/legacy-heroku-guide.pdf" },
-              { label: "Seuils gratuits Azure (PDF)", href: "/docs/projects/legarant-axg-salesforce-deployment/azure-free-tier-thresholds.pdf" },
-              { label: "Lien du dépôt (TXT)", href: "/docs/projects/legarant-axg-salesforce-deployment/repository-link.txt" },
               { label: "Lien staging (TXT)", href: "/docs/projects/legarant-axg-salesforce-deployment/sandbox-link.txt" }
             ]
           },
@@ -459,312 +196,238 @@ POST <instance_url>/services/oauth2/token
               `Repository: https://github.com/Aiyeesha/Projet-12/tree/main
 Staging app: https://legarant-staging-78a7880351d1.herokuapp.com
 `,
+            downloadUrl: "/docs/projects/legarant-axg-salesforce-deployment/implementation-repo.txt"
           }
         ]
       }
     }
   },
   {
-  slug: "ltp-apex-backend-prototype",
-  gallery: [
-    {
-      src: "/projects/ltp-apex-backend-prototype/logo.png",
-      alt: "LTP — Le Temps des Papillons (logo)"
-    },
-    {
-      src: "/projects/ltp-apex-backend-prototype/shot-1.svg",
-      alt: "LTP — Architecture & integration (illustration)"
-    },
-    {
-      src: "/projects/ltp-apex-backend-prototype/shot-2.svg",
-      alt: "LTP — Data model (illustration)"
-    },
-    {
-      src: "/projects/ltp-apex-backend-prototype/shot-3.svg",
-      alt: "LTP — Security & import strategy (illustration)"
-    }
-  ],
-  locales: {
-    en: {
-      heroSubtitle: "Salesforce delivery tracking CRM — solution blueprint (LTP)",
-      sections: [
-        {
-          type: "text",
-          title: "Context",
-          paragraphs: [
-            "Le Temps des Papillons (LTP) is a French luxury group. Sales teams need a fluid CRM to manage Leads → Accounts/Contacts/Opportunities, and to create deliveries.",
-            "Support agents handle ~194 customer calls per day about shipment status, but tracking data currently lives in 3 external carriers systems (France, Europe, International).",
-            "The goal of this project was to produce a complete technical blueprint for a Salesforce application: data model, security, and a realistic import & integration strategy."
-          ]
-        },
-        {
-          type: "bullets",
-          title: "Key needs",
-          items: [
-            "Fast access to customer records from an order number, customer name or email.",
-            "Automated shipment tracking and proactive customer notifications.",
-            "A clear data model to support deliveries, carrier data and commercial activity.",
-            "A security model (profiles/roles/sharing) aligned with Sales vs Support usage.",
-            "An initial data import strategy that can handle large volumes safely."
-          ]
-        },
-        {
-          type: "timeline",
-          title: "Delivery approach",
-          steps: [
-            {
-              title: "1) Technical specifications",
-              description: "Define scope, objects (standard + custom), key processes, and integration touchpoints with each carrier."
-            },
-            {
-              title: "2) UML data model",
-              description: "Document entities & relationships to support Opportunities, Orders/Deliveries, Carriers and tracking states."
-            },
-            {
-              title: "3) Security & sharing",
-              description: "Profiles + roles, object permissions and record visibility rules (who can see what) designed for Sales and Support."
-            },
-            {
-              title: "4) Import & migration strategy",
-              description: "Data loading plan (Data Loader / ETL), external IDs, dependency order and validation steps for high-volume datasets."
-            }
-          ]
-        },
-        {
-          type: "metrics",
-          title: "Key figures (scope)",
-          items: [
-            { label: "Carriers", value: "3", note: "France / Europe / International" },
-            { label: "Support volume", value: "≈194 calls/day", note: "Delivery tracking inquiries" },
-            { label: "Accounts", value: "2,123,000", note: "Initial dataset volumetry" },
-            { label: "Contacts", value: "3,239,870", note: "Initial dataset volumetry" }
-          ]
-        },
-        {
-          type: "text",
-          title: "Evaluation notes",
-          paragraphs: [
-            "⚠️ Note: the provided document contains two different evaluation blocks (one showing all skills validated, another listing points to correct). To avoid misrepresenting outcomes, the page highlights the actionable feedback below.",
-            "Main improvement points mentioned: (1) import dependency order (e.g., Products before PricebookEntry), (2) starting from a 'Public Read-Only' baseline sharing model when explicitly required, and (3) using an ETL (not Batch Apex) for SFTP-based integration scenarios."
-          ]
-        },
-        {
-          type: "resources",
-          title: "Deliverables & proofs",
-          items: [
-            { label: "Technical specifications (PDF)", href: "/docs/projects/ltp-apex-backend-prototype/specifications.pdf" },
-            { label: "UML data model (PDF)", href: "/docs/projects/ltp-apex-backend-prototype/uml-data-model.pdf" },
-            { label: "Access rights & sharing (PDF)", href: "/docs/projects/ltp-apex-backend-prototype/access-rights.pdf" },
-            { label: "Import strategy (PDF)", href: "/docs/projects/ltp-apex-backend-prototype/import-strategy.pdf" },
-            { label: "Requirements / brief (PDF)", href: "/docs/projects/ltp-apex-backend-prototype/requirements.pdf" },
-            { label: "Project scenario (DOCX)", href: "/docs/projects/ltp-apex-backend-prototype/brief.docx" }
-          ]
-        }
-      ]
-    },
-    fr: {
-      heroSubtitle: "CRM Salesforce de suivi des livraisons — conception & livrables (LTP)",
-      sections: [
-        {
-          type: "text",
-          title: "Contexte",
-          paragraphs: [
-            "Le Temps des Papillons (LTP) est un groupe français (luxe / mode / beauté). Les commerciaux ont besoin d’un CRM fluide pour gérer le cycle Lead → Compte/Contact/Opportunité, puis créer des livraisons.",
-            "Les agents du support reçoivent ~194 appels/jour de clients qui souhaitent connaître l’état d’avancement de leur livraison, mais les données sont réparties chez 3 transporteurs (France, Europe, International).",
-            "L’objectif du projet : produire une conception technique complète de l’application Salesforce (spécifications, modèle de données, sécurité, stratégie d’import et d’intégration)."
-          ]
-        },
-        {
-          type: "bullets",
-          title: "Besoins clés",
-          items: [
-            "Accéder rapidement à la fiche client depuis un numéro de commande, le nom ou l’email.",
-            "Automatiser le suivi des livraisons et informer automatiquement les clients des changements de statut.",
-            "Concevoir un modèle de données clair (objets standard + custom) pour les livraisons et le tracking.",
-            "Définir un modèle de sécurité (profils / rôles / partage) adapté aux usages Commerciaux vs Support.",
-            "Préparer une stratégie d’import initial réaliste et compatible avec une forte volumétrie."
-          ]
-        },
-        {
-          type: "timeline",
-          title: "Approche de livraison",
-          steps: [
-            {
-              title: "1) Spécifications techniques",
-              description: "Définition du périmètre, liste des objets (standard + custom), processus clés et interfaces d’intégration par transporteur."
-            },
-            {
-              title: "2) Diagramme UML (modèle de données)",
-              description: "Formalisation des entités et relations pour supporter Opportunités, Commandes/Livraisons, Transporteurs et statuts de tracking."
-            },
-            {
-              title: "3) Sécurité & visibilité",
-              description: "Profils + rôles, droits d’accès par objet et règles de partage (qui voit quoi) pour les équipes commerciales et support."
-            },
-            {
-              title: "4) Stratégie d’import / migration",
-              description: "Plan de chargement (Data Loader / ETL), External IDs, ordre de dépendances et validations pour des jeux de données volumineux."
-            }
-          ]
-        },
-        {
-          type: "metrics",
-          title: "Chiffres clés (périmètre)",
-          items: [
-            { label: "Transporteurs", value: "3", note: "France / Europe / International" },
-            { label: "Support", value: "≈194 appels/jour", note: "Demandes de suivi livraison" },
-            { label: "Comptes", value: "2 123 000", note: "Volumétrie initiale" },
-            { label: "Contacts", value: "3 239 870", note: "Volumétrie initiale" }
-          ]
-        },
-        {
-          type: "text",
-          title: "Évaluation & retours",
-          paragraphs: [
-            "⚠️ Note : le document fourni contient deux blocs d’évaluation différents (un indiquant les compétences validées, l’autre listant des points à corriger). Pour éviter toute interprétation, je mets en avant les retours actionnables ci-dessous.",
-            "Points d’amélioration mentionnés : (1) ordre de dépendances pour l’import (ex. Produits avant PricebookEntry), (2) respect du point de départ “Public en lecture seule” lorsque c’est explicitement demandé, (3) intégration SFTP : privilégier un ETL plutôt qu’un Batch Apex."
-          ]
-        },
-        {
-          type: "resources",
-          title: "Livrables & preuves",
-          items: [
-            { label: "Spécifications techniques (PDF)", href: "/docs/projects/ltp-apex-backend-prototype/specifications.pdf" },
-            { label: "Diagramme UML (PDF)", href: "/docs/projects/ltp-apex-backend-prototype/uml-data-model.pdf" },
-            { label: "Droits d’accès & partage (PDF)", href: "/docs/projects/ltp-apex-backend-prototype/access-rights.pdf" },
-            { label: "Stratégie d’import (PDF)", href: "/docs/projects/ltp-apex-backend-prototype/import-strategy.pdf" },
-            { label: "Cahier des charges (PDF)", href: "/docs/projects/ltp-apex-backend-prototype/requirements.pdf" },
-            { label: "Scénario du projet (DOCX)", href: "/docs/projects/ltp-apex-backend-prototype/brief.docx" }
-          ]
-        }
-      ]
-    }
-  }
-},
-  {
-    slug: "idemconnect-apex-backend",
+    slug: "ltp-apex-backend-prototype",
     gallery: [
-      { src: "/projects/idemconnect-apex-backend/cover.svg", alt: "iDEM Connect — Apex backend" }
+      {
+        src: "/projects/ltp-apex-backend-prototype/shot-1.svg",
+        alt: "ltp-apex-backend-prototype — 1"
+      },
+      {
+        src: "/projects/ltp-apex-backend-prototype/shot-2.svg",
+        alt: "ltp-apex-backend-prototype — 2"
+      },
+      {
+        src: "/projects/ltp-apex-backend-prototype/shot-3.svg",
+        alt: "ltp-apex-backend-prototype — 3"
+      },
+      {
+        src: "/projects/ltp-apex-backend-prototype/logo-fea9770b.png",
+        alt: "ltp-apex-backend-prototype — 4"
+      }
     ],
     locales: {
       en: {
-        heroSubtitle: "Apex backend delivery (iDEM Connect)",
+        heroSubtitle: "Apex backend prototype for LTP",
         sections: [
           {
             type: "text",
             title: "Context",
             paragraphs: [
-              "iDEM Connect is a global internet service provider and connectivity technology vendor. A new Salesforce application was designed to help sales teams better sell, track customers, and manage subscription contracts.",
-              "My role focused on delivering the Apex backend (trigger, services, batch/scheduler) with strong engineering hygiene: documentation, unit tests, and a clear mapping between functional requirements and implementation."
+              "LTP is an early-stage product (Le Temps des Papillons) that needed a pragmatic Salesforce backend prototype to validate key workflows.",
+              "The goal was to deliver a solid technical foundation: clear data model assumptions, secure access rules, and reliable REST endpoints ready for integration."
             ]
           },
           {
             type: "bullets",
-            title: "What was required",
+            title: "Problem",
             items: [
-              "Implement an Apex Trigger and Apex classes covering the requested features (as defined in the feature grid).",
-              "Provide a Batch Apex job and its Scheduler for recurring processing.",
-              "Follow Apex best practices (bulk-safe, governor-limit friendly).",
-              "Deliver class documentation (PDF) and a test execution report showing code coverage."
+              "Build a backend prototype that is easy to evolve while staying compliant with Salesforce governor limits.",
+              "Define access rights and validation rules early to prevent inconsistent data.",
+              "Prepare an import strategy to bootstrap the org with realistic datasets."
             ]
           },
           {
             type: "bullets",
-            title: "Implementation approach",
+            title: "Solution",
             items: [
-              "Service-layer design to keep triggers thin and responsibilities clear.",
-              "Bulkification throughout (collections/maps), with no SOQL/DML inside loops.",
-              "Batch + Scheduler to execute recurring updates safely and predictably.",
-              "Unit tests aligned with the functional grid, plus a test run report to demonstrate coverage."
+              "Technical specifications for the prototype (Apex services + REST endpoints).",
+              "UML diagram to document the model and relationships.",
+              "Access rights strategy (profiles/permission sets) aligned with roles.",
+              "Import strategy to load data safely and validate constraints."
             ]
           },
           {
-            type: "metrics",
-            title: "Quality & evidence",
+            type: "bullets",
+            title: "Deliverables",
             items: [
-              { label: "Skills validated (review)", value: "3/3" },
-              { label: "Code coverage", value: "> 75%" },
-              { label: "SOQL/DML in loops", value: "0" }
+              "Technical specifications (PDF).",
+              "UML diagram (PDF).",
+              "Access rights document (PDF).",
+              "Import strategy document (PDF).",
+              "Original brief / requirements (PDF + DOCX)."
             ]
           },
           {
-            type: "text",
-            title: "Reviewer notes",
-            paragraphs: [
-              "The reviewer highlighted complete and relevant deliverables: documented classes, correctly running unit tests covering all specified features, bulk-safe Apex patterns, and a backend combining trigger, service classes, and a scheduled batch on Account and Order."
-            ]
-          },
-          {
-            type: "resources",
-            title: "Deliverables & evidence",
+            type: "bullets",
+            title: "Stack & tools",
             items: [
-              { label: "Project brief (DOCX)", href: "/docs/projects/idemconnect-apex-backend/brief.docx" },
-              { label: "Requirements (PDF)", href: "/docs/projects/idemconnect-apex-backend/cahier-des-charges.pdf" },
-              { label: "Feature grid (PDF)", href: "/docs/projects/idemconnect-apex-backend/grille-de-fonctionnalites.pdf" },
-              { label: "Repository link / code (TXT)", href: "/docs/projects/idemconnect-apex-backend/code-repo.txt" },
-              { label: "Class documentation (PDF)", href: "/docs/projects/idemconnect-apex-backend/documentation.pdf" },
-              { label: "Test execution report (PDF)", href: "/docs/projects/idemconnect-apex-backend/rapport-tests.pdf" }
+              "Salesforce Platform (Apex, REST, security model).",
+              "Documentation-driven delivery (specs + UML)."
             ]
           }
         ]
       },
       fr: {
-        heroSubtitle: "Livraison d’un backend Apex (iDEM Connect)",
+        heroSubtitle: "Apex backend prototype for LTP",
         sections: [
           {
             type: "text",
             title: "Contexte",
             paragraphs: [
-              "iDEM Connect est un fournisseur d’accès à Internet mondial et un acteur des technologies de connexion. Une nouvelle application Salesforce a été définie pour aider les équipes commerciales à mieux vendre, suivre les clients et gérer les contrats d’abonnement.",
-              "Mon périmètre : livrer le backend Apex (trigger, classes de service, batch + scheduler) avec une démarche “production-ready” : documentation, tests unitaires et traçabilité exigences → implémentation."
+              "LTP (Le Temps des Papillons) est un produit en phase de démarrage qui avait besoin d’un prototype de backend Salesforce pragmatique pour valider les workflows clés.",
+              "L’objectif : poser des fondations techniques solides (modèle de données, règles de sécurité) et exposer des endpoints REST fiables, prêts pour l’intégration."
             ]
           },
           {
             type: "bullets",
-            title: "Ce qui était attendu",
+            title: "Problématique",
             items: [
-              "Développer un Trigger Apex et des classes Apex couvrant les fonctionnalités de la grille.",
-              "Fournir un Batch Apex et son Scheduler pour les traitements récurrents.",
-              "Respecter les bonnes pratiques Apex (bulkification, limites Salesforce).",
-              "Produire la documentation des classes (PDF) et un rapport d’exécution des tests montrant la couverture."
+              "Construire un prototype évolutif tout en respectant les limites Salesforce (governor limits).",
+              "Définir très tôt les droits d’accès et les validations pour éviter les incohérences.",
+              "Préparer une stratégie d’import pour initialiser l’org avec des données réalistes."
             ]
           },
           {
             type: "bullets",
-            title: "Approche d’implémentation",
+            title: "Solution",
             items: [
-              "Architecture en couche service : triggers “minces”, responsabilités claires, meilleure maintenabilité.",
-              "Bulkification systématique (collections/maps), avec 0 SOQL/DML dans les boucles.",
-              "Batch + Scheduler pour exécuter des mises à jour récurrentes de façon fiable et prévisible.",
-              "Tests unitaires alignés sur la grille fonctionnelle + rapport de tests pour démontrer la couverture."
+              "Spécifications techniques du prototype (services Apex + endpoints REST).",
+              "Diagramme UML pour documenter le modèle et les relations.",
+              "Stratégie de droits d’accès (profils/permission sets) alignée avec les rôles.",
+              "Stratégie d’import de données avec validations et contrôles."
             ]
           },
           {
-            type: "metrics",
-            title: "Qualité & preuves",
+            type: "bullets",
+            title: "Livrables",
             items: [
-              { label: "Compétences validées (évaluation)", value: "3/3" },
-              { label: "Couverture de code", value: "> 75%" },
-              { label: "SOQL/DML dans les boucles", value: "0" }
+              "Spécifications techniques (PDF).",
+              "Diagramme UML (PDF).",
+              "Droits d’accès (PDF).",
+              "Stratégie d’import (PDF).",
+              "Cahier des charges / brief (PDF + DOCX)."
             ]
           },
+          {
+            type: "bullets",
+            title: "Stack & outils",
+            items: [
+              "Salesforce Platform (Apex, REST, modèle de sécurité).",
+              "Livraison pilotée par la documentation (spécifications + UML)."
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    slug: "idemconnect-apex-backend",
+    locales: {
+      en: {
+        heroSubtitle: "Apex backend development (iDEM Connect)",
+        sections: [
           {
             type: "text",
-            title: "Retours d’évaluation",
+            title: "Context",
             paragraphs: [
-              "Les retours soulignent des livrables complets et pertinents : classes documentées, tests unitaires exécutés correctement couvrant les fonctionnalités, respect des standards Apex (bulk-safe), et backend combinant trigger, services et batch/scheduler pour répondre aux cas d’usage sur Account et Order."
+              "iDEM Connect required an Apex backend to manage subscription and contract lifecycles with clear business rules and reliable automation.",
+              "The focus was on maintainability (service layer), robustness (batch/scheduler), and documented delivery (functional grid + test evidence)."
             ]
           },
           {
-            type: "resources",
-            title: "Livrables & preuves",
+            type: "bullets",
+            title: "Problem",
             items: [
-              { label: "Brief du projet (DOCX)", href: "/docs/projects/idemconnect-apex-backend/brief.docx" },
-              { label: "Cahier des charges (PDF)", href: "/docs/projects/idemconnect-apex-backend/cahier-des-charges.pdf" },
-              { label: "Grille de fonctionnalités (PDF)", href: "/docs/projects/idemconnect-apex-backend/grille-de-fonctionnalites.pdf" },
-              { label: "Lien dépôt / code (TXT)", href: "/docs/projects/idemconnect-apex-backend/code-repo.txt" },
-              { label: "Documentation des classes (PDF)", href: "/docs/projects/idemconnect-apex-backend/documentation.pdf" },
-              { label: "Rapport d’exécution des tests (PDF)", href: "/docs/projects/idemconnect-apex-backend/rapport-tests.pdf" }
+              "Model and automate subscription/contract state transitions.",
+              "Avoid governor limit issues by using scalable patterns (async where relevant).",
+              "Provide clear documentation so the solution can be handed over safely."
+            ]
+          },
+          {
+            type: "bullets",
+            title: "Solution",
+            items: [
+              "Apex triggers + service layer for separation of concerns.",
+              "Batch + Scheduler to process recurring updates safely.",
+              "Test strategy and execution report to validate core flows.",
+              "Functional grid to map requirements to implementation."
+            ]
+          },
+          {
+            type: "bullets",
+            title: "Deliverables",
+            items: [
+              "Functional requirements (PDF).",
+              "Feature grid (PDF).",
+              "Code excerpt (TXT).",
+              "Documentation (PDF).",
+              "Test report (PDF)."
+            ]
+          },
+          {
+            type: "bullets",
+            title: "Stack & tools",
+            items: [
+              "Salesforce Platform (Apex, Triggers, Batch, Scheduler).",
+              "Unit tests + documentation as first-class deliverables."
+            ]
+          }
+        ]
+      },
+      fr: {
+        heroSubtitle: "Apex backend development (iDEM Connect)",
+        sections: [
+          {
+            type: "text",
+            title: "Contexte",
+            paragraphs: [
+              "iDEM Connect nécessitait un backend Apex pour gérer le cycle de vie des abonnements et des contrats, avec des règles métier claires et une automatisation fiable.",
+              "Le travail a été orienté maintenabilité (couche service), robustesse (batch/scheduler) et livraison documentée (grille fonctionnelle + preuves de tests)."
+            ]
+          },
+          {
+            type: "bullets",
+            title: "Problématique",
+            items: [
+              "Modéliser et automatiser les transitions d’état abonnement/contrat.",
+              "Éviter les problèmes de limites Salesforce via des patterns scalables (async si nécessaire).",
+              "Produire une documentation claire pour un transfert en toute confiance."
+            ]
+          },
+          {
+            type: "bullets",
+            title: "Solution",
+            items: [
+              "Triggers Apex + couche service pour séparer responsabilités et faciliter la maintenance.",
+              "Batch + Scheduler pour exécuter des traitements récurrents en sécurité.",
+              "Stratégie de tests + rapport d’exécution pour valider les parcours clés.",
+              "Grille de fonctionnalités pour relier les exigences à l’implémentation."
+            ]
+          },
+          {
+            type: "bullets",
+            title: "Livrables",
+            items: [
+              "Cahier des charges (PDF).",
+              "Grille de fonctionnalités (PDF).",
+              "Extrait de code (TXT).",
+              "Documentation (PDF).",
+              "Rapport de tests (PDF)."
+            ]
+          },
+          {
+            type: "bullets",
+            title: "Stack & outils",
+            items: [
+              "Salesforce Platform (Apex, Triggers, Batch, Scheduler).",
+              "Tests unitaires + documentation comme livrables à part entière."
             ]
           }
         ]
@@ -773,9 +436,6 @@ Staging app: https://legarant-staging-78a7880351d1.herokuapp.com
   },
   {
     slug: "fasha-apex-backend-optimization",
-    gallery: [
-      { src: "/projects/fasha-apex-backend-optimization/cover.svg", alt: "FASHA — Apex backend optimization" }
-    ],
     locales: {
       en: {
         heroSubtitle: "Apex backend optimization (FASHA)",
@@ -784,107 +444,91 @@ Staging app: https://legarant-staging-78a7880351d1.herokuapp.com
             type: "text",
             title: "Context",
             paragraphs: [
-              "FASHA (global clothing distribution) was experiencing performance and reliability issues in their Salesforce CRM backend.",
-              "Weekly batch jobs became slow after product price updates, users reported freezes when editing Accounts and Orders, and the codebase lacked structure (naming conventions, overly long classes)."
+              "FASHA had an existing Apex backend that needed reliability and performance improvements before scaling.",
+              "The priority was to eliminate governor-limit risks, make batch processing safer, and document the refactoring decisions."
             ]
           },
           {
             type: "bullets",
-            title: "Client needs",
+            title: "Problem",
             items: [
-              "Optimize batch processing that recalculates Account revenue after product price changes.",
-              "Prevent blocking behaviors during concurrent edits on Accounts and Orders.",
-              "Re-organize the Apex codebase for maintainability (clear responsibilities, consistent naming)."
+              "Remove SOQL/DML in loops and other anti-patterns that can break at scale.",
+              "Improve batch processing and resilience for long-running jobs.",
+              "Strengthen maintainability: clearer logic boundaries and safer error handling."
             ]
           },
           {
             type: "bullets",
-            title: "Implementation",
+            title: "Solution",
             items: [
-              "Refactor triggers into a handler/service architecture: keep triggers thin and move DML/SOQL to dedicated classes (bulk-safe patterns).",
-              "Bulkify calculations (revenue / net amount) using collections & maps; consolidate queries and avoid SOQL/DML inside loops.",
-              "Optimize SOQL on Orders with selective filters and safer batch logic to handle larger volumes without timeouts."
+              "Refactor critical flows with bulk-safe patterns (collections, maps, query consolidation).",
+              "Improve batch design to handle larger volumes without timeouts.",
+              "Document the approach so the team can extend it consistently."
             ]
           },
           {
-            type: "metrics",
-            title: "Quality & proof",
+            type: "bullets",
+            title: "Deliverables",
             items: [
-              { label: "Skills validated (jury)", value: "2/2" },
-              { label: "SOQL/DML in loops", value: "0" },
-              { label: "Test coverage", value: "Good (jury feedback)" }
+              "Project framing note (PDF).",
+              "Repository / source reference (TXT).",
+              "Refactoring notes and recommended patterns (in docs)."
             ]
           },
           {
-            type: "text",
-            title: "Reviewer notes",
-            paragraphs: [
-              "The jury highlighted functional batch + controller, correct revenue/net calculations, and the ability to process multiple order lines successfully, with optimized SOQL and solid automated tests."
-            ]
-          },
-          {
-            type: "resources",
-            title: "Deliverables & evidence",
+            type: "bullets",
+            title: "Stack & tools",
             items: [
-              { label: "Project brief (DOCX)", href: "/docs/projects/fasha-apex-backend-optimization/brief.docx" },
-              { label: "Framing note (PDF)", href: "/docs/projects/fasha-apex-backend-optimization/note-de-cadrage.pdf" },
-              { label: "Repository link (TXT)", href: "/docs/projects/fasha-apex-backend-optimization/repository.txt" }
+              "Salesforce Platform (Apex, Batch).",
+              "Performance and bulkification best practices."
             ]
           }
         ]
       },
       fr: {
-        heroSubtitle: "Optimisation backend Apex (FASHA)",
+        heroSubtitle: "Apex backend optimization (FASHA)",
         sections: [
           {
             type: "text",
             title: "Contexte",
             paragraphs: [
-              "FASHA (distribution de vêtements) rencontrait des problèmes de performance et de fiabilité sur le backend Salesforce.",
-              "Des batchs hebdomadaires devenaient trop lents après mise à jour des prix produits, l’application se bloquait lors de la modification simultanée des Comptes et Commandes, et le code était peu structuré (naming, classes trop longues)."
+              "FASHA disposait d’un backend Apex existant qui nécessitait des améliorations de fiabilité et de performance avant montée en charge.",
+              "La priorité : réduire les risques liés aux governor limits, sécuriser les traitements batch et documenter les choix de refactorisation."
             ]
           },
           {
             type: "bullets",
-            title: "Besoins du client",
+            title: "Problématique",
             items: [
-              "Optimiser les batchs qui recalculent le chiffre d’affaires des comptes après modification des prix produits.",
-              "Éviter les comportements bloquants lors des éditions concurrentes sur Comptes et Commandes.",
-              "Réorganiser le code Apex pour améliorer la maintenabilité (responsabilités claires, conventions de nommage)."
+              "Supprimer les SOQL/DML dans les boucles et les anti-patterns qui cassent à grande échelle.",
+              "Améliorer le traitement batch et la résilience des jobs longs.",
+              "Renforcer la maintenabilité : logique plus claire, gestion d’erreurs plus sûre."
             ]
           },
           {
             type: "bullets",
-            title: "Mise en œuvre",
+            title: "Solution",
             items: [
-              "Refactorisation en architecture trigger → handler/services : triggers “minces”, DML/SOQL déplacés dans des classes dédiées (bulk-safe).",
-              "Bulkification des calculs (CA / montant net) via collections & maps ; consolidation des requêtes ; suppression de tout SOQL/DML dans les boucles.",
-              "Optimisation des requêtes sur les commandes (filtres sélectifs) et sécurisation du batch pour traiter des volumes plus importants sans timeout."
+              "Refactorisation avec des patterns bulk-safe (collections, maps, consolidation des requêtes).",
+              "Amélioration du design batch pour gérer des volumes plus importants sans timeout.",
+              "Documentation de l’approche pour des évolutions cohérentes."
             ]
           },
           {
-            type: "metrics",
-            title: "Qualité & preuves",
+            type: "bullets",
+            title: "Livrables",
             items: [
-              { label: "Compétences validées (jury)", value: "2/2" },
-              { label: "SOQL/DML dans les boucles", value: "0" },
-              { label: "Couverture de tests", value: "Bonne (retour jury)" }
+              "Note de cadrage (PDF).",
+              "Référence dépôt / source (TXT).",
+              "Notes de refactorisation et patterns recommandés (documentation)."
             ]
           },
           {
-            type: "text",
-            title: "Retour d’évaluation",
-            paragraphs: [
-              "Le jury souligne : triggers sans opérations BD/DML (placées dans des classes séparées), code bien testé avec une bonne couverture, calculs CA/montant net corrects, batch + contrôleur fonctionnels, requêtes SOQL optimisées avec filtre et capacité à traiter plusieurs lignes de commande."
-            ]
-          },
-          {
-            type: "resources",
-            title: "Livrables & preuves",
+            type: "bullets",
+            title: "Stack & outils",
             items: [
-              { label: "Brief du projet (DOCX)", href: "/docs/projects/fasha-apex-backend-optimization/brief.docx" },
-              { label: "Note de cadrage (PDF)", href: "/docs/projects/fasha-apex-backend-optimization/note-de-cadrage.pdf" },
-              { label: "Lien du dépôt (TXT)", href: "/docs/projects/fasha-apex-backend-optimization/repository.txt" }
+              "Salesforce Platform (Apex, Batch).",
+              "Bonnes pratiques performance & bulkification."
             ]
           }
         ]
@@ -895,28 +539,20 @@ Staging app: https://legarant-staging-78a7880351d1.herokuapp.com
     slug: "wirebright-visualforce-to-lightning",
     gallery: [
       {
+        src: "/projects/wirebright-visualforce-to-lightning/HomepageClassique-68a9ec8d.png",
+        alt: "wirebright-visualforce-to-lightning — 1"
+      },
+      {
         src: "/projects/wirebright-visualforce-to-lightning/HomepageClassique.png",
-        alt: "wirebright-visualforce-to-lightning — classic home"
+        alt: "wirebright-visualforce-to-lightning — 2"
+      },
+      {
+        src: "/projects/wirebright-visualforce-to-lightning/HomepageLightning-8f498899.png",
+        alt: "wirebright-visualforce-to-lightning — 3"
       },
       {
         src: "/projects/wirebright-visualforce-to-lightning/HomepageLightning.png",
-        alt: "wirebright-visualforce-to-lightning — lightning home"
-      },
-      {
-        src: "/projects/wirebright-visualforce-to-lightning/LeadUpdateClassique.png",
-        alt: "wirebright-visualforce-to-lightning — classic lead update"
-      },
-      {
-        src: "/projects/wirebright-visualforce-to-lightning/LeadUpdateLightning.png",
-        alt: "wirebright-visualforce-to-lightning — lightning lead update"
-      },
-      {
-        src: "/projects/wirebright-visualforce-to-lightning/Opportunity-SearchClassique.png",
-        alt: "wirebright-visualforce-to-lightning — classic opportunity search"
-      },
-      {
-        src: "/projects/wirebright-visualforce-to-lightning/Opportunity-SearchLightning.png",
-        alt: "wirebright-visualforce-to-lightning — lightning opportunity search"
+        alt: "wirebright-visualforce-to-lightning — 4"
       }
     ],
     locales: {
@@ -927,133 +563,95 @@ Staging app: https://legarant-staging-78a7880351d1.herokuapp.com
             type: "text",
             title: "Context",
             paragraphs: [
-              "EG Manufacturing was using Salesforce Classic with custom Visualforce pages and JavaScript buttons.",
-              "The goal was to migrate to the Lightning Experience to unlock newer capabilities, modernize the UX, and keep business behavior equivalent.",
-              "The work includes a migration plan (specifications), before/after proof with screenshots, and the first conversions (Visualforce + JavaScript button)."
+              "WireBright had an existing Visualforce-based application and needed to migrate key pages and interactions to the Lightning experience.",
+              "The goal was to reduce technical debt, modernize the UX, and keep business behavior equivalent with clear before/after evidence."
             ]
           },
           {
             type: "bullets",
-            title: "Objectives",
+            title: "Problem",
             items: [
-              "Identify all Classic components impacted by Lightning migration (Visualforce pages, JavaScript buttons, custom UI).",
-              "Propose conversion options with pros/cons (Lightning patterns) and estimate effort per component.",
-              "Deliver before/after evidence and explain Lightning benefits for each screen.",
-              "Start by converting the Visualforce pages and JavaScript buttons that would not work in Lightning."
+              "Migrate Visualforce pages and legacy JavaScript buttons without breaking existing processes.",
+              "Align the solution with Lightning UX standards and secure access rules.",
+              "Provide installation and operational guidance for a safe rollout."
             ]
           },
           {
             type: "bullets",
             title: "Solution",
             items: [
-              "Technical & functional specifications: component inventory + recommended conversion approach.",
-              "Conversion strategy for legacy JavaScript buttons (Lightning-friendly actions / patterns).",
-              "Validation through side-by-side screenshots (Classic vs Lightning) and functional checks."
+              "Migration plan: mapping of Visualforce pages to Lightning equivalents.",
+              "Rework of interactions (buttons/actions) to fit Lightning patterns.",
+              "Validation with screenshots and functional checks (before/after)."
             ]
           },
           {
-            type: "metrics",
-            title: "Impact & proof",
+            type: "bullets",
+            title: "Deliverables",
             items: [
-              { label: "Screens compared", value: "3 (before/after)" },
-              { label: "Legacy components migrated", value: "2 (Visualforce + JS button)" },
-              { label: "Skills validated (jury)", value: "2/2" }
-            ]
-          },
-          {
-            type: "resources",
-            title: "Deliverables & evidence",
-            items: [
-              { label: "Technical & functional specs (PDF)", href: "/docs/projects/wirebright-visualforce-to-lightning/specifications.pdf" },
-              { label: "Installation manual (PDF)", href: "/docs/projects/wirebright-visualforce-to-lightning/installation-manual.pdf" },
-              { label: "Lightning advantages (PDF)", href: "/docs/projects/wirebright-visualforce-to-lightning/lightning-advantages.pdf" },
-              { label: "Before/after screenshots (ZIP)", href: "/docs/projects/wirebright-visualforce-to-lightning/screenshots.zip" },
-              { label: "Project request / brief (DOCX)", href: "/docs/projects/wirebright-visualforce-to-lightning/brief.docx" }
-            ]
-          },
-          {
-            type: "text",
-            title: "Jury feedback",
-            paragraphs: [
-              "The assessment validated both targeted skills: producing technical/functional documentation and using wireframes/screens evidence for design & migration decisions.",
-              "Highlights included a complete solution proposal with clear pros/cons and effort estimates, plus successful migration of the key components."
+              "Technical specifications (PDF).",
+              "Migration documentation (DOCX).",
+              "Installation manual for EG Manufacturing (PDF).",
+              "Lightning advantages / rationale (PDF).",
+              "Before/after evidence (screenshots)."
             ]
           },
           {
             type: "bullets",
             title: "Stack & tools",
             items: [
-              "Salesforce Classic → Lightning Experience (Visualforce, Lightning patterns).",
-              "Documentation-driven delivery (specs, install guide, evidence pack)."
+              "Salesforce (Visualforce, Lightning Experience).",
+              "Change management and deployment documentation."
             ]
           }
         ]
       },
       fr: {
-        heroSubtitle: "Migration Visualforce → Lightning (WireBright)",
+        heroSubtitle: "Visualforce to Lightning migration (WireBright)",
         sections: [
           {
             type: "text",
             title: "Contexte",
             paragraphs: [
-              "EG Manufacturing utilisait Salesforce Classic avec des pages Visualforce et des boutons JavaScript personnalisés.",
-              "L’objectif était de migrer vers l’expérience Lightning afin d’accéder aux fonctionnalités récentes, moderniser l’UX et conserver un comportement métier équivalent.",
-              "Le travail couvre un plan de migration (spécifications), des preuves avant/après (captures), et les premières conversions (Visualforce + bouton JavaScript)."
+              "WireBright disposait d’une application basée sur Visualforce et souhaitait migrer des pages et interactions clés vers l’expérience Lightning.",
+              "L’objectif : réduire la dette technique, moderniser l’UX, et conserver un comportement métier équivalent avec des preuves avant/après."
             ]
           },
           {
             type: "bullets",
-            title: "Objectifs",
+            title: "Problématique",
             items: [
-              "Identifier les composants Classic impactés par la migration Lightning (pages Visualforce, boutons JavaScript, UI custom).",
-              "Proposer des options de conversion avec pour/contre (patterns Lightning) et estimer l’effort par composant.",
-              "Fournir des preuves avant/après et expliquer les avantages de Lightning pour chaque écran.",
-              "Commencer par convertir les pages Visualforce et les boutons JavaScript qui ne fonctionneraient plus en Lightning."
+              "Migrer les pages Visualforce et les boutons JavaScript legacy sans casser les processus existants.",
+              "Aligner la solution avec les standards UX Lightning et les règles de sécurité.",
+              "Produire des guides d’installation/exploitation pour un déploiement serein."
             ]
           },
           {
             type: "bullets",
             title: "Solution",
             items: [
-              "Spécifications techniques et fonctionnelles : inventaire des composants + proposition de conversion.",
-              "Stratégie de conversion des boutons JavaScript (actions/patterns compatibles Lightning).",
-              "Validation via captures d’écran comparatives (Classic vs Lightning) et contrôles fonctionnels."
+              "Plan de migration : mapping des pages Visualforce vers leurs équivalents Lightning.",
+              "Refonte des interactions (boutons/actions) selon les patterns Lightning.",
+              "Validation via captures d’écran et contrôles fonctionnels (avant/après)."
             ]
           },
           {
-            type: "metrics",
-            title: "Impact & preuves",
+            type: "bullets",
+            title: "Livrables",
             items: [
-              { label: "Écrans comparés", value: "3 (avant/après)" },
-              { label: "Composants legacy migrés", value: "2 (Visualforce + bouton JS)" },
-              { label: "Compétences validées (jury)", value: "2/2" }
-            ]
-          },
-          {
-            type: "resources",
-            title: "Livrables & preuves",
-            items: [
-              { label: "Spécifications techniques & fonctionnelles (PDF)", href: "/docs/projects/wirebright-visualforce-to-lightning/specifications.pdf" },
-              { label: "Manuel d’installation (PDF)", href: "/docs/projects/wirebright-visualforce-to-lightning/installation-manual.pdf" },
-              { label: "Avantages de Lightning (PDF)", href: "/docs/projects/wirebright-visualforce-to-lightning/lightning-advantages.pdf" },
-              { label: "Pack de captures avant/après (ZIP)", href: "/docs/projects/wirebright-visualforce-to-lightning/screenshots.zip" },
-              { label: "Demande / brief projet (DOCX)", href: "/docs/projects/wirebright-visualforce-to-lightning/brief.docx" }
-            ]
-          },
-          {
-            type: "text",
-            title: "Retour du jury",
-            paragraphs: [
-              "Les 2 compétences visées ont été validées : intégration de wireframes / preuves par captures, et production d’une documentation technique & fonctionnelle.",
-              "Points forts relevés : bonne compréhension, proposition de solutions complète (pour/contre + estimations), et migration effective des composants clés."
+              "Spécifications techniques (PDF).",
+              "Documentation de migration (DOCX).",
+              "Manuel d’installation EG Manufacturing (PDF).",
+              "Explication des avantages Lightning (PDF).",
+              "Preuves avant/après (captures)."
             ]
           },
           {
             type: "bullets",
             title: "Stack & outils",
             items: [
-              "Salesforce Classic → Lightning Experience (Visualforce, patterns Lightning).",
-              "Delivery orienté documentation (spécifications, guide d’installation, pack de preuves)."
+              "Salesforce (Visualforce, Lightning Experience).",
+              "Accompagnement au changement + documentation de déploiement."
             ]
           }
         ]
@@ -1065,164 +663,114 @@ Staging app: https://legarant-staging-78a7880351d1.herokuapp.com
     gallery: [
       {
         src: "/projects/avenir-telecom-lightning-app/image-e5a88d7b.webp",
-        alt: "Avenir Télécom — Lightning app (overview)"
-      },
-      {
-        src: "/projects/avenir-telecom-lightning-app/kanban-board.webp",
-        alt: "Avenir Télécom — Kanban backlog (evolutions & fixes)"
+        alt: "avenir-telecom-lightning-app — 1"
       },
       {
         src: "/projects/avenir-telecom-lightning-app/image.webp",
-        alt: "Avenir Télécom — Lightning app (screen)"
+        alt: "avenir-telecom-lightning-app — 2"
       }
     ],
     locales: {
       en: {
-        heroSubtitle: "Lightning app delivery, test strategy & continuous improvements (Avenir Télécom)",
+        heroSubtitle: "Lightning app delivery & backlog (Avenir Télécom)",
         sections: [
           {
             type: "text",
             title: "Context",
             paragraphs: [
-              "Following an internal audit, Avenir Télécom’s consumer sales teams for the South zone needed a new Lightning application aligned with their day-to-day process.",
-              "I led the implementation approach and coordinated a small delivery team (3 Salesforce developers: senior / confirmed / junior) with an Agile workflow: first plan and test strategy, then continuous improvements after a 3‑month pilot."
+              "Avenir Télécom needed a Lightning application for sales teams, with a clear delivery strategy and a structured backlog for improvements.",
+              "The work combined functional analysis (audit, corrections), delivery planning (tests, backlog), and documentation to enable ongoing iterations."
             ]
           },
           {
             type: "bullets",
-            title: "Business needs",
+            title: "Problem",
             items: [
-              "Define a clear delivery strategy based on the functional brief.",
-              "Build a structured Product Backlog (Scrum best practices) with business value, priority and estimates.",
-              "Provide a unit + integration test workbook: what to test, associated test classes, and guidelines for reliable tests.",
-              "After a 3‑month user pilot, capture improvement requests and build a Kanban backlog with clear statuses and WIP limits."
-            ]
-          },
-          {
-            type: "timeline",
-            title: "Implementation approach",
-            steps: [
-              {
-                title: "Phase 1 — Plan & quality strategy",
-                description: "Backlog (Scrum), delivery plan and a test workbook (unit + integration) to ensure the Lightning app can be delivered and validated with a repeatable process."
-              },
-              {
-                title: "Phase 2 — Continuous improvements",
-                description: "After 3 months of real usage, consolidate change requests and produce a prioritized Kanban backlog (evolutions, fixes, enhancements) with clear statuses and WIP limits."
-              }
-            ]
-          },
-          {
-            type: "metrics",
-            title: "What this project demonstrates",
-            items: [
-              { label: "Backlog quality", value: "Detailed, prioritized & estimated", note: "Business value + order + effort" },
-              { label: "Testing readiness", value: "Complete test workbook", note: "Unit + integration mapping to features" },
-              { label: "Continuous delivery mindset", value: "Kanban with WIP limits", note: "Clear workflow and prioritization" }
+              "Deliver a usable Lightning app aligned with business needs.",
+              "Prioritize fixes and evolutions with a maintainable backlog.",
+              "Provide test evidence and an audit trail for quality and decision-making."
             ]
           },
           {
             type: "bullets",
-            title: "Stack & methods",
+            title: "Solution",
             items: [
-              "Salesforce Lightning (App Builder & configuration).",
-              "Agile planning: Scrum Product Backlog, then Kanban for evolutions.",
-              "Quality artifacts: unit + integration test plan and best practices."
+              "Delivery strategy and implementation plan.",
+              "Audit report to identify gaps and improvement opportunities.",
+              "Backlog (initial + evolutions/corrections) with prioritization.",
+              "Test plan and supporting artifacts to validate key scenarios."
             ]
           },
           {
-            type: "resources",
-            title: "Deliverables & proofs",
+            type: "bullets",
+            title: "Deliverables",
             items: [
-              { label: "Functional brief (DOCX)", href: "/docs/projects/avenir-telecom-lightning-app/brief.docx" },
-              { label: "Requirements (PDF)", href: "/docs/projects/avenir-telecom-lightning-app/cahier-des-charges.pdf" },
-              { label: "Implementation strategy (PDF)", href: "/docs/projects/avenir-telecom-lightning-app/strategy-implementation.pdf" },
-              { label: "Initial backlog (XLSX)", href: "/docs/projects/avenir-telecom-lightning-app/backlog-initial.xlsx" },
-              { label: "Test workbook (XLSX)", href: "/docs/projects/avenir-telecom-lightning-app/test-workbook.xlsx" },
-              { label: "Audit report (PDF)", href: "/docs/projects/avenir-telecom-lightning-app/audit-report.pdf" },
-              { label: "Change requests list (PDF)", href: "/docs/projects/avenir-telecom-lightning-app/requests-evolutions-corrections.pdf" },
-              { label: "Evolutions backlog (Kanban export, PDF)", href: "/docs/projects/avenir-telecom-lightning-app/backlog-evolutions-kanban.pdf" },
-              { label: "Evolutions backlog (XLSX)", href: "/docs/projects/avenir-telecom-lightning-app/backlog-evolutions.xlsx" }
+              "Requirements / specification (PDF).",
+              "Audit report (PDF).",
+              "Corrections & evolutions requests (PDF).",
+              "Backlogs (XLSX).",
+              "Test workbook (XLSX).",
+              "Strategy documents (PDF)."
+            ]
+          },
+          {
+            type: "bullets",
+            title: "Stack & tools",
+            items: [
+              "Salesforce Lightning (App Builder, configuration, delivery practices).",
+              "Agile delivery (backlog management, test planning)."
             ]
           }
         ]
       },
       fr: {
-        heroSubtitle: "Livraison d’une application Lightning, stratégie de tests & améliorations continues (Avenir Télécom)",
+        heroSubtitle: "Lightning app delivery & backlog (Avenir Télécom)",
         sections: [
           {
             type: "text",
             title: "Contexte",
             paragraphs: [
-              "Suite à un audit interne, les équipes de vente grand public de la zone Sud d’Avenir Télécom avaient besoin d’une nouvelle application Lightning, mieux alignée sur leurs usages.",
-              "J’ai cadré la stratégie d’implémentation et animé l’organisation de la delivery avec une petite équipe (3 développeurs Salesforce : senior / confirmé / junior) en deux temps : plan & qualité, puis backlog d’évolutions après 3 mois de pilote."
+              "Avenir Télécom avait besoin d’une application Lightning pour les équipes commerciales, avec une stratégie de livraison claire et un backlog structuré pour les évolutions.",
+              "Le travail combine analyse fonctionnelle (audit, corrections), planification de delivery (tests, backlog) et documentation pour permettre des itérations continues."
             ]
           },
           {
             type: "bullets",
-            title: "Besoins métier",
+            title: "Problématique",
             items: [
-              "Définir une stratégie d’implémentation à partir du cahier des charges.",
-              "Construire un Product Backlog (bonnes pratiques Scrum) : valeur business, priorité et chiffrage.",
-              "Produire un cahier de tests unitaires et d’intégration : fonctionnalités à tester, classes de test associées, et exigences/bonnes pratiques.",
-              "Après 3 mois d’utilisation, consolider les demandes et créer un backlog Kanban (évolutions / corrections) avec statuts et limites WIP."
-            ]
-          },
-          {
-            type: "timeline",
-            title: "Approche d’implémentation",
-            steps: [
-              {
-                title: "Phase 1 — Plan & stratégie de qualité",
-                description: "Backlog Scrum, stratégie de delivery et cahier de tests (unitaires + intégration) pour garantir une mise en production cadrée et vérifiable."
-              },
-              {
-                title: "Phase 2 — Améliorations continues",
-                description: "Après 3 mois de tests côté commerciaux, consolidation des demandes et production d’un backlog Kanban priorisé (statuts distincts + limites WIP)."
-              }
-            ]
-          },
-          {
-            type: "metrics",
-            title: "Ce que démontre ce projet",
-            items: [
-              { label: "Qualité backlog", value: "Détaillé, priorisé & chiffré", note: "Valeur business + ordre + effort" },
-              { label: "Préparation aux tests", value: "Cahier de tests complet", note: "Mapping fonctionnalités → classes" },
-              { label: "Amélioration continue", value: "Kanban + limites WIP", note: "Flux de travail clair" }
+              "Livrer une application Lightning utilisable et alignée avec les besoins métier.",
+              "Prioriser corrections et évolutions via un backlog maintenable.",
+              "Apporter des preuves de tests et une traçabilité pour la qualité et la décision."
             ]
           },
           {
             type: "bullets",
-            title: "Stack & méthode",
+            title: "Solution",
             items: [
-              "Salesforce Lightning (App Builder & configuration).",
-              "Agile : Scrum (Product Backlog), puis Kanban pour les évolutions.",
-              "Qualité : cahier de tests unitaires/intégration + bonnes pratiques."
-            ]
-          },
-          {
-            type: "resources",
-            title: "Livrables & preuves",
-            items: [
-              { label: "Brief (DOCX)", href: "/docs/projects/avenir-telecom-lightning-app/brief.docx" },
-              { label: "Cahier des charges (PDF)", href: "/docs/projects/avenir-telecom-lightning-app/cahier-des-charges.pdf" },
-              { label: "Stratégie d’implémentation (PDF)", href: "/docs/projects/avenir-telecom-lightning-app/strategy-implementation.pdf" },
-              { label: "Backlog initial (XLSX)", href: "/docs/projects/avenir-telecom-lightning-app/backlog-initial.xlsx" },
-              { label: "Cahier de tests (XLSX)", href: "/docs/projects/avenir-telecom-lightning-app/test-workbook.xlsx" },
-              { label: "Rapport d’audit (PDF)", href: "/docs/projects/avenir-telecom-lightning-app/audit-report.pdf" },
-              { label: "Demandes d’évolutions/corrections (PDF)", href: "/docs/projects/avenir-telecom-lightning-app/requests-evolutions-corrections.pdf" },
-              { label: "Backlog d’évolutions (export Kanban, PDF)", href: "/docs/projects/avenir-telecom-lightning-app/backlog-evolutions-kanban.pdf" },
-              { label: "Backlog d’évolutions (XLSX)", href: "/docs/projects/avenir-telecom-lightning-app/backlog-evolutions.xlsx" }
+              "Stratégie de livraison et plan d’implémentation.",
+              "Rapport d’audit pour identifier les écarts et opportunités d’amélioration.",
+              "Backlog (initial + évolutions/corrections) avec priorisation.",
+              "Plan de tests et artefacts associés pour valider les scénarios clés."
             ]
           },
           {
             type: "bullets",
-            title: "Retour jury (synthèse)",
+            title: "Livrables",
             items: [
-              "Cahier de tests complet.",
-              "Backlog unique, détaillé, priorisé et chiffré.",
-              "Flux de travail clair (statuts distincts) et limites WIP respectées.",
-              "Demandes classées par priorité, outil adapté utilisé."
+              "Cahier des charges (PDF).",
+              "Rapport d’audit (PDF).",
+              "Demandes de corrections & d’évolutions (PDF).",
+              "Backlogs (XLSX).",
+              "Cahier de tests (XLSX).",
+              "Documents de stratégie (PDF)."
+            ]
+          },
+          {
+            type: "bullets",
+            title: "Stack & outils",
+            items: [
+              "Salesforce Lightning (App Builder, configuration, pratiques de delivery).",
+              "Approche agile (gestion de backlog, planification de tests)."
             ]
           }
         ]
@@ -1234,11 +782,7 @@ Staging app: https://legarant-staging-78a7880351d1.herokuapp.com
     gallery: [
       {
         src: "/projects/tours-for-life-salesforce-solution/screenshot-1.webp",
-        alt: "Tours For Life — Home page & dashboards"
-      },
-      {
-        src: "/projects/tours-for-life-salesforce-solution/data-model.webp",
-        alt: "Tours For Life — Data model (Schema)"
+        alt: "tours-for-life-salesforce-solution — 1"
       }
     ],
     locales: {
@@ -1249,199 +793,91 @@ Staging app: https://legarant-staging-78a7880351d1.herokuapp.com
             type: "text",
             title: "Context",
             paragraphs: [
-              "Tours For Life wanted to scale its commercial activity while simplifying day‑to‑day travel operations. The goal was to design a Salesforce solution that sales teams can actually use: lead capture, conversion into travelers, trip management, reporting and dashboards.",
-              "During the scope refinement, an additional need was added: managing the bus fleet in Salesforce, controlled by sales directors and linked to trips (a bus can be used for multiple trips)."
+              "Tours For Life needed a clear Salesforce solution blueprint before implementation: data model, automation, security rules and a delivery plan.",
+              "The objective was to translate business needs into actionable functional and technical specifications, ready for build and iteration."
             ]
           },
           {
             type: "bullets",
-            title: "Key needs (client brief)",
+            title: "Problem",
             items: [
-              "Create and qualify prospects in Salesforce (Lead).",
-              "Convert prospects into travelers (Person Accounts) and centralize customer information.",
-              "Create and manage trips for travelers, including capacity and available seats.",
-              "Build reports and dashboards for pipeline and operations follow‑up.",
-              "Manage a bus fleet and associate buses to trips (many trips per bus)."
-            ]
-          },
-          {
-            type: "text",
-            title: "Solution overview",
-            paragraphs: [
-              "Data model and automation were designed around the full lifecycle: Lead → Traveler → Trip. The implementation uses standard objects when possible (Lead, Activity) and introduces custom objects for travel operations (Trip) and fleet management (Bus Fleet).",
-              "A record‑triggered Flow was implemented to automatically decrement the field “Available seats” when travelers are assigned to a trip, ensuring reliable capacity tracking."
+              "Design a scalable data model aligned with real-life operations.",
+              "Define automation boundaries (Flows vs Apex) and security access patterns.",
+              "Provide onboarding and environment guidance (sandbox creation) for a smooth project execution."
             ]
           },
           {
             type: "bullets",
-            title: "Data model highlights",
+            title: "Solution",
             items: [
-              "Prospects are stored as Leads and converted to Person Accounts (travelers).",
-              "Trips are created and linked to travelers for operational follow‑up.",
-              "Bus Fleet custom object: bus number (Text), capacity (Number), trip lookup (Lookup to Trip).",
-              "Reporting model supports dashboards on the Home page (e.g., key KPIs + operational views)."
+              "Functional requirements and user journeys translated into Salesforce objects and relationships.",
+              "Technical specification covering automation, security, and deployment considerations.",
+              "Sandbox creation guide to standardize environments and reduce setup friction."
             ]
           },
           {
-            type: "text",
-            title: "Security model (roles, profiles, access)",
-            paragraphs: [
-              "Access was designed for two main audiences: sales representatives and sales directors. In the delivered setup, two profiles were created (Sales Rep and Sales Director) and three role levels for sales teams to reflect hierarchy.",
-              "With hindsight, a more scalable approach would be to keep a single Sales profile and grant director capabilities via a Permission Set — this reduces maintenance and keeps access management more flexible."
+            type: "bullets",
+            title: "Deliverables",
+            items: [
+              "Functional brief / requirements (PDF).",
+              "Project presentation and deliverables (DOCX/PDF).",
+              "Sandbox creation guide (PDF)."
             ]
           },
           {
-            type: "metrics",
-            title: "What this project demonstrates",
+            type: "bullets",
+            title: "Stack & tools",
             items: [
-              {
-                label: "Validated competencies",
-                value: "4/4",
-                note: "Needs analysis, technical choices, data model & business rules, detailed specifications."
-              },
-              {
-                label: "Automation delivered",
-                value: "Flow",
-                note: "Automatic decrement of “Available seats” to ensure reliable capacity tracking."
-              },
-              {
-                label: "Security design",
-                value: "2 profiles + 3 roles",
-                note: "Documented object access and hierarchy (with an explicit improvement suggestion)."
-              }
-            ]
-          },
-          {
-            type: "resources",
-            title: "Deliverables & evidence",
-            items: [
-              {
-                label: "Detailed specifications (PDF)",
-                href: "/docs/projects/tours-for-life-salesforce-solution/specifications.pdf",
-                note: "Functional + technical specs aligned with the client brief."
-              },
-              {
-                label: "Presentation (PPTX)",
-                href: "/docs/projects/tours-for-life-salesforce-solution/presentation.pptx",
-                note: "Client-ready walkthrough of the application and choices."
-              },
-              {
-                label: "Data model (PNG)",
-                href: "/docs/projects/tours-for-life-salesforce-solution/data-model.png",
-                note: "Schema screenshot showing objects and relationships."
-              },
-              {
-                label: "Requirements (PDF)",
-                href: "/docs/projects/tours-for-life-salesforce-solution/cahier-des-charges.pdf",
-                note: "Original client brief & scope additions (fleet management)."
-              },
-              {
-                label: "Sandbox creation guide (PDF)",
-                href: "/docs/projects/tours-for-life-salesforce-solution/sandbox-creation-guide.pdf",
-                note: "Installation steps used to prepare a demo environment."
-              }
+              "Salesforce (data model, automation, security).",
+              "Documentation-first approach (specs, guides)."
             ]
           }
         ]
       },
       fr: {
-        heroSubtitle: "Conception d’une solution Salesforce (Tours For Life)",
+        heroSubtitle: "Salesforce solution design (Tours For Life)",
         sections: [
           {
             type: "text",
             title: "Contexte",
             paragraphs: [
-              "Tours For Life souhaitait accélérer son développement commercial tout en simplifiant la gestion des voyages (processus aujourd’hui trop complexe). L’objectif était de concevoir une solution Salesforce réellement utilisable par les commerciaux : création de prospects, conversion en voyageurs, gestion des voyages, rapports et tableaux de bord.",
-              "Lors du cadrage, un besoin complémentaire a été ajouté : gérer la flotte de bus directement dans Salesforce, pilotée par les directeurs commerciaux et reliée aux voyages (un même bus pouvant servir à plusieurs voyages)."
+              "Tours For Life avait besoin d’un blueprint de solution Salesforce avant implémentation : modèle de données, automatisations, règles de sécurité et plan de delivery.",
+              "L’objectif : traduire les besoins métier en spécifications fonctionnelles et techniques actionnables, prêtes à être construites et itérées."
             ]
           },
           {
             type: "bullets",
-            title: "Besoins clés (brief client)",
+            title: "Problématique",
             items: [
-              "Créer et qualifier des prospects dans Salesforce (Lead).",
-              "Convertir les prospects en voyageurs (Person Accounts) et centraliser les informations client.",
-              "Créer et gérer des voyages pour les voyageurs, avec suivi de capacité et des places disponibles.",
-              "Produire des rapports et tableaux de bord pour le pilotage (commercial & opérationnel).",
-              "Gérer une flotte de bus et relier les bus aux voyages (plusieurs voyages par bus)."
-            ]
-          },
-          {
-            type: "text",
-            title: "Vue d’ensemble de la solution",
-            paragraphs: [
-              "Le modèle de données et l’automatisation ont été conçus autour du cycle complet : Lead → Voyageur → Voyage. L’implémentation privilégie les objets standards (Lead, Activités) et introduit des objets personnalisés pour la partie opérationnelle (Voyage) ainsi que pour la gestion de flotte (Flotte de bus).",
-              "Un Flow record‑triggered a été mis en place pour décrémenter automatiquement le champ « Nombre de places disponibles » lorsque des voyageurs sont affectés à un voyage, garantissant un suivi de capacité fiable."
+              "Concevoir un modèle de données scalable et aligné avec les opérations terrain.",
+              "Définir les limites d’automatisation (Flows vs Apex) et les patterns d’accès sécurité.",
+              "Fournir un guide d’onboarding/environnements (création sandbox) pour fiabiliser l’exécution."
             ]
           },
           {
             type: "bullets",
-            title: "Points clés du modèle de données",
+            title: "Solution",
             items: [
-              "Les prospects sont gérés via l’objet standard Lead, puis convertis en Person Accounts (voyageurs).",
-              "Les voyages sont créés et associés aux voyageurs pour le suivi opérationnel.",
-              "Nouvel objet « Flotte de bus » : numéro du bus (Texte), capacité (Nombre), lookup vers « Voyage ». ",
-              "Le modèle est construit pour alimenter des dashboards sur la page d’accueil (KPIs + vues opérationnelles)."
+              "Exigences fonctionnelles et parcours utilisateurs traduits en objets Salesforce et relations.",
+              "Spécifications techniques couvrant automatisation, sécurité et considérations de déploiement.",
+              "Guide de création sandbox pour standardiser les environnements et réduire les frictions."
             ]
           },
           {
-            type: "text",
-            title: "Sécurité (rôles, profils, accès)",
-            paragraphs: [
-              "Les accès ont été pensés pour deux populations : commerciaux et directeurs commerciaux. Dans la configuration livrée, deux profils ont été créés (Commercial et Directeur commercial) ainsi que trois rôles pour refléter la hiérarchie.",
-              "Avec du recul, une approche plus scalable consiste à conserver un profil « Commercial » unique et à accorder les droits “directeur” via un Permission Set : cela réduit la maintenance et rend l’évolution des droits plus flexible."
+            type: "bullets",
+            title: "Livrables",
+            items: [
+              "Cahier des charges (PDF).",
+              "Présentation projet / livrables (DOCX/PDF).",
+              "Guide de création sandbox (PDF)."
             ]
           },
           {
-            type: "metrics",
-            title: "Ce que démontre ce projet",
+            type: "bullets",
+            title: "Stack & outils",
             items: [
-              {
-                label: "Compétences validées",
-                value: "4/4",
-                note: "Analyse des besoins, choix techniques, modèle de données & règles métier, spécifications détaillées."
-              },
-              {
-                label: "Automatisation livrée",
-                value: "Flow",
-                note: "Décrément automatique du « Nombre de places disponibles » pour un suivi fiable de la capacité."
-              },
-              {
-                label: "Conception sécurité",
-                value: "2 profils + 3 rôles",
-                note: "Accès objets documentés et hiérarchie mise en place (avec proposition d’amélioration)."
-              }
-            ]
-          },
-          {
-            type: "resources",
-            title: "Livrables & preuves",
-            items: [
-              {
-                label: "Spécifications détaillées (PDF)",
-                href: "/docs/projects/tours-for-life-salesforce-solution/specifications.pdf",
-                note: "Spécifications fonctionnelles + techniques alignées sur le cahier des charges."
-              },
-              {
-                label: "Présentation (PPTX)",
-                href: "/docs/projects/tours-for-life-salesforce-solution/presentation.pptx",
-                note: "Support de présentation de la solution (cadrage, choix, démonstration)."
-              },
-              {
-                label: "Modèle de données (PNG)",
-                href: "/docs/projects/tours-for-life-salesforce-solution/data-model.png",
-                note: "Capture du schéma (objets et relations)."
-              },
-              {
-                label: "Cahier des charges (PDF)",
-                href: "/docs/projects/tours-for-life-salesforce-solution/cahier-des-charges.pdf",
-                note: "Brief initial + ajout de la gestion de flotte."
-              },
-              {
-                label: "Guide de création de sandbox (PDF)",
-                href: "/docs/projects/tours-for-life-salesforce-solution/sandbox-creation-guide.pdf",
-                note: "Marche à suivre utilisée pour préparer un environnement de démonstration."
-              }
+              "Salesforce (modèle de données, automatisation, sécurité).",
+              "Approche pilotée par la documentation (spécifications, guides)."
             ]
           }
         ]
@@ -1452,240 +888,125 @@ Staging app: https://legarant-staging-78a7880351d1.herokuapp.com
     slug: "digit-learning-salesforce-update",
     gallery: [
       {
-        src: "/projects/digit-learning-salesforce-update/Schema_builder_captures_decran_122023.png",
-        alt: "Digit Learning — data model (Schema Builder)"
-      },
-      {
-        src: "/projects/digit-learning-salesforce-update/Mise a jour de place disponible par formation-.png",
-        alt: "Digit Learning — Flow: update available seats"
-      },
-      {
-        src: "/projects/digit-learning-salesforce-update/Mise a jours des status des etudiants vers Ancient client.png",
-        alt: "Digit Learning — Scheduled Flow: student status to former client"
-      },
-      {
-        src: "/projects/digit-learning-salesforce-update/inscriptions-formation-acheter-firefox-1.png",
-        alt: "Digit Learning — Enrollment screen (1)"
-      },
-      {
-        src: "/projects/digit-learning-salesforce-update/inscriptions-formation-acheter-firefox-2.png",
-        alt: "Digit Learning — Enrollment screen (2)"
+        src: "/projects/digit-learning-salesforce-update/Comparatif entre des taux de transformations du statut prospect en client actif(1).png",
+        alt: "digit-learning-salesforce-update — 1"
       },
       {
         src: "/projects/digit-learning-salesforce-update/Comparatif entre des taux de transformations du statut prospect en client actif.png",
-        alt: "Digit Learning — report: prospect → active customer conversion"
+        alt: "digit-learning-salesforce-update — 2"
+      },
+      {
+        src: "/projects/digit-learning-salesforce-update/inscriptions-formation-acheter-firefox-1.png",
+        alt: "digit-learning-salesforce-update — 3"
+      },
+      {
+        src: "/projects/digit-learning-salesforce-update/inscriptions-formation-acheter-firefox-2.png",
+        alt: "digit-learning-salesforce-update — 4"
       }
     ],
     locales: {
       en: {
-        heroSubtitle:
-          "Audit and modernization of a Salesforce org for an online learning platform: data model refactor, automation (Flows), and reporting.",
+        heroSubtitle: "Salesforce application update (Digit Learning)",
         sections: [
           {
             type: "text",
             title: "Context",
             paragraphs: [
-              "Digit Learning is an online school. The Sales team had been using a Salesforce app for ~2 years to manage Students, Mentors, and Trainings.",
-              "After key-user interviews, the IT team requested a structured audit and the implementation of concrete improvements to reduce manual work, improve data reliability, and better support decision-making."
+              "Digit Learning had an existing Salesforce application that required a structured audit, targeted fixes, and clearer operational documentation.",
+              "The objective was to improve reliability of business processes (enrollments, statuses, capacity tracking) while keeping the org maintainable." 
             ]
           },
           {
             type: "bullets",
-            title: "Key needs (from interviews)",
+            title: "Problem",
             items: [
-              "Allow a single student to be enrolled in multiple trainings (current model was too restrictive).",
-              "Automate enrollment and mentor assignment to reduce manual steps and errors.",
-              "Track former customers to improve follow-up and re-engagement.",
-              "Improve training management (capacity, relevance review) with reliable metrics.",
-              "Provide management-ready reports and dashboards (students by status, available seats, conversion rates)."
+              "Clarify requirements through interviews and translate them into actionable changes.",
+              "Fix inconsistencies and automate core workflows with safe, testable patterns.",
+              "Provide deployment and data import guidance for a reproducible rollout." 
             ]
           },
           {
             type: "bullets",
-            title: "What I implemented",
+            title: "Solution",
             items: [
-              "Data model update: created a junction object 'Purchased Trainings' (master-detail to Students and Trainings) to support multiple enrollments per student, with roll-up summaries for history and counts.",
-              "Automation: record-triggered Flow on 'Purchased Trainings' to keep training availability up to date and to standardize enrollment actions.",
-              "Automation: scheduled Flow to maintain student lifecycle status (Active Customer vs Former Customer) based on active trainings.",
-              "Reporting: new reports to support Sales and Management, including available seats per training, students grouped by status (and by mentor), and a prospect → active customer conversion view.",
-              "Operational documentation: deployment guidance + data import guidance to ensure a reproducible rollout."
+              "Audit and analysis reports to identify gaps and root causes.",
+              "Configuration and automation improvements (Flows, validation, reporting) aligned with the target process.",
+              "Deployment guide + import guide to ensure reliable operations and onboarding." 
             ]
           },
           {
-            type: "metrics",
-            title: "Measured outcomes (qualitative & quantitative)",
+            type: "bullets",
+            title: "Deliverables",
             items: [
-              {
-                label: "Enrollment handling time",
-                value: "20 → 5 min / student",
-                note: "Estimated 75% time saved per enrollment thanks to automation."
-              },
-              {
-                label: "Former customers tracking",
-                value: "500 records",
-                note: "Re-engagement observed: +15% (tracking enabled and actionable)."
-              },
-              {
-                label: "Training success rate",
-                value: "70% → 85%",
-                note: "Improvement: +15% via better follow-up and training management."
-              }
-            ]
-          },
-          {
-            type: "resources",
-            title: "Deliverables & evidence",
-            items: [
-              {
-                label: "Audit report (DOCX)",
-                href: "/docs/projects/digit-learning-salesforce-update/audit-report.docx",
-                note: "Findings + recommendations based on key-user interviews."
-              },
-              {
-                label: "Qualitative & quantitative analysis (DOCX)",
-                href: "/docs/projects/digit-learning-salesforce-update/analysis-report.docx",
-                note: "Time saved estimates and business impact explanation."
-              },
-              {
-                label: "Deployment guide (PDF)",
-                href: "/docs/projects/digit-learning-salesforce-update/deployment-guide.pdf"
-              },
-              {
-                label: "Data import guide (PDF)",
-                href: "/docs/projects/digit-learning-salesforce-update/data-import-guide.pdf"
-              },
-              {
-                label: "Interview notes (PDF)",
-                href: "/docs/projects/digit-learning-salesforce-update/interview-notes.pdf"
-              },
-              {
-                label: "Package installation link (TXT)",
-                href: "/docs/projects/digit-learning-salesforce-update/package-installation-link.txt"
-              },
-              {
-                label: "Screenshots bundle (ZIP)",
-                href: "/docs/projects/digit-learning-salesforce-update/screenshots.zip",
-                note: "Schema Builder + Flows + reporting screenshots."
-              }
+              "Interview notes (PDF).",
+              "Audit report and analysis report (DOCX).",
+              "Deployment guide (PDF).",
+              "Data import guide (PDF) + CSV templates.",
+              "Package / installation link (TXT)."
             ]
           },
           {
             type: "bullets",
             title: "Stack & tools",
             items: [
-              "Salesforce: custom objects, master-detail relationships, roll-up summaries, validation & reporting.",
-              "Automation: record-triggered & scheduled Flows (focus on safe, maintainable patterns).",
-              "Documentation: deployment + data import guidance for repeatable operations."
+              "Salesforce (custom objects, Flows, reports/dashboards).",
+              "Deployment and documentation practices (repeatable rollout)."
             ]
           }
         ]
       },
       fr: {
-        heroSubtitle:
-          "Audit et modernisation d’une org Salesforce pour une école en ligne : refonte du modèle de données, automatisations (Flows) et reporting.",
+        heroSubtitle: "Salesforce application update (Digit Learning)",
         sections: [
           {
             type: "text",
             title: "Contexte",
             paragraphs: [
-              "Digit Learning est une école en ligne. Les équipes commerciales utilisent Salesforce depuis ~2 ans pour gérer les Étudiants, Mentors et Formations.",
-              "Après des entretiens avec des utilisateurs clés, le service IT a demandé un audit structuré puis la mise en œuvre d’améliorations concrètes afin de réduire le travail manuel, fiabiliser la donnée et mieux piloter l’activité."
+              "Digit Learning disposait déjà d’une application Salesforce, mais elle nécessitait un audit structuré, des corrections ciblées et une documentation opérationnelle plus solide.",
+              "L’objectif : fiabiliser les processus métier (inscriptions, statuts, suivi des capacités) tout en gardant une org maintenable." 
             ]
           },
           {
             type: "bullets",
-            title: "Besoins utilisateurs (entretiens)",
+            title: "Problématique",
             items: [
-              "Permettre à un même étudiant de s’inscrire à plusieurs formations (modèle initial trop restrictif).",
-              "Automatiser les inscriptions et l’attribution de mentors pour réduire les manipulations et les erreurs.",
-              "Mettre en place un suivi des anciens clients pour améliorer la relance et le réengagement.",
-              "Mieux gérer les formations (capacités, suivi) avec des indicateurs fiables.",
-              "Fournir des rapports/tableaux de bord exploitables (étudiants par statut, places disponibles, taux de conversion)."
+              "Clarifier les besoins via entretiens et les traduire en changements concrets.",
+              "Corriger les incohérences et automatiser les workflows clés avec des patterns fiables.",
+              "Fournir des guides de déploiement et d’import pour un passage en production reproductible." 
             ]
           },
           {
             type: "bullets",
-            title: "Ce que j’ai mis en place",
+            title: "Solution",
             items: [
-              "Mise à jour du modèle de données : création d’un objet de jonction « Formations achetées » (master-detail vers Étudiants et Formations) pour gérer plusieurs inscriptions par étudiant + roll-up summaries (historique, compteurs…).",
-              "Automatisation : Flow record-triggered sur « Formations achetées » pour fiabiliser le processus d’inscription et maintenir les places disponibles à jour.",
-              "Automatisation : Flow planifié pour gérer le cycle de vie des étudiants (Client actif vs Ancien client) en fonction des formations actives.",
-              "Reporting : création de rapports (places disponibles, étudiants regroupés par statut et par mentor, comparatif du taux de transformation prospect → client actif).",
-              "Documentation : guides de déploiement + import des données pour un passage en production reproductible."
+              "Rapports d’audit et d’analyse pour identifier écarts et causes racines.",
+              "Améliorations de configuration et d’automatisation (Flows, validations, reporting) alignées sur le processus cible.",
+              "Guide de déploiement + guide d’import pour fiabiliser l’exploitation et l’onboarding." 
             ]
           },
           {
-            type: "metrics",
-            title: "Résultats mesurés (qualitatif & quantitatif)",
+            type: "bullets",
+            title: "Livrables",
             items: [
-              {
-                label: "Temps de traitement d’une inscription",
-                value: "20 → 5 min / étudiant",
-                note: "Estimation : 75% de temps gagné par inscription grâce à l’automatisation."
-              },
-              {
-                label: "Suivi des anciens clients",
-                value: "500 enregistrements",
-                note: "Réengagement observé : +15% (suivi rendu possible et actionnable)."
-              },
-              {
-                label: "Taux de réussite des formations",
-                value: "70% → 85%",
-                note: "Amélioration : +15% via un meilleur suivi et une gestion plus fiable."
-              }
-            ]
-          },
-          {
-            type: "resources",
-            title: "Livrables & preuves",
-            items: [
-              {
-                label: "Rapport d’audit (DOCX)",
-                href: "/docs/projects/digit-learning-salesforce-update/audit-report.docx",
-                note: "Constats + recommandations issues des entretiens utilisateurs."
-              },
-              {
-                label: "Analyse qualitative & quantitative (DOCX)",
-                href: "/docs/projects/digit-learning-salesforce-update/analysis-report.docx",
-                note: "Estimations de gains de temps + impact sur la performance."
-              },
-              {
-                label: "Guide de déploiement (PDF)",
-                href: "/docs/projects/digit-learning-salesforce-update/deployment-guide.pdf"
-              },
-              {
-                label: "Guide d’import des données (PDF)",
-                href: "/docs/projects/digit-learning-salesforce-update/data-import-guide.pdf"
-              },
-              {
-                label: "Notes d’entretiens (PDF)",
-                href: "/docs/projects/digit-learning-salesforce-update/interview-notes.pdf"
-              },
-              {
-                label: "Lien d’installation du package (TXT)",
-                href: "/docs/projects/digit-learning-salesforce-update/package-installation-link.txt"
-              },
-              {
-                label: "Pack de captures d’écran (ZIP)",
-                href: "/docs/projects/digit-learning-salesforce-update/screenshots.zip",
-                note: "Schema Builder + Flows + reporting."
-              }
+              "Notes d’entretiens (PDF).",
+              "Rapport d’audit et rapport d’analyse (DOCX).",
+              "Guide de déploiement (PDF).",
+              "Guide d’import des données (PDF) + modèles CSV.",
+              "Lien package / installation (TXT)."
             ]
           },
           {
             type: "bullets",
             title: "Stack & outils",
             items: [
-              "Salesforce : objets custom, relations master-detail, roll-up summaries, validation et reporting.",
-              "Automatisation : Flows record-triggered et planifiés (patterns maintenables).",
-              "Documentation : guides de déploiement et d’import pour une exploitation reproductible."
+              "Salesforce (objets custom, Flows, rapports/tableaux de bord).",
+              "Pratiques de déploiement et de documentation (rollout reproductible)."
             ]
           }
         ]
       }
     }
   },
-
   {
     slug: "cicd-pipeline-setup",
     locales: {
@@ -2163,10 +1484,10 @@ Staging app: https://legarant-staging-78a7880351d1.herokuapp.com
   {
     slug: "tssr-virtualization-windows-server-2022",
     gallery: [
-      { src: "/projects/tssr-virtualization-windows-server-2022/tssr-1.png", alt: "VMware Workstation — VM creation" },
-      { src: "/projects/tssr-virtualization-windows-server-2022/tssr-2.webp", alt: "Windows Server 2022 — network settings" },
-      { src: "/projects/tssr-virtualization-windows-server-2022/tssr-3.webp", alt: "Active Directory — OU/users/groups" },
-      { src: "/projects/tssr-virtualization-windows-server-2022/tssr-4.webp", alt: "WDS — PXE deployment" }
+      { src: "/projects/tssr-virtualization-windows-server-2022/lab-1.png", alt: "VMware Workstation — VM creation" },
+      { src: "/projects/tssr-virtualization-windows-server-2022/lab-2.png", alt: "Windows Server 2022 — network settings" },
+      { src: "/projects/tssr-virtualization-windows-server-2022/lab-3.png", alt: "Active Directory — OU/users/groups" },
+      { src: "/projects/tssr-virtualization-windows-server-2022/lab-4.png", alt: "WDS — PXE deployment" }
     ],
     locales: {
       en: {
@@ -2268,10 +1589,10 @@ Staging app: https://legarant-staging-78a7880351d1.herokuapp.com
   {
     slug: "tssr-pfsense-squid-proxy",
     gallery: [
-      { src: "/projects/tssr-pfsense-squid-proxy/tssr-1.webp", alt: "pfSense — interfaces WAN/LAN" },
-      { src: "/projects/tssr-pfsense-squid-proxy/tssr-2.webp", alt: "Squid — proxy configuration" },
-      { src: "/projects/tssr-pfsense-squid-proxy/tssr-3.webp", alt: "Firewall rules — allow proxy traffic" },
-      { src: "/projects/tssr-pfsense-squid-proxy/tssr-4.webp", alt: "Client settings — proxy + validation" }
+      { src: "/projects/tssr-pfsense-squid-proxy/lab-1.png", alt: "pfSense — interfaces WAN/LAN" },
+      { src: "/projects/tssr-pfsense-squid-proxy/lab-2.png", alt: "Squid — proxy configuration" },
+      { src: "/projects/tssr-pfsense-squid-proxy/lab-3.png", alt: "Firewall rules — allow proxy traffic" },
+      { src: "/projects/tssr-pfsense-squid-proxy/lab-4.png", alt: "Client settings — proxy + validation" }
     ],
     locales: {
       en: {
@@ -2605,184 +1926,131 @@ Staging app: https://legarant-staging-78a7880351d1.herokuapp.com
 {
   slug: "hemebiotech-java-debug",
   gallery: [
-    { src: "/projects/hemebiotech-java-debug/cover.png", alt: "HemeBiotech — Java debugging project" }
+    {
+      src: "/projects/hemebiotech-java-debug/cover.png",
+      alt: "hemebiotech-java-debug — cover"
+    }
   ],
   locales: {
     en: {
-      heroSubtitle: "Fix and refactor a Java symptom analytics app (Heme Biotech)",
+      heroSubtitle: "Debugging and stabilizing a Java back-end (HemeBiotech)",
       sections: [
         {
           type: "text",
           title: "Context",
           paragraphs: [
-            "Heme Biotech needed a small analytics program to read a symptoms file and output the number of occurrences for each symptom.",
-            "The code already read the input correctly, but the counting logic was wrong (e.g., 3 occurrences in the file ended up as 0 for every symptom)."
+            "Training project focused on diagnosing and fixing defects in a Java application.",
+            "Goal: understand the existing codebase, reproduce issues, apply targeted fixes, and validate via tests."
           ]
         },
         {
           type: "bullets",
-          title: "Goals",
+          title: "What I did",
           items: [
-            "Repair the counting so each symptom is correctly aggregated.",
-            "Produce a result file (result.out) sorted alphabetically, in the expected format: symptom, count.",
-            "Refactor into a clean OOP design (interfaces + small methods) to make the code maintainable for future contributors.",
-            "Use Git properly (dev branch, frequent commits, clean history)."
+            "Analyzed the initial project brief and identified expected behaviors.",
+            "Reproduced defects locally and traced root causes in the code (DAO/services/tests).",
+            "Applied fixes with minimal, safe changes to restore correct behavior.",
+            "Added/updated tests when needed to prevent regressions."
           ]
         },
         {
-          type: "timeline",
-          title: "How I approached it",
-          steps: [
+          type: "bullets",
+          title: "Verification",
+          items: [
+            "Ran unit tests and validated functional scenarios described in the brief.",
+            "Checked edge cases and ensured changes did not break existing features."
+          ]
+        },
+        {
+          type: "resources",
+          title: "Resources",
+          items: [
             {
-              title: "1) Reproduce and isolate the bug",
-              description:
-                "Ran the app locally, compared output vs expected behavior, then traced the logic responsible for incrementing counts."
+              label: "Project brief (PDF)",
+              href: "/docs/projects/hemebiotech-java-debug/guide-etapes-cles.pdf"
             },
             {
-              title: "2) Fix counting + edge cases",
-              description:
-                "Implemented a safe counting strategy (Map-based aggregation) and ensured the increment path is correct for repeated symptoms."
+              label: "Email exchange (PDF)",
+              href: "/docs/projects/hemebiotech-java-debug/echange-email.pdf",
+              note: "Sanitized"
             },
             {
-              title: "3) Refactor with interfaces",
-              description:
-                "Introduced a writer interface (ISymptomWriter) and moved responsibilities out of main: read → count → sort → write."
+              label: "GitHub repository",
+              href: "https://github.com/Aiyeesha/DAHOUMANE-Aicha-Imene-Debuggez-une-application-Java.git"
             },
             {
-              title: "4) Deterministic alphabetical output",
-              description:
-                "Used a sorted map approach (TreeMap) so the output is alphabetically ordered by design."
-            },
-            {
-              title: "5) Code quality hardening",
-              description:
-                "Cleaned naming (camelCase), removed useless comments, added Javadoc and consistent indentation, then validated with repeated runs."
+              label: "Download code link (PDF)",
+              href: "/docs/projects/hemebiotech-java-debug/code.pdf"
             }
           ]
         },
         {
           type: "code",
-          title: "Run locally",
-          language: "bash",
-          code: "javac com/hemebiotech/analytics/*.java\njava -cp \".\" com.hemebiotech.analytics.Main"
-        },
-        {
-          type: "metrics",
-          title: "Outcomes",
-          items: [
-            { label: "Correct counting", value: "Counts match input file occurrences" },
-            { label: "Sorted output", value: "Alphabetical by design (TreeMap)" },
-            { label: "Maintainable architecture", value: "Reader/Writer interfaces + small methods" },
-            { label: "Collaboration readiness", value: "Git workflow + documented code (Javadoc)" }
-          ]
-        },
-        {
-          type: "resources",
-          title: "Deliverables",
-          items: [
-            { label: "Project brief (DOCX)", href: "/docs/projects/hemebiotech-java-debug/brief.docx" },
-            { label: "Key steps guide (PDF)", href: "/docs/projects/hemebiotech-java-debug/key-steps-guide.pdf" },
-            { label: "Directives (PDF)", href: "/docs/projects/hemebiotech-java-debug/directives.pdf" },
-            { label: "Email exchange (PDF)", href: "/docs/projects/hemebiotech-java-debug/email-exchange.pdf" },
-            { label: "Submission (PDF)", href: "/docs/projects/hemebiotech-java-debug/deliverable.pdf" },
-            { label: "Legacy version (PDF)", href: "/docs/projects/hemebiotech-java-debug/legacy-version-may-2023.pdf", note: "Reference" },
-            { label: "Repository link (TXT)", href: "/docs/projects/hemebiotech-java-debug/repository.txt" }
-          ]
-        },
-        {
-          type: "code",
-          title: "Repository",
+          title: "Repository link",
           language: "text",
-          code: "https://github.com/Aiyeesha/DAHOUMANE-Aicha-Imene-Debuggez-une-applicationJava.git",
+          code: "https://github.com/Aiyeesha/DAHOUMANE-Aicha-Imene-Debuggez-une-application-Java.git",
+          downloadUrl: "/docs/projects/hemebiotech-java-debug/code.pdf"
         }
       ]
     },
     fr: {
-      heroSubtitle: "Débugger et refactoriser une application Java d’analyse de symptômes (Heme Biotech)",
+      heroSubtitle: "Débogage et stabilisation d’un back-end Java (HemeBiotech)",
       sections: [
         {
           type: "text",
           title: "Contexte",
           paragraphs: [
-            "Heme Biotech avait besoin d’un programme d’analyse simple : lire un fichier de symptômes et produire le nombre d’occurrences par symptôme.",
-            "La lecture du fichier était correcte, mais le comptage était faux (ex. 3 occurrences dans le fichier → 0 en sortie pour tous les symptômes)."
+            "Projet de formation centré sur le diagnostic et la correction de dysfonctionnements dans une application Java.",
+            "Objectif : comprendre le code existant, reproduire les anomalies, corriger de manière ciblée et valider par des tests."
           ]
         },
         {
           type: "bullets",
-          title: "Objectifs",
+          title: "Ce que j’ai fait",
           items: [
-            "Corriger le comptage pour agréger correctement les occurrences de chaque symptôme.",
-            "Générer un fichier de sortie (result.out) trié par ordre alphabétique, au format : symptôme, quantité.",
-            "Refactorer en POO (interfaces + méthodes courtes) pour rendre le code maintenable.",
-            "Appliquer un workflow Git propre (branche dev, commits réguliers, historique clair)."
+            "Analyse du brief et des comportements attendus.",
+            "Reproduction des anomalies en local et recherche des causes racines (DAO/services/tests).",
+            "Corrections minimales et sûres pour rétablir le comportement attendu.",
+            "Ajout/ajustement de tests si nécessaire pour éviter les régressions."
           ]
         },
         {
-          type: "timeline",
-          title: "Démarche",
-          steps: [
+          type: "bullets",
+          title: "Validation",
+          items: [
+            "Exécution des tests unitaires et validation des scénarios fonctionnels.",
+            "Vérification de cas limites et absence d’impact négatif sur l’existant."
+          ]
+        },
+        {
+          type: "resources",
+          title: "Ressources",
+          items: [
             {
-              title: "1) Reproduire et isoler le bug",
-              description:
-                "Exécution locale, comparaison de la sortie au comportement attendu, puis identification du point de calcul des occurrences."
+              label: "Brief du projet (PDF)",
+              href: "/docs/projects/hemebiotech-java-debug/guide-etapes-cles.pdf"
             },
             {
-              title: "2) Correction du comptage + cas limites",
-              description:
-                "Mise en place d’un comptage robuste (agrégation via Map) et validation de l’incrémentation sur des symptômes répétés."
+              label: "Échange email (PDF)",
+              href: "/docs/projects/hemebiotech-java-debug/echange-email.pdf",
+              note: "Sanitisé"
             },
             {
-              title: "3) Refactor via interfaces",
-              description:
-                "Création de l’interface d’écriture (ISymptomWriter) et découpage en étapes : lire → compter → trier → écrire."
+              label: "Dépôt GitHub",
+              href: "https://github.com/Aiyeesha/DAHOUMANE-Aicha-Imene-Debuggez-une-application-Java.git"
             },
             {
-              title: "4) Tri alphabétique déterministe",
-              description:
-                "Utilisation d’une structure triée (TreeMap) pour garantir l’ordre alphabétique sans logique de tri additionnelle."
-            },
-            {
-              title: "5) Durcissement qualité",
-              description:
-                "Nettoyage du code (naming camelCase, suppression de commentaires inutiles), ajout de Javadoc, indentation et validations répétées."
+              label: "Télécharger le lien code (PDF)",
+              href: "/docs/projects/hemebiotech-java-debug/code.pdf"
             }
           ]
         },
         {
           type: "code",
-          title: "Exécuter en local",
-          language: "bash",
-          code: "javac com/hemebiotech/analytics/*.java\njava -cp \".\" com.hemebiotech.analytics.Main"
-        },
-        {
-          type: "metrics",
-          title: "Résultats",
-          items: [
-            { label: "Comptage correct", value: "Les décomptes correspondent aux occurrences du fichier" },
-            { label: "Sortie triée", value: "Ordre alphabétique garanti (TreeMap)" },
-            { label: "Architecture maintenable", value: "Interfaces reader/writer + méthodes courtes" },
-            { label: "Prêt pour le travail en équipe", value: "Workflow Git + code documenté (Javadoc)" }
-          ]
-        },
-        {
-          type: "resources",
-          title: "Livrables",
-          items: [
-            { label: "Brief du projet (DOCX)", href: "/docs/projects/hemebiotech-java-debug/brief.docx" },
-            { label: "Guide d’étapes clés (PDF)", href: "/docs/projects/hemebiotech-java-debug/key-steps-guide.pdf" },
-            { label: "Directives (PDF)", href: "/docs/projects/hemebiotech-java-debug/directives.pdf" },
-            { label: "Échange email (PDF)", href: "/docs/projects/hemebiotech-java-debug/email-exchange.pdf" },
-            { label: "Livrable (PDF)", href: "/docs/projects/hemebiotech-java-debug/deliverable.pdf" },
-            { label: "Ancienne version (PDF)", href: "/docs/projects/hemebiotech-java-debug/legacy-version-may-2023.pdf", note: "Référence" },
-            { label: "Lien du dépôt (TXT)", href: "/docs/projects/hemebiotech-java-debug/repository.txt" }
-          ]
-        },
-        {
-          type: "code",
-          title: "Dépôt GitHub",
+          title: "Lien du dépôt",
           language: "text",
-          code: "https://github.com/Aiyeesha/DAHOUMANE-Aicha-Imene-Debuggez-une-applicationJava.git",
+          code: "https://github.com/Aiyeesha/DAHOUMANE-Aicha-Imene-Debuggez-une-application-Java.git",
+          downloadUrl: "/docs/projects/hemebiotech-java-debug/code.pdf"
         }
       ]
     }
@@ -2794,205 +2062,115 @@ Staging app: https://legarant-staging-78a7880351d1.herokuapp.com
   gallery: [
     {
       src: "/projects/parkit-java-testing/2024-06-07 00_45_59-TEST JACOCO Parking Service class.png",
-      alt: "Parkit — JaCoCo coverage (ParkingService)"
-    },
-    {
-      src: "/projects/parkit-java-testing/2024-06-07 00_45_59-TEST JACOCO in Clone of WIN10 DEV SALESFORCE - VMware Workstation.png",
-      alt: "Parkit — JaCoCo report"
-    },
-    {
-      src: "/projects/parkit-java-testing/2024-06-07 00_48_38-TEST Surefire in Clone of WIN10 DEV SALESFORCE - VMware Workstation.png",
-      alt: "Parkit — Maven Surefire report"
+      alt: "parkit-java-testing — tests"
     },
     {
       src: "/projects/parkit-java-testing/2024-06-07 00_48_38-TEST Surefire with details in Clone of WIN10 DEV SALESFORCE - VMware Workstation.png",
-      alt: "Parkit — Surefire report details"
-    },
-    {
-      src: "/projects/parkit-java-testing/2024-06-25 13_21_08-com.parkit.parkingsystem.dao - Opera.png",
-      alt: "Parkit — DAO layer"
+      alt: "parkit-java-testing — surefire"
     }
   ],
   locales: {
     en: {
-      heroSubtitle: "TDD, unit & integration tests for a Java parking payment system (Park’it)",
+      heroSubtitle: "Testing and validating a Java feature implementation (Parkit)",
       sections: [
         {
           type: "text",
           title: "Context",
           paragraphs: [
-            "Park’it is a CLI-based parking payment backend being promoted from beta to a production-ready phase. The product team requested bug fixes, automated testing, and new features before widening the rollout.",
-            "The expectations included: fixing existing regressions, delivering new pricing rules with TDD, completing pending integration tests, and producing test execution evidence (Surefire + JaCoCo reports)."
+            "Training project focused on test strategy, correctness and non‑regression on a Java application.",
+            "Goal: validate an implementation, strengthen tests, and provide evidence (reports, coverage)."
           ]
         },
         {
           type: "bullets",
-          title: "Goals & requirements",
+          title: "What I did",
           items: [
-            "Fix the pricing bug causing negative parking durations when a vehicle stays more than 24 hours.",
-            "Implement “free parking” for the first 30 minutes (0$) and cover it with unit tests (TDD).",
-            "Implement a 5% discount for recurring users (based on the number of past tickets) and cover it with unit tests (TDD).",
-            "Strengthen ParkingService tests using Mockito mocks and reach high coverage on that class.",
-            "Complete the TODO integration tests (database-backed) and ensure a global coverage target (>= 70%)."
-          ]
-        },
-        {
-          type: "timeline",
-          title: "Implementation workflow",
-          steps: [
-            {
-              title: "1) Baseline & reproduction",
-              description:
-                "Forked and versioned the codebase, ran mvn test / mvn verify, and used failing tests to localize the root causes."
-            },
-            {
-              title: "2) Bugfix: negative duration (>24h)",
-              description:
-                "Fixed the fare duration computation by relying on millisecond timestamps (Date.getTime()) then converting consistently to minutes."
-            },
-            {
-              title: "3) TDD: first 30 minutes free",
-              description:
-                "Wrote failing unit tests for car and bike cases (< 30 minutes), then updated FareCalculatorService so calculateFare returns 0 when duration is below 30 minutes."
-            },
-            {
-              title: "4) TDD: 5% recurring discount",
-              description:
-                "Added a discount-aware calculateFare(Ticket, boolean) path, implemented ticket counting in TicketDAO (getNbTicket), and applied the 5% reduction when the user is recurrent."
-            },
-            {
-              title: "5) Unit tests hardening (Mockito)",
-              description:
-                "Improved ParkingService unit tests by mocking TicketDAO, ParkingSpotDAO and user inputs, and added targeted tests to cover success and failure paths."
-            },
-            {
-              title: "6) Integration tests + reports",
-              description:
-                "Completed the TODO assertions in ParkingDatabaseIT, added a recurring-user integration test, and generated Surefire + JaCoCo reports with mvn verify."
-            }
-          ]
-        },
-        {
-          type: "metrics",
-          title: "Quality outcomes",
-          items: [
-            { label: "Pricing reliability", value: "Negative duration bug fixed" },
-            { label: "New features delivered", value: "30-min free parking + 5% recurring discount" },
-            { label: "Test scope", value: "Unit tests + DB-backed integration tests" },
-            { label: "Coverage targets", value: ">= 70% global; > 90% on ParkingService (instructions)", note: "Verified via JaCoCo reports" },
-            { label: "Evidence", value: "Surefire + JaCoCo reports captured", note: "Screenshots available in deliverables" }
+            "Reviewed functional expectations and existing code paths.",
+            "Executed and improved unit tests (JUnit) to cover the main scenarios and edge cases.",
+            "Used build tooling and reports (Surefire / JaCoCo) to confirm execution and coverage.",
+            "Documented findings and validated the final behavior."
           ]
         },
         {
           type: "resources",
-          title: "Deliverables & evidence",
+          title: "Resources",
           items: [
-            { label: "Project brief (DOCX)", href: "/docs/projects/parkit-java-testing/brief-parkit.docx" },
-            { label: "Step-by-step guide (PDF)", href: "/docs/projects/parkit-java-testing/guide-etapes.pdf" },
-            { label: "Key steps guide (PDF)", href: "/docs/projects/parkit-java-testing/guide-etapes-cles.pdf" },
-            { label: "Onboarding kit (PDF)", href: "/docs/projects/parkit-java-testing/kit-technique-onboarding.pdf" },
-            { label: "Archived version (PDF)", href: "/docs/projects/parkit-java-testing/ancienne-version-mai-2023.pdf" },
-            { label: "Test reports screenshots (ZIP)", href: "/docs/projects/parkit-java-testing/screenshots.zip" },
-            { label: "GitHub repository", href: "https://github.com/Aiyeesha/ParkingSystem.git" },
-            { label: "Download repository link (TXT)", href: "/docs/projects/parkit-java-testing/repository-link.txt" }
+            {
+              label: "Project brief (PDF)",
+              href: "/docs/projects/parkit-java-testing/guide-etapes.pdf"
+            },
+            {
+              label: "Technical onboarding kit (PDF)",
+              href: "/docs/projects/parkit-java-testing/kit-technique-onboarding.pdf"
+            },
+            {
+              label: "GitHub repository",
+              href: "https://github.com/Aiyeesha/ParkingSystem.git"
+            },
+            {
+              label: "Download repository link (TXT)",
+              href: "/docs/projects/parkit-java-testing/code.txt"
+            }
           ]
         },
         {
           type: "code",
-          title: "Repository",
+          title: "Repository link",
           language: "text",
           code: "https://github.com/Aiyeesha/ParkingSystem.git",
+          downloadUrl: "/docs/projects/parkit-java-testing/code.txt"
         }
       ]
     },
     fr: {
-      heroSubtitle: "TDD + tests unitaires & d’intégration sur un système de paiement de parking Java (Park’it)",
+      heroSubtitle: "Tests et validation d’une fonctionnalité Java (Parkit)",
       sections: [
         {
           type: "text",
           title: "Contexte",
           paragraphs: [
-            "Park’it est un back-end de paiement de parking (interface en terminal) qui doit passer d’une bêta à une version plus robuste. L’équipe produit attendait des corrections de bugs, une stratégie de tests, et des fonctionnalités avant d’élargir le déploiement.",
-            "Les attentes incluaient : corriger les régressions existantes, développer de nouvelles règles tarifaires en TDD, compléter les tests d’intégration, et fournir des preuves d’exécution (rapports Surefire + JaCoCo)."
+            "Projet de formation orienté stratégie de test, validation fonctionnelle et non‑régression sur une application Java.",
+            "Objectif : valider une implémentation, renforcer les tests et produire des preuves (rapports, couverture)."
           ]
         },
         {
           type: "bullets",
-          title: "Objectifs & exigences",
+          title: "Ce que j’ai fait",
           items: [
-            "Corriger le bug de tarification qui produisait des durées négatives lorsque le véhicule restait plus de 24h.",
-            "Implémenter la gratuité pour les 30 premières minutes (0$) et la couvrir par des tests unitaires (TDD).",
-            "Implémenter une remise de 5% pour les utilisateurs récurrents (basée sur le nombre de tickets) et la couvrir par des tests unitaires (TDD).",
-            "Renforcer les tests de ParkingService via des mocks Mockito et atteindre une forte couverture sur cette classe.",
-            "Compléter les TODO des tests d’intégration (base de données) et atteindre une couverture globale >= 70%."
-          ]
-        },
-        {
-          type: "timeline",
-          title: "Déroulé de mise en œuvre",
-          steps: [
-            {
-              title: "1) Baseline & reproduction",
-              description:
-                "Mise en place du versioning, exécution mvn test / mvn verify, puis analyse des tests en échec pour isoler les causes."
-            },
-            {
-              title: "2) Correctif : durée négative (>24h)",
-              description:
-                "Correction du calcul de durée via des timestamps en millisecondes (Date.getTime()), puis conversion cohérente en minutes."
-            },
-            {
-              title: "3) TDD : 30 minutes gratuites",
-              description:
-                "Écriture des tests unitaires (voiture + moto) pour un stationnement < 30 minutes, puis adaptation de FareCalculatorService pour retourner un tarif à 0 dans ce cas."
-            },
-            {
-              title: "4) TDD : remise 5% utilisateur récurrent",
-              description:
-                "Ajout d’un chemin calculateFare(Ticket, boolean), implémentation du comptage côté TicketDAO (getNbTicket), et application de la remise lorsque l’utilisateur n’en est pas à son premier passage."
-            },
-            {
-              title: "5) Durcissement tests unitaires (Mockito)",
-              description:
-                "Complétion des tests unitaires de ParkingService via mocks (TicketDAO, ParkingSpotDAO, InputReader), et ajout de tests ciblés pour couvrir les chemins nominaux et les cas d’échec."
-            },
-            {
-              title: "6) Tests d’intégration + rapports",
-              description:
-                "Complétion des TODO dans ParkingDatabaseIT, ajout d’un test d’intégration pour la remise (utilisateur récurrent), puis génération des rapports Surefire + JaCoCo via mvn verify."
-            }
-          ]
-        },
-        {
-          type: "metrics",
-          title: "Résultats qualité",
-          items: [
-            { label: "Fiabilité tarification", value: "Bug de durée négative corrigé" },
-            { label: "Fonctionnalités livrées", value: "30 min gratuites + remise 5% utilisateur récurrent" },
-            { label: "Périmètre de tests", value: "Tests unitaires + tests d’intégration (DB)" },
-            { label: "Objectifs de couverture", value: ">= 70% global ; > 90% sur ParkingService (instructions)", note: "Vérifié via JaCoCo" },
-            { label: "Preuves", value: "Rapports Surefire + JaCoCo capturés", note: "Captures incluses dans les livrables" }
+            "Analyse des attentes fonctionnelles et des chemins de code existants.",
+            "Exécution et amélioration des tests unitaires (JUnit) pour couvrir scénarios principaux et cas limites.",
+            "Exploitation des rapports de build (Surefire / JaCoCo) pour vérifier l’exécution et la couverture.",
+            "Documentation des résultats et validation du comportement final."
           ]
         },
         {
           type: "resources",
-          title: "Livrables & preuves",
+          title: "Ressources",
           items: [
-            { label: "Brief du projet (DOCX)", href: "/docs/projects/parkit-java-testing/brief-parkit.docx" },
-            { label: "Guide d’étapes (PDF)", href: "/docs/projects/parkit-java-testing/guide-etapes.pdf" },
-            { label: "Guide d’étapes clés (PDF)", href: "/docs/projects/parkit-java-testing/guide-etapes-cles.pdf" },
-            { label: "Kit technique onboarding (PDF)", href: "/docs/projects/parkit-java-testing/kit-technique-onboarding.pdf" },
-            { label: "Version archivée (PDF)", href: "/docs/projects/parkit-java-testing/ancienne-version-mai-2023.pdf" },
-            { label: "Captures rapports tests (ZIP)", href: "/docs/projects/parkit-java-testing/screenshots.zip" },
-            { label: "Dépôt GitHub", href: "https://github.com/Aiyeesha/ParkingSystem.git" },
-            { label: "Télécharger le lien du dépôt (TXT)", href: "/docs/projects/parkit-java-testing/repository-link.txt" }
+            {
+              label: "Brief du projet (PDF)",
+              href: "/docs/projects/parkit-java-testing/guide-etapes.pdf"
+            },
+            {
+              label: "Kit technique onboarding (PDF)",
+              href: "/docs/projects/parkit-java-testing/kit-technique-onboarding.pdf"
+            },
+            {
+              label: "Dépôt GitHub",
+              href: "https://github.com/Aiyeesha/ParkingSystem.git"
+            },
+            {
+              label: "Télécharger le lien du dépôt (TXT)",
+              href: "/docs/projects/parkit-java-testing/code.txt"
+            }
           ]
         },
         {
           type: "code",
-          title: "Dépôt",
+          title: "Lien du dépôt",
           language: "text",
           code: "https://github.com/Aiyeesha/ParkingSystem.git",
+          downloadUrl: "/docs/projects/parkit-java-testing/code.txt"
         }
       ]
     }
@@ -3004,125 +2182,101 @@ Staging app: https://legarant-staging-78a7880351d1.herokuapp.com
   gallery: [
     {
       src: "/projects/pochlib-ui/cover.png",
-      alt: "Poch'Lib — UI cover"
+      alt: "pochlib-ui — cover"
     }
   ],
   locales: {
     en: {
-      heroSubtitle: "Single Page Application UI for a bookstore (Poch'Lib)",
+      heroSubtitle: "Front-end UI implementation for Poch'Lib",
       sections: [
         {
           type: "text",
           title: "Context",
           paragraphs: [
-            "Great’App (Nice) asked for the front-end of Poch’Lib, a book management app commissioned by the bookstore “La plume enchantée”.",
-            "The deliverable is a responsive Single Page Application (mobile/tablet/desktop) aligned with functional specifications and UX wireframes."
+            "Training project focused on building a clean, usable UI based on functional specifications.",
+            "Goal: deliver HTML/CSS/JS screens that match the spec and are easy to extend."
           ]
         },
         {
           type: "bullets",
-          title: "Core features",
+          title: "What I did",
           items: [
-            "Search and add a book to the user’s list.",
-            "Display the saved books and remove a book from the list.",
-            "Responsive UI with 3 breakpoints (mobile / tablet / desktop)."
-          ]
-        },
-        {
-          type: "bullets",
-          title: "Implementation highlights",
-          items: [
-            "Mobile-first integration matching the provided wireframes as closely as possible.",
-            "Clean HTML semantics and structured styles (DRY approach, Sass).",
-            "Vanilla JavaScript to update the DOM (add/remove elements, UI states).",
-            "Fetch-based API calls to retrieve content dynamically."
-          ]
-        },
-        {
-          type: "metrics",
-          title: "Quality signals",
-          items: [
-            { label: "Responsive", value: "3 formats (mobile / tablet / desktop)" },
-            { label: "UI consistency", value: "Wireframes respected; coherent typography and spacing" },
-            { label: "Front-end practice", value: "HTML/CSS/JS best practices + Sass" },
-            { label: "Dynamic behavior", value: "DOM updates + Fetch integration" }
+            "Translated the functional spec into pages/components and UI states.",
+            "Implemented layouts and interactions using HTML, CSS and vanilla JavaScript.",
+            "Ensured responsive behavior and consistent typography/spacing."
           ]
         },
         {
           type: "resources",
-          title: "Deliverables & proofs",
+          title: "Resources",
           items: [
-            { label: "Functional specifications (PDF)", href: "/docs/projects/pochlib-ui/functional-specs.pdf" },
-            { label: "Project brief & jury report (DOCX)", href: "/docs/projects/pochlib-ui/brief.docx" },
-            { label: "Demo HTML page (HTML)", href: "/docs/projects/pochlib-ui/index.html" },
-            { label: "GitHub repository", href: "https://github.com/Aiyeesha/Projet-6-Creez-une-interface-utilisateur-pour-votre-application-PochLib.git" },
-            { label: "Download repository link (TXT)", href: "/docs/projects/pochlib-ui/repository-link.txt" }
+            {
+              label: "Functional specifications (PDF)",
+              href: "/docs/projects/pochlib-ui/specifications.pdf"
+            },
+            {
+              label: "GitHub repository",
+              href: "https://github.com/Aiyeesha/Projet-6-Creez-une-interface-utilisateur-pour-votre-application-PochLib.git"
+            },
+            {
+              label: "Download repository link (TXT)",
+              href: "/docs/projects/pochlib-ui/code.txt"
+            }
           ]
         },
         {
           type: "code",
-          title: "Repository",
+          title: "Repository link",
           language: "text",
           code: "https://github.com/Aiyeesha/Projet-6-Creez-une-interface-utilisateur-pour-votre-application-PochLib.git",
+          downloadUrl: "/docs/projects/pochlib-ui/code.txt"
         }
       ]
     },
     fr: {
-      heroSubtitle: "Interface Single Page Application pour une librairie (Poch’Lib)",
+      heroSubtitle: "Implémentation d’une interface front-end pour Poch’Lib",
       sections: [
         {
           type: "text",
           title: "Contexte",
           paragraphs: [
-            "Great’App (Nice) m’a confié la réalisation du front-end de Poch’Lib, une application de gestion de livres commandée par la librairie « La plume enchantée ».",
-            "Le livrable attendu est une Single Page Application responsive (mobile/tablette/bureau), conforme aux spécifications fonctionnelles et aux wireframes UX."
+            "Projet de formation axé sur la réalisation d’une interface utilisateur à partir de spécifications fonctionnelles.",
+            "Objectif : livrer des écrans HTML/CSS/JS conformes au brief et facilement maintenables."
           ]
         },
         {
           type: "bullets",
-          title: "Fonctionnalités clés",
+          title: "Ce que j’ai fait",
           items: [
-            "Rechercher et ajouter un livre à sa liste.",
-            "Afficher les livres enregistrés et supprimer un livre de la liste.",
-            "Interface responsive sur 3 formats (mobile / tablette / bureau)."
-          ]
-        },
-        {
-          type: "bullets",
-          title: "Points techniques",
-          items: [
-            "Intégration mobile-first en respectant au maximum les wireframes fournis.",
-            "HTML sémantique + styles structurés (approche DRY, Sass).",
-            "JavaScript vanilla pour mettre à jour le DOM (ajout/suppression, états UI).",
-            "Fetch pour interagir avec une API et récupérer le contenu dynamiquement."
-          ]
-        },
-        {
-          type: "metrics",
-          title: "Signaux qualité",
-          items: [
-            { label: "Responsive", value: "3 formats (mobile / tablette / bureau)" },
-            { label: "Cohérence graphique", value: "Wireframes respectés + typo/espacements cohérents" },
-            { label: "Bonnes pratiques", value: "HTML/CSS/JS + Sass (CSS structuré)" },
-            { label: "Dynamisme", value: "Manipulation DOM + Fetch (API)" }
+            "Traduction des spécifications en pages/composants et états UI.",
+            "Intégration des écrans et interactions en HTML, CSS et JavaScript (vanilla).",
+            "Vérification du responsive et cohérence des espacements/typos."
           ]
         },
         {
           type: "resources",
-          title: "Livrables & preuves",
+          title: "Ressources",
           items: [
-            { label: "Spécifications fonctionnelles (PDF)", href: "/docs/projects/pochlib-ui/functional-specs.pdf" },
-            { label: "Brief & compte rendu jury (DOCX)", href: "/docs/projects/pochlib-ui/brief.docx" },
-            { label: "Page HTML de démonstration (HTML)", href: "/docs/projects/pochlib-ui/index.html" },
-            { label: "Dépôt GitHub", href: "https://github.com/Aiyeesha/Projet-6-Creez-une-interface-utilisateur-pour-votre-application-PochLib.git" },
-            { label: "Télécharger le lien du dépôt (TXT)", href: "/docs/projects/pochlib-ui/repository-link.txt" }
+            {
+              label: "Spécifications fonctionnelles (PDF)",
+              href: "/docs/projects/pochlib-ui/specifications.pdf"
+            },
+            {
+              label: "Dépôt GitHub",
+              href: "https://github.com/Aiyeesha/Projet-6-Creez-une-interface-utilisateur-pour-votre-application-PochLib.git"
+            },
+            {
+              label: "Télécharger le lien du dépôt (TXT)",
+              href: "/docs/projects/pochlib-ui/code.txt"
+            }
           ]
         },
         {
           type: "code",
-          title: "Dépôt",
+          title: "Lien du dépôt",
           language: "text",
           code: "https://github.com/Aiyeesha/Projet-6-Creez-une-interface-utilisateur-pour-votre-application-PochLib.git",
+          downloadUrl: "/docs/projects/pochlib-ui/code.txt"
         }
       ]
     }

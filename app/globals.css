@@ -25,20 +25,6 @@
 
 html { scroll-behavior: smooth; scroll-padding-top: var(--nav-offset); }
 
-/* Native form controls (select, date, etc.) follow the active theme */
-html { color-scheme: light; }
-html.dark { color-scheme: dark; }
-
-/* Improve <select> dropdown readability (options) */
-html select option {
-  background-color: #ffffff;
-  color: #0f172a; /* slate-900 */
-}
-html.dark select option {
-  background-color: #070B1A;
-  color: #ffffff;
-}
-
 /**
  * THEME STRATEGY
  * - `next-themes` toggles `class="dark"` or `class="light"` on <html>.
@@ -173,63 +159,9 @@ html.dark .mdx code {
 html.dark .mdx pre {
   border: 1px solid rgba(255,255,255,0.10);
   background: rgba(255,255,255,0.06);
-
 }
-
-/* MDX code blocks with toolbar (copy button) */
-.mdx-code {
-  margin-top: 0.9rem;
-}
-.mdx-code__toolbar {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0.35rem 0.35rem 0.2rem 0.35rem;
-  border: 1px solid rgba(0,0,0,0.10);
-  border-bottom: 0;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  background: rgba(0,0,0,0.03);
-}
-html.dark .mdx-code__toolbar {
-  border: 1px solid rgba(255,255,255,0.10);
-  border-bottom: 0;
-  background: rgba(255,255,255,0.05);
-}
-.mdx-code__pre {
-  margin-top: 0;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-.mdx-code__copy {
-  border-radius: 9999px;
-  border: 1px solid rgba(0,0,0,0.10);
-  background: rgba(0,0,0,0.04);
-  padding: 0.3rem 0.75rem;
-  font-size: 0.75rem;
-}
-html.dark .mdx-code__copy {
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.06);
-}
-
-.mdx-link {
-  color: rgb(14 116 144); /* cyan-700-ish */
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
-}
-html.dark .mdx-link { color: rgb(165 243 252); }
 
 /* Text helpers for light/dark consistency */
 .text-strong { @apply text-slate-900 dark:text-white/90; }
 .text-muted { @apply text-slate-600 dark:text-white/70; }
 .text-muted-2 { @apply text-slate-500 dark:text-white/60; }
-
-html select option {
-  background-color: #ffffff;
-  color: #0f172a; /* slate-900 */
-}
-html.dark select option {
-  background-color: #070B1A;
-  color: #ffffff;
-}

@@ -9,9 +9,7 @@
     "testimonials": "Témoignages",
     "blog": "Blog",
     "menu": "Menu",
-    "tagline": "Salesforce · IT Ops",
-    "workWithMeMenu": "Travailler avec moi",
-    "home": "Accueil"
+    "tagline": "Salesforce · IT Ops"
   },
   "hero": {
     "title": "Développeuse & Consultante Salesforce",
@@ -19,25 +17,17 @@
     "intro_salesforce": "J’aide les équipes à concevoir, construire et exploiter des solutions Salesforce et cloud sécurisées, scalables et réellement utiles pour les personnes qui les utilisent.",
     "intro_itops": "J’aide les équipes à concevoir, maintenir et sécuriser des infrastructures IT et DevOps résilientes et évolutives.",
     "avatar_alt": "Photo de profil",
+    "note": "Astuce : vous pouvez changer de track avec le switch ci-dessus.",
     "title_salesforce": "Développeuse & Consultante Salesforce",
     "subtitle_salesforce": "avec un bagage systèmes & DevOps",
     "title_itops": "Administratrice systèmes & réseaux",
-    "subtitle_itops": "Ingénieure opérations IT & DevOps",
-    "value_salesforce": "Je conçois des solutions Salesforce utiles, robustes, et livrées proprement en production.",
-    "value_itops": "Je sécurise et fiabilise des environnements IT/DevOps avec des procédures claires et des résultats mesurables.",
-    "proof1": "Sécurité d’abord",
-    "proof2": "Scalable",
-    "proof3": "Documenté & maintenable",
-    "startHere": "Commencer ici :"
+    "subtitle_itops": "Ingénieure opérations IT & DevOps"
   },
   "cta": {
     "call": "Planifier un appel",
     "projects": "Voir les projets",
-    "downloadCv": "Télécharger mon CV (PDF)",
-    "workWithMe": "Travailler avec moi",
-    "message": "Message",
-    "call15": "Appel 15 min",
-    "downloadProfile": "Télécharger mon profil (PDF)"
+    "downloadCv": "Télécharger mon CV",
+    "workWithMe": "Travailler avec moi"
   },
   "projects": {
     "search": "Rechercher un projet...",
@@ -92,6 +82,7 @@
     "bookCallMissing": "Le lien Calendly n’est pas encore configuré.",
     "emailMe": "M’écrire par email",
     "emailMissing": "Email non configuré.",
+    "envHint": "Configurez FORMSPREE_ENDPOINT / NEXT_PUBLIC_CALENDLY_URL / NEXT_PUBLIC_CONTACT_EMAIL dans .env.local.",
     "calendlyHint": "Réservez un créneau directement ci-dessous.",
     "openInNewTab": "Ouvrir dans un nouvel onglet",
     "close": "Fermer",
@@ -110,16 +101,7 @@
     "homeLinkedIn": "LinkedIn",
     "homeEmail": "Email",
     "homeFormTitle": "Envoyer un message",
-    "homeFormSubtitle": "Je réponds généralement sous 24–48h.",
-    "topicLabel": "Sujet",
-    "topicPlaceholder": "Choisir un sujet",
-    "topicGeneral": "Général",
-    "topicSalesforce": "Projet Salesforce",
-    "topicItOps": "IT Ops / DevOps",
-    "topicAvailability": "Mission / disponibilité",
-    "topicOther": "Autre",
-    "envHint": "Configuration manquante : certaines informations de contact ne sont pas renseignées.",
-    "linkedInMissing": "Le lien LinkedIn n'est pas disponible pour le moment."
+    "homeFormSubtitle": "Je réponds généralement sous 24–48h."
   },
   "blog": {
     "card_tutorials_kicker": "Nouveau",
@@ -130,8 +112,7 @@
     "card_cta": "Ouvrir le blog",
     "latest_loading": "Chargement des derniers articles…",
     "latest_empty": "Aucun article pour le moment.",
-    "latest_cta": "Voir tous les articles",
-    "readingTime": "min de lecture"
+    "latest_cta": "Voir tous les articles"
   },
   "blogIndex": {
     "meta": {
@@ -200,8 +181,7 @@
     "all": "Tous"
   },
   "footer": {
-    "builtWith": "Propulsé par Next.js",
-    "privacy": "Confidentialité"
+    "builtWith": "Propulsé par Next.js"
   },
   "profile": {
     "kicker": "Profil",
@@ -220,33 +200,10 @@
     "availabilityLabel": "Disponibilité",
     "availabilityValue": "Missions freelance · temps partiel ou temps plein",
     "goalLabel": "Objectif",
-    "goalValue": "À partir de début 2026, développer progressivement une activité freelance internationale en tant que développeuse Salesforce tout en continuant à renforcer mon expertise technique et fonctionnelle chez LD Digitales.",
-    "focusLabel": "Focus",
-    "focusValueSalesforce": "Apex · Flows · CI/CD · Qualité · Sécurité",
-    "focusValueItOps": "Supervision · Runbooks · Automatisation · Sécurité",
-    "readMore": "Lire la suite",
-    "p1_salesforce": "Développeuse & consultante Salesforce : je conçois des solutions fiables, sécurisées et maintenables, avec une attention forte à l’expérience utilisateur et à la qualité de livraison.",
-    "p2_salesforce": "Je travaille sur Apex, Flows, modèles de données, sécurité (permission sets, sharing), et sur des pipelines CI/CD (Salesforce CLI, GitHub Actions) pour livrer proprement en production.",
-    "p3_salesforce": "Mon background systèmes & DevOps me permet d’aborder Salesforce avec une logique d’exploitation : observabilité, gestion des risques, documentation et automatisation — pour des solutions qui tiennent dans la durée.",
-    "p4_salesforce": "Mon objectif 2026 : développer une activité freelance internationale (Salesforce) en collaboration avec des équipes distribuées, tout en continuant à renforcer mon expertise technique et fonctionnelle.",
-    "p1_itops": "IT Ops & DevOps : j’aide les équipes à concevoir, maintenir et sécuriser des infrastructures résilientes, avec des processus d’exploitation pragmatiques (runbooks, supervision, remédiation).",
-    "p2_itops": "Je mets en place des standards d’exploitation : monitoring/alerting actionnable, réduction du bruit, procédures d’escalade, documentation et automatisation (scripts, jobs, playbooks).",
-    "p3_itops": "Je porte une attention particulière à la sécurité et à la continuité : sauvegardes, durcissement, gestion des accès, et pratiques de changement pour limiter les incidents.",
-    "p4_itops": "Mon objectif 2026 : intervenir sur des missions IT Ops / SRE / DevOps orientées fiabilité, automatisation et sécurité, en France et à l’international."
+    "goalValue": "À partir de début 2026, développer progressivement une activité freelance internationale en tant que développeuse Salesforce tout en continuant à renforcer mon expertise technique et fonctionnelle chez LD Digitales."
   },
   "mdx": {
     "copy": "Copier",
     "copied": "Copié"
-  },
-  "privacy": {
-    "title": "Confidentialité & mentions",
-    "analyticsTitle": "Analytics",
-    "analyticsBody": "Ce site n’utilise pas d’analytics de tracking par défaut.",
-    "cookiesTitle": "Cookies",
-    "cookiesBody": "Aucun cookie marketing n’est déposé. Seuls des cookies techniques essentiels peuvent être utilisés par la plateforme (sécurité, fonctionnement).",
-    "formTitle": "Données du formulaire",
-    "formBody": "Lorsque vous envoyez le formulaire, votre nom, email, sujet et message sont traités pour vous répondre. Si Formspree est activé, les données sont transmises à Formspree pour l’acheminement.",
-    "retention": "Conservation : les messages sont conservés uniquement le temps nécessaire au traitement de votre demande.",
-    "contact": "Contact : {email}"
   }
 }

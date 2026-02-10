@@ -1,5 +1,5 @@
 import TrackAwareHero from "./track-aware-hero";
-import ProfileNarrative from "@/components/ProfileNarrative";
+import ProfileSection from "@/components/ProfileSection";
 import Reveal from "@/components/Reveal";
 import Accordion from "@/components/Accordion";
 import Testimonials from "@/components/Testimonials";
@@ -24,28 +24,27 @@ export default function Home() {
     <>
       {/* HERO (landing premium)
           - The LocaleLayout already applies top padding to clear the fixed navbar.
-          - IMPORTANT: We do NOT force a viewport height here.
-            Forcing a min-height (e.g. 70–80vh) creates a large empty gap on desktop,
-            because the hero content has a natural height smaller than the viewport.
-            The profile narrative must start immediately after the hero.
+          - We keep the hero full-height relative to the remaining viewport.
       */}
-      <section className="py-8 md:py-10">
-        <div className="pt-4 md:pt-6">
-          <TrackAwareHero />
-        </div>
+      <section id="about" className="min-h-[calc(100vh-var(--nav-offset))] flex items-center py-10 md:py-14">
+        <TrackAwareHero />
+      </section>
 
-        {/* Profile narrative directly under the hero (no separate nav section) */}
-        <div className="mt-6 md:mt-8">
-          <ProfileNarrative />
-        </div>
+      {/* PROFILE */}
+      <section className="py-14">
+        <Reveal>
+          <h2 className="text-3xl font-semibold">{t("sections.profile_title")}</h2>
+        </Reveal>
+        <Reveal delayMs={70}>
+          <p className="mt-3 text-muted">{t("sections.profile_subtitle")}</p>
+        </Reveal>
 
-        {/* subtle divider before the next sections */}
-        <div className="mt-12">
-          <div className="h-px w-full bg-black/10 dark:bg-white/10" />
+        <div className="mt-8">
+          <ProfileSection />
         </div>
       </section>
 
-{/* SKILLS */}
+          {/* SKILLS */}
       <section id="skills" className="py-14">
             <Reveal>
               <h2 className="text-3xl font-semibold">{t("sections.skills_title")}</h2>
