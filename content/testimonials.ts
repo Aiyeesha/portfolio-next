@@ -3,6 +3,8 @@ export type Testimonial = {
   name: string;
   role: string;
   company?: string;
+  /** Optional: context (project type, timeframe, collaboration) */
+  context?: string;
   quote: string;
 };
 

@@ -1,5 +1,8 @@
+"use client";
+
 import Reveal from "@/components/Reveal";
 import { useTranslations } from "next-intl";
+import { useTrack } from "@/app/[locale]/providers";
 
 /**
  * ProfileFactsCard
@@ -9,13 +12,17 @@ import { useTranslations } from "next-intl";
  */
 export default function ProfileFactsCard({ delayMs = 120 }: { delayMs?: number }) {
   const t = useTranslations();
+  const { track } = useTrack();
+
+  const focusValue =
+    track === "salesforce" ? t("profile.focusValueSalesforce") : t("profile.focusValueItOps");
 
   const facts: Array<{ label: string; value: string }> = [
+    { label: t("profile.focusLabel"), value: focusValue },
     { label: t("profile.basedInLabel"), value: t("profile.basedInValue") },
     { label: t("profile.languagesLabel"), value: t("profile.languagesValue") },
     { label: t("profile.rolesLabel"), value: t("profile.rolesValue") },
-    { label: t("profile.availabilityLabel"), value: t("profile.availabilityValue") },
-    { label: t("profile.goalLabel"), value: t("profile.goalValue") }
+    { label: t("profile.availabilityLabel"), value: t("profile.availabilityValue") }
   ];
 
   return (

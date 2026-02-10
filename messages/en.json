@@ -19,7 +19,6 @@
     "intro_salesforce": "I help teams design, build, and run secure, scalable Salesforce and cloud solutions that are genuinely useful for the people who use them.",
     "intro_itops": "I help teams design, maintain, and secure resilient, scalable IT and DevOps infrastructures.",
     "avatar_alt": "Profile photo",
-    "note": "Tip: switch tracks using the toggle above.",
     "title_salesforce": "Salesforce Developer & Consultant",
     "subtitle_salesforce": "with a Systems & DevOps background",
     "title_itops": "Systems & Network Administrator",
@@ -28,12 +27,13 @@
     "value_itops": "I run secure, resilient IT/DevOps systems with clear runbooks and measurable outcomes.",
     "proof1": "Security-first",
     "proof2": "Scalable by design",
-    "proof3": "Documented & maintainable"
+    "proof3": "Documented & maintainable",
+    "startHere": "Start here:"
   },
   "cta": {
     "call": "Schedule a discovery call",
     "projects": "View selected projects",
-    "downloadCv": "Download my CV",
+    "downloadCv": "Download my CV (PDF)",
     "workWithMe": "Work with me",
     "message": "Message",
     "call15": "Call 15 min",
@@ -92,7 +92,6 @@
     "bookCallMissing": "Calendly link not configured yet.",
     "emailMe": "Email me",
     "emailMissing": "Email not configured yet.",
-    "envHint": "Configure FORMSPREE_ENDPOINT / NEXT_PUBLIC_CALENDLY_URL / NEXT_PUBLIC_CONTACT_EMAIL in .env.local.",
     "calendlyHint": "Book a slot directly below.",
     "openInNewTab": "Open in new tab",
     "close": "Close",
@@ -129,7 +128,8 @@
     "card_cta": "Open blog",
     "latest_loading": "Loading latest posts…",
     "latest_empty": "No posts yet.",
-    "latest_cta": "View all posts"
+    "latest_cta": "View all posts",
+    "readingTime": "min read"
   },
   "blogIndex": {
     "meta": {
@@ -218,7 +218,11 @@
     "availabilityLabel": "Availability",
     "availabilityValue": "Freelance missions · part-time or full-time",
     "goalLabel": "Goal",
-    "goalValue": "From early 2026, gradually build an international freelance activity as a Salesforce developer while continuing to strengthen my technical and functional expertise at LD Digitales."
+    "goalValue": "From early 2026, gradually build an international freelance activity as a Salesforce developer while continuing to strengthen my technical and functional expertise at LD Digitales.",
+    "focusLabel": "Focus",
+    "focusValueSalesforce": "Apex · Flows · CI/CD · Quality · Security",
+    "focusValueItOps": "Monitoring · Runbooks · Automation · Security",
+    "readMore": "Read more"
   },
   "mdx": {
     "copy": "Copy",

@@ -42,7 +42,6 @@ export default function Navbar() {
   useHashSync(isHome ? activeId : "");
 
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [workMenuOpen, setWorkMenuOpen] = useState(false);
 
   
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -111,30 +110,6 @@ useEffect(() => {
   document.addEventListener("keydown", onKeyDown);
   return () => document.removeEventListener("keydown", onKeyDown);
 }, [mobileOpen]);
-
-  // Close the "Work with me" dropdown on outside click / Escape
-  useEffect(() => {
-    if (!workMenuOpen) return;
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setWorkMenuOpen(false);
-    };
-
-    const onPointerDown = (e: MouseEvent) => {
-      const target = e.target as HTMLElement | null;
-      // Close if clicking outside the dropdown container
-      if (!target?.closest?.("[data-workmenu]") ) {
-        setWorkMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("keydown", onKeyDown);
-    document.addEventListener("mousedown", onPointerDown);
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.removeEventListener("mousedown", onPointerDown);
-    };
-  }, [workMenuOpen]);
 
 useEffect(() => {
   if (mobileOpen) {
@@ -245,50 +220,14 @@ const linkClass = (id: string) =>
               <ThemeToggle />
               <LocaleSwitcher current={locale} />
             </div>
+            {/* Desktop: single CTA (keep the decision simple) */}
+            <Link
+              href={hrefFor("contact")}
+              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-cyan-500 px-5 py-2 text-sm font-medium text-black hover:opacity-90 soft-ring"
+            >
+              {t("cta.workWithMe")}
+            </Link>
 
-            {/* Desktop: Work with me dropdown (Message / Call 15 min) */}
-            <div className="relative hidden sm:block" data-workmenu>
-              <button
-                type="button"
-                className="inline-flex items-center gap-2 rounded-full bg-cyan-500 px-5 py-2 text-sm font-medium text-black hover:opacity-90 soft-ring"
-                onClick={() => setWorkMenuOpen((v) => !v)}
-                aria-expanded={workMenuOpen}
-                aria-haspopup="menu"
-              >
-                {t("cta.workWithMe")} <span aria-hidden="true">▾</span>
-              </button>
-
-              {workMenuOpen ? (
-                <div
-                  role="menu"
-                  className="absolute right-0 mt-2 w-56 overflow-hidden rounded-2xl border border-black/10 bg-white shadow-xl dark:border-white/10 dark:bg-[#070B1A]"
-                >
-                  <Link
-                    role="menuitem"
-                    href={hrefFor("contact")}
-                    className="block px-4 py-3 text-sm hover:bg-black/5 dark:hover:bg-white/10"
-                    onClick={() => setWorkMenuOpen(false)}
-                  >
-                    {t("cta.message")}
-                  </Link>
-
-                  <a
-                    role="menuitem"
-                    href={calendlyUrl || "#"}
-                    target={calendlyUrl ? "_blank" : undefined}
-                    rel={calendlyUrl ? "noreferrer" : undefined}
-                    aria-disabled={!calendlyUrl}
-                    className={`block px-4 py-3 text-sm hover:bg-black/5 dark:hover:bg-white/10 ${
-                      calendlyUrl ? "" : "pointer-events-none opacity-50"
-                    }`}
-                    onClick={() => setWorkMenuOpen(false)}
-                    title={!calendlyUrl ? t("contact.bookCallMissing") : undefined}
-                  >
-                    {t("cta.call15")}
-                  </a>
-                </div>
-              ) : null}
-            </div>
 
             {/* Mobile menu button (always visible on small screens) */}
             <button

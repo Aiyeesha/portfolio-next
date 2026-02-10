@@ -45,6 +45,11 @@ export default function Accordion({
     <div className="space-y-3">
       {items.map((item, idx) => {
         const isOpen = openId === item.id;
+        // Heuristic: mark a role as "current" based on the right meta.
+        // This keeps the content file simple while giving a nice UX cue.
+        const meta = item.rightMeta ?? "";
+        const isCurrent = /present|aujourd.?hui/i.test(meta);
+        const currentLabel = /aujourd/i.test(meta) ? "Actuel" : "Current";
         const panelId = `${baseId}-panel-${idx}`;
         const buttonId = `${baseId}-button-${idx}`;
 
@@ -80,7 +85,14 @@ export default function Accordion({
                   ) : null}
 
                   <div>
-                    <div className="text-base font-semibold">{item.title}</div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <div className="text-base font-semibold">{item.title}</div>
+                      {isCurrent ? (
+                        <span className="rounded-full bg-cyan-500/15 px-2 py-0.5 text-[11px] font-medium text-cyan-800 dark:text-cyan-200">
+                          {currentLabel}
+                        </span>
+                      ) : null}
+                    </div>
                     {item.subtitle ? (
                       <div className="mt-1 text-sm text-muted-2">{item.subtitle}</div>
                     ) : null}
