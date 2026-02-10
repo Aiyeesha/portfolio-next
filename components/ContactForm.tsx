@@ -12,6 +12,9 @@ type Status =
 
 const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "";
 const LINKEDIN_URL = process.env.NEXT_PUBLIC_LINKEDIN_URL || "";
+const LINKEDIN_HREF = LINKEDIN_URL
+  ? (LINKEDIN_URL.startsWith("http") ? LINKEDIN_URL : `https://${LINKEDIN_URL}`)
+  : "";
 const CV_URL =
   process.env.NEXT_PUBLIC_CV_PDF_URL ||
   process.env.NEXT_PUBLIC_CV_URL ||
@@ -203,14 +206,14 @@ export default function ContactForm() {
 
             <a
               className="rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm text-slate-900 dark:text-white hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
-              href={LINKEDIN_URL || "#"}
+              href={LINKEDIN_HREF || "#"}
               target="_blank"
               rel="noreferrer"
-              aria-disabled={!LINKEDIN_URL}
+              aria-disabled={!LINKEDIN_HREF}
               onClick={(e) => {
-                if (!LINKEDIN_URL) e.preventDefault();
+                if (!LINKEDIN_HREF) e.preventDefault();
               }}
-              title={!LINKEDIN_URL ? t("contact.envHint") : undefined}
+              title={!LINKEDIN_HREF ? t(process.env.NODE_ENV === "production" ? "contact.linkedInMissing" : "contact.envHint") : undefined}
             >
               {t("contact.homeLinkedIn")}
             </a>
@@ -253,6 +256,10 @@ export default function ContactForm() {
           )}
           </div>
         </div>
+
+        {showEnvHint ? (
+          <div className="mt-5 text-xs text-muted-2">{t("contact.envHint")}</div>
+        ) : null}
       </div>
     </div>
   );
