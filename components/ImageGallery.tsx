@@ -39,7 +39,12 @@ export default function ImageGallery({
             fill
             sizes="(max-width: 768px) 100vw, 900px"
             className="object-cover"
-            priority
+            /*
+             * Only prioritize the first image to improve perceived loading performance (LCP).
+             * When idx === 0 the first image is visible, so we set priority to true.
+             * Subsequent images will not be preloaded unnecessarily.
+             */
+            priority={idx === 0}
           />
         </div>
       </div>

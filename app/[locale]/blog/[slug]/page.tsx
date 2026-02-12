@@ -34,13 +34,23 @@ export async function generateMetadata(
   const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Portfolio";
   const title = meta.title;
   const description = meta.excerpt || meta.title;
-  const urlPath = `/${locale}/blog/${slug}`;
-  const ogImage = meta.cover || "/opengraph-image";
+  // Construct the base site URL (used to build absolute URLs)
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  // Compute absolute URL for this post
+  const urlPath = `${siteUrl}/${locale}/blog/${slug}`;
+  // Use provided cover or fallback, and absolutize if it's a relative path
+  const cover = meta.cover || "/opengraph-image";
+  const ogImage = cover.startsWith("http://") || cover.startsWith("https://") ? cover : `${siteUrl}${cover.startsWith("/") ? cover : `/${cover}`}`;
+  // Build alternate language URLs for SEO i18n
+  const languages = {
+    en: `${siteUrl}/en/blog/${slug}`,
+    fr: `${siteUrl}/fr/blog/${slug}`
+  } as const;
 
   return {
     title: `${title} | ${siteName}`,
     description,
-    alternates: { canonical: urlPath },
+    alternates: { canonical: urlPath, languages },
     openGraph: {
       type: "article",
       title,

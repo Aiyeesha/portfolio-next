@@ -105,6 +105,17 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
                 ))}
               </div>
 
+              {/* Highlights / outcomes (if provided). Display up to 3 bullet points. */}
+              {p.highlights && p.highlights.length > 0 && (
+                <ul className="mt-3 space-y-1 text-xs text-muted">
+                  {p.highlights.slice(0, 3).map((h, i) => (
+                    <li key={i} className="list-disc list-inside">
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
               {/* Single CTA: keep cards simple. (PDF lives on the details page) */}
               <div className="mt-5">
                 <Link

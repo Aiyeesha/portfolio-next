@@ -220,14 +220,14 @@ const BADGE_LABELS: Record<SupportedLocale, Record<string, string>> = {
   "FIELD PRACTICE": "FIELD PRACTICE",
   "PERSONAL PROJECT": "PERSONAL PROJECT",
   "TRAINING LAB": "TRAINING LAB",
-  "TRAINING PROJECT": "TRAINING PROJECT"
+  "TRAINING PROJECT": "Case study"
 },
   fr: {
   "CLIENT CONTEXT": "Contexte client",
   "FIELD PRACTICE": "Pratique terrain",
   "PERSONAL PROJECT": "Projet personnel",
   "TRAINING LAB": "Lab de formation",
-  "TRAINING PROJECT": "Projet de formation"
+  "TRAINING PROJECT": "Étude de cas"
 },
 };
 
