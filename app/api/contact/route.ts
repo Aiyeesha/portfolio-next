@@ -109,6 +109,7 @@ export async function POST(req: Request) {
   }
 
   // Dev fallback
-  console.log("[CONTACT]", { name, email, topic, message });
+  // Avoid logging sensitive personal information (email/message). Log only the sender name.
+  console.log("[CONTACT] Message received from", name);
   return NextResponse.json({ ok: true }, { status: 200 });
 }

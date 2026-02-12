@@ -1,11 +1,11 @@
+import ImageGallery from "@/components/ImageGallery";
+import { projectDetails } from "@/content/projectDetails";
 import { projects } from "@/content/projects";
 import { tBadge, tCategory, tTag } from "@/i18n/projectTaxonomy";
-import { projectDetails } from "@/content/projectDetails";
-import { notFound } from "next/navigation";
-import Link from "next/link";
-import ImageGallery from "@/components/ImageGallery";
-import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 type Params = { slug: string; locale: string };
 
@@ -37,12 +37,20 @@ export async function generateMetadata({
     ? absolutizeUrl(extra.gallery[0].src, siteUrl)
     : absolutizeUrl("/opengraph-image", siteUrl);
 
+  // Build a fully-qualified canonical URL for the project page
   const canonical = `${siteUrl}/${locale}/projects/${slug}`;
+  // Define alternate language URLs for SEO internationalization.
+  // Regardless of the current locale, we always expose both language versions so crawlers can discover them.
+  const languages = {
+    en: `${siteUrl}/en/projects/${slug}`,
+    fr: `${siteUrl}/fr/projects/${slug}`
+  } as const;
 
   return {
     title,
     description,
-    alternates: { canonical },
+    // Expose the canonical URL and language-specific alternates
+    alternates: { canonical, languages },
     openGraph: {
       title,
       description,
@@ -180,7 +188,7 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<P
           if (s.type === "timeline") {
             return (
               <Section key={`${s.title}-${idx}`} title={s.title}>
-                <ol className="relative border-l border-black/10 pl-5 text-muted space-y-4 dark:border-white/10">
+                <ol className="relative list-none border-l border-black/10 pl-5 text-muted space-y-4 dark:border-white/10">
                   {s.steps.map((st, i) => (
                     <li key={`${st.title}-${i}`} className="relative">
                       <div className="absolute -left-[6px] mt-1 h-3 w-3 rounded-full bg-cyan-400/70" />

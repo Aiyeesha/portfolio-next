@@ -8,6 +8,10 @@ export type Project = {
   badge?: { label: string; tone: "client" | "personal" | "training" };
   pdfUrl?: string;
   updatedAt?: string;
+  /**
+   * Highlights or outcomes for the project. Optional.
+   */
+  highlights?: string[];
 };
 
 const DEFAULT_UPDATED_AT = process.env.NEXT_PUBLIC_SITE_LASTMOD ?? "2025-02-04";
