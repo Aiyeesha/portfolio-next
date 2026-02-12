@@ -80,7 +80,7 @@ const CATEGORY_LABELS: Record<SupportedLocale, Record<string, string>> = {
   "Support": "Support",
   "Systems": "Systèmes",
   "Testing": "Tests",
-  "Virtualization": "Virtualization",
+  "Virtualization": "Virtualisation",
   "Web": "Web"
 },
 };

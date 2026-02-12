@@ -27,10 +27,20 @@ function errorToKey(code: string) {
       return "contact.errors.invalid_json";
     case "name_too_short":
       return "contact.errors.name_too_short";
+    case "name_too_long":
+      return "contact.errors.name_too_long";
+    case "email_too_long":
+      return "contact.errors.email_too_long";
     case "invalid_email":
       return "contact.errors.invalid_email";
+    case "invalid_topic":
+      return "contact.errors.invalid_topic";
     case "message_too_short":
       return "contact.errors.message_too_short";
+    case "message_too_long":
+      return "contact.errors.message_too_long";
+    case "forbidden_origin":
+      return "contact.errors.forbidden_origin";
     case "rate_limited":
       return "contact.errors.rate_limited";
     case "upstream_failed":
@@ -168,17 +178,17 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={status.kind === "sending"}
-            className="rounded-full bg-cyan-500 px-5 py-2 text-sm text-slate-900 dark:text-white font-medium text-black hover:opacity-90 soft-ring disabled:opacity-60"
+            className="rounded-full bg-cyan-500 px-5 py-2 text-sm font-medium text-black hover:opacity-90 soft-ring disabled:opacity-60"
           >
             {status.kind === "sending" ? t("contact.sending") : t("contact.send")}
           </button>
 
           <div aria-live="polite" className="min-h-[20px]">
             {status.kind === "success" && (
-              <span className="text-sm text-slate-900 dark:text-white text-emerald-700 dark:text-emerald-200">{t("contact.success")}</span>
+              <span className="text-sm text-emerald-700 dark:text-emerald-200">{t("contact.success")}</span>
             )}
             {status.kind === "error" && (
-              <span className="text-sm text-slate-900 dark:text-white text-rose-700 dark:text-rose-200">{status.message}</span>
+              <span className="text-sm text-rose-700 dark:text-rose-200">{status.message}</span>
             )}
           </div>
         </div>

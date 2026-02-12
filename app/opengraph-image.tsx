@@ -14,6 +14,7 @@ export const contentType = "image/png";
 export default function Image() {
   const name = process.env.NEXT_PUBLIC_OG_NAME || "Aïcha Imène DAHOUMANE";
   const headline = process.env.NEXT_PUBLIC_OG_HEADLINE || "Salesforce / IT Ops";
+  const initials = (process.env.NEXT_PUBLIC_BRAND_INITIALS || "A").toUpperCase();
 
   return new ImageResponse(
     (
@@ -54,7 +55,7 @@ export default function Image() {
               fontWeight: 800
             }}
           >
-            S
+             {initials}
           </div>
         </div>
       </div>

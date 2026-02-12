@@ -53,7 +53,8 @@
     "trackSalesforce": "Salesforce",
     "trackItOps": "IT Ops",
     "overview": "Overview",
-    "downloadCode": "Download code"
+    "downloadCode": "Download code",
+    "highlightsTitle": "Highlights"
   },
   "sections": {
     "testimonials_title": "Testimonials",
@@ -102,7 +103,12 @@
       "message_too_short": "Please write a longer message (at least 10 characters).",
       "rate_limited": "Too many requests. Please try again in a few minutes.",
       "upstream_failed": "Delivery failed. Please try again later or use another channel.",
-      "generic": "Something went wrong. Please try again."
+      "generic": "Something went wrong. Please try again.",
+      "name_too_long": "Please use a shorter name (max 80 characters).",
+      "email_too_long": "Please use a shorter email address.",
+      "invalid_topic": "Please select a valid topic.",
+      "message_too_long": "Your message is too long (max 2000 characters).",
+      "forbidden_origin": "Request rejected. Please use the website contact form."
     },
     "homeIntro": "You can reach me by email or use the secure form. Anti-spam and rate limiting are enabled.",
     "homeMethodsTitle": "Quick links",

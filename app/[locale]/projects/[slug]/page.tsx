@@ -1,11 +1,11 @@
-import ImageGallery from "@/components/ImageGallery";
-import { projectDetails } from "@/content/projectDetails";
 import { projects } from "@/content/projects";
 import { tBadge, tCategory, tTag } from "@/i18n/projectTaxonomy";
-import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
-import Link from "next/link";
+import { projectDetails } from "@/content/projectDetails";
 import { notFound } from "next/navigation";
+import Link from "next/link";
+import ImageGallery from "@/components/ImageGallery";
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 
 type Params = { slug: string; locale: string };
 
@@ -115,6 +115,19 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<P
               ))}
             </div>
 
+
+
+            {project.highlights && project.highlights.length > 0 ? (
+              <div className="mt-6 max-w-3xl">
+                <div className="text-sm font-semibold text-strong">{t("highlightsTitle")}</div>
+                <ul className="mt-3 list-disc pl-5 text-muted space-y-2">
+                  {project.highlights.slice(0, 6).map((h, i) => (
+                    <li key={`${slug}-hl-${i}`}>{h}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
                 href={`/${locale}/#projects`}
@@ -188,7 +201,7 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<P
           if (s.type === "timeline") {
             return (
               <Section key={`${s.title}-${idx}`} title={s.title}>
-                <ol className="relative list-none border-l border-black/10 pl-5 text-muted space-y-4 dark:border-white/10">
+                <ol className="relative border-l border-black/10 pl-5 text-muted space-y-4 dark:border-white/10">
                   {s.steps.map((st, i) => (
                     <li key={`${st.title}-${i}`} className="relative">
                       <div className="absolute -left-[6px] mt-1 h-3 w-3 rounded-full bg-cyan-400/70" />

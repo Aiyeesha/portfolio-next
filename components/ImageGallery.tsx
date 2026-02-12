@@ -38,7 +38,7 @@ export default function ImageGallery({
             alt={current.alt}
             fill
             sizes="(max-width: 768px) 100vw, 900px"
-            className="object-cover"
+            className="object-contain bg-black/5 dark:bg-white/5"
             /*
              * Only prioritize the first image to improve perceived loading performance (LCP).
              * When idx === 0 the first image is visible, so we set priority to true.
@@ -64,7 +64,7 @@ export default function ImageGallery({
               ].join(" ")}
               aria-label={t("a11y.showImage", { index: i + 1 })}
             >
-              <Image src={img.src} alt={img.alt} fill sizes="112px" className="object-cover" />
+              <Image src={img.src} alt={img.alt} fill sizes="112px" className="object-contain" />
             </button>
           ))}
         </div>
