@@ -11,6 +11,19 @@ type Payload = {
 
 const FORMSPREE_ENDPOINT = process.env.FORMSPREE_ENDPOINT || "";
 
+// Basic origin guard (helps reduce cross-site spam).
+// If NEXT_PUBLIC_SITE_URL is set in production, we only accept requests from that origin.
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || "";
+const ALLOWED_ORIGIN = SITE_URL ? new URL(SITE_URL).origin : "";
+
+const MAX_NAME_LEN = 80;
+const MAX_EMAIL_LEN = 254;
+const MAX_MESSAGE_LEN = 2000;
+const MIN_MESSAGE_LEN = 10;
+
+const ALLOWED_TOPICS = new Set(["general", "salesforce", "itops", "availability", "other"]);
+
+
 // In-memory rate limit (good for dev / single instance; for multi-instance use Redis/Upstash)
 const WINDOW_SECONDS = Number(process.env.CONTACT_RATE_LIMIT_WINDOW_SECONDS || "600");
 const MAX_REQUESTS = Number(process.env.CONTACT_RATE_LIMIT_MAX_REQUESTS || "5");
@@ -45,10 +58,28 @@ function rateLimit(req: Request) {
   return { ok: true, ip };
 }
 
-function validate({ name, email, message }: { name: string; email: string; message: string }) {
+function validate({
+  name,
+  email,
+  message,
+  topic
+}: {
+  name: string;
+  email: string;
+  message: string;
+  topic: string;
+}) {
   if (name.length < 2) return "name_too_short";
+  if (name.length > MAX_NAME_LEN) return "name_too_long";
+
+  if (email.length > MAX_EMAIL_LEN) return "email_too_long";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return "invalid_email";
-  if (message.length < 10) return "message_too_short";
+
+  if (!ALLOWED_TOPICS.has(topic)) return "invalid_topic";
+
+  if (message.length < MIN_MESSAGE_LEN) return "message_too_short";
+  if (message.length > MAX_MESSAGE_LEN) return "message_too_long";
+
   return null;
 }
 
@@ -61,6 +92,15 @@ function validate({ name, email, message }: { name: string; email: string; messa
  * - If FORMSPREE_ENDPOINT is set, forwards to Formspree and maps errors
  */
 export async function POST(req: Request) {
+  // Origin guard: in production, reject cross-origin requests if configured.
+  // Note: some legitimate clients may omit the Origin header (rare for browsers on same-origin).
+  if (process.env.NODE_ENV === "production" && ALLOWED_ORIGIN) {
+    const origin = req.headers.get("origin") || "";
+    if (origin && origin !== ALLOWED_ORIGIN) {
+      return NextResponse.json({ ok: false, error: "forbidden_origin" }, { status: 403 });
+    }
+  }
+
   const rl = rateLimit(req);
   if (!rl.ok) {
     return NextResponse.json(
@@ -81,7 +121,7 @@ export async function POST(req: Request) {
   // Bot check
   if (company) return NextResponse.json({ ok: true }, { status: 200 });
 
-  const v = validate({ name, email, message });
+  const v = validate({ name, email, message, topic });
   if (v) return NextResponse.json({ ok: false, error: v }, { status: 400 });
 
   // Forward to Formspree if configured

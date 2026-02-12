@@ -53,7 +53,8 @@
     "trackSalesforce": "Salesforce",
     "trackItOps": "IT Ops",
     "overview": "Aperçu",
-    "downloadCode": "Télécharger le code"
+    "downloadCode": "Télécharger le code",
+    "highlightsTitle": "Points clés"
   },
   "sections": {
     "testimonials_title": "Témoignages",
@@ -102,7 +103,12 @@
       "message_too_short": "Merci d’écrire un message plus long (au moins 10 caractères).",
       "rate_limited": "Trop de tentatives. Réessayez dans quelques minutes.",
       "upstream_failed": "Échec d’envoi. Réessayez plus tard ou utilisez un autre canal.",
-      "generic": "Une erreur est survenue. Réessayez."
+      "generic": "Une erreur est survenue. Réessayez.",
+      "name_too_long": "Merci d’indiquer un nom plus court (80 caractères max).",
+      "email_too_long": "Merci d’indiquer une adresse email plus courte.",
+      "invalid_topic": "Merci de sélectionner un sujet valide.",
+      "message_too_long": "Votre message est trop long (2000 caractères max).",
+      "forbidden_origin": "Requête refusée. Merci d’utiliser le formulaire du site."
     },
     "homeIntro": "Vous pouvez me contacter par email ou via le formulaire sécurisé. Anti-spam et limitation de débit activés.",
     "homeMethodsTitle": "Liens rapides",

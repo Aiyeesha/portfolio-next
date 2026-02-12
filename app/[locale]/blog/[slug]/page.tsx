@@ -41,11 +41,15 @@ export async function generateMetadata(
   // Use provided cover or fallback, and absolutize if it's a relative path
   const cover = meta.cover || "/opengraph-image";
   const ogImage = cover.startsWith("http://") || cover.startsWith("https://") ? cover : `${siteUrl}${cover.startsWith("/") ? cover : `/${cover}`}`;
-  // Build alternate language URLs for SEO i18n
-  const languages = {
-    en: `${siteUrl}/en/blog/${slug}`,
-    fr: `${siteUrl}/fr/blog/${slug}`
-  } as const;
+  // Build alternate language URLs for SEO i18n.
+// Only expose alternates that actually exist (prevents broken hreflang).
+const languages: Record<string, string> = {};
+const enExists = locale === "en" ? meta : readPostMeta("en", slug);
+const frExists = locale === "fr" ? meta : readPostMeta("fr", slug);
+
+if (enExists) languages.en = `${siteUrl}/en/blog/${slug}`;
+if (frExists) languages.fr = `${siteUrl}/fr/blog/${slug}`;
+
 
   return {
     title: `${title} | ${siteName}`,
