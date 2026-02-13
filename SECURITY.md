@@ -4,6 +4,7 @@
 - If you later enable Server Actions / RSC-heavy features, keep Next.js updated within the same release line.
 
 Quick upgrade:
+
 ```bash
 npm install next@latest
 ```

@@ -31,14 +31,14 @@ export default function ProfileNarrative() {
       {/* Reduce cognitive load: keep the long story collapsible */}
       <Reveal delayMs={60}>
         <details className="mt-4">
-          <summary className="cursor-pointer select-none text-sm font-medium text-cyan-800 hover:underline dark:text-cyan-200 soft-ring rounded-xl px-2 py-2">
+          <summary className="soft-ring cursor-pointer select-none rounded-xl px-2 py-2 text-sm font-medium text-cyan-800 hover:underline dark:text-cyan-200">
             {t("profile.readMore")}
           </summary>
 
           <div className="mt-4">
             <p className="text-muted">{p2}</p>
-            <p className="mt-4 text-muted">{p3}</p>
-            <p className="mt-4 text-muted">{p4}</p>
+            <p className="text-muted mt-4">{p3}</p>
+            <p className="text-muted mt-4">{p4}</p>
           </div>
         </details>
       </Reveal>

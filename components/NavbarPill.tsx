@@ -16,7 +16,7 @@ function clamp(n: number, min: number, max: number) {
  */
 export default function NavbarPill({
   activeId,
-  containerId
+  containerId,
 }: {
   activeId: string;
   containerId: string;
@@ -63,10 +63,10 @@ export default function NavbarPill({
 
   return (
     <div
-      className="nav-pill pointer-events-none absolute top-1/2 -translate-y-1/2 h-9 transition-all duration-300 ease-out"
+      className="nav-pill pointer-events-none absolute top-1/2 h-9 -translate-y-1/2 transition-all duration-300 ease-out"
       style={{
         left: `${clamp(rect.left - 8, 0, 10_000)}px`,
-        width: `${clamp(rect.width + 16, 44, 10_000)}px`
+        width: `${clamp(rect.width + 16, 44, 10_000)}px`,
       }}
       aria-hidden="true"
     />

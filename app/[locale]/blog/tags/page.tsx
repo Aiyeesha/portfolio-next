@@ -5,9 +5,7 @@ import { getAllTags } from "@/content/blog/navigation";
 
 type Params = { locale: "en" | "fr" };
 
-export async function generateMetadata(
-  { params }: { params: Promise<Params> }
-): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "blogTags" });
 
@@ -23,8 +21,8 @@ export async function generateMetadata(
       title,
       description,
       url: urlPath,
-      siteName: process.env.NEXT_PUBLIC_SITE_NAME || "Portfolio"
-    }
+      siteName: process.env.NEXT_PUBLIC_SITE_NAME || "Portfolio",
+    },
   };
 }
 
@@ -39,14 +37,14 @@ export default async function BlogTagsPage({ params }: { params: Promise<Params>
       <div className="mx-auto max-w-4xl">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <div className="text-xs text-muted-2">{t("kicker")}</div>
+            <div className="text-muted-2 text-xs">{t("kicker")}</div>
             <h1 className="mt-2 text-4xl font-semibold">{t("title")}</h1>
-            <p className="mt-3 text-muted">{t("subtitle")}</p>
+            <p className="text-muted mt-3">{t("subtitle")}</p>
           </div>
 
           <Link
             href={`/${locale}/blog`}
-            className="rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
+            className="soft-ring rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
           >
             ← {t("back")}
           </Link>

@@ -13,21 +13,17 @@ const loaders: Record<Locale, Record<string, Loader>> = {
   en: {
     "next-intl-app-router": () => import("@/content/blog/posts/en/next-intl-app-router.mdx"),
     "salesforce-cicd-github-actions": () =>
-      import("@/content/blog/posts/en/salesforce-cicd-github-actions.mdx")
+      import("@/content/blog/posts/en/salesforce-cicd-github-actions.mdx"),
   },
   fr: {
     "next-intl-app-router": () => import("@/content/blog/posts/fr/next-intl-app-router.mdx"),
     "salesforce-cicd-github-actions": () =>
-      import("@/content/blog/posts/fr/salesforce-cicd-github-actions.mdx")
-  }
+      import("@/content/blog/posts/fr/salesforce-cicd-github-actions.mdx"),
+  },
 };
 
 function Loading() {
-  return (
-    <div className="text-sm text-muted-2">
-      Loading…
-    </div>
-  );
+  return <div className="text-muted-2 text-sm">Loading…</div>;
 }
 
 export default function BlogPostRenderer({ locale, slug }: { locale: Locale; slug: string }) {

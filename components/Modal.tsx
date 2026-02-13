@@ -7,7 +7,7 @@ export default function Modal({
   open,
   title,
   onClose,
-  children
+  children,
 }: {
   open: boolean;
   title: string;
@@ -25,7 +25,7 @@ export default function Modal({
       // Minimal focus trap: keep focus inside panel
       if (e.key === "Tab" && panelRef.current) {
         const focusables = panelRef.current.querySelectorAll<HTMLElement>(
-          'a[href],button,textarea,input,select,[tabindex]:not([tabindex="-1"])'
+          'a[href],button,textarea,input,select,[tabindex]:not([tabindex="-1"])',
         );
         if (focusables.length === 0) return;
 
@@ -48,7 +48,7 @@ export default function Modal({
     // Focus first focusable element when open
     const t = setTimeout(() => {
       const focusable = panelRef.current?.querySelector<HTMLElement>(
-        'button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])'
+        'button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])',
       );
       focusable?.focus();
     }, 0);
@@ -82,7 +82,7 @@ export default function Modal({
             <button
               type="button"
               onClick={onClose}
-              className="rounded-full border border-black/10 bg-black/5 px-3 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
+              className="soft-ring rounded-full border border-black/10 bg-black/5 px-3 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
             >
               ✕
             </button>

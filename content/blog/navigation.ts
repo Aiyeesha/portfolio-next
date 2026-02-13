@@ -2,7 +2,7 @@ import { readAllPosts } from "./fs";
 
 export function getPrevNext(
   locale: "en" | "fr",
-  slug: string
+  slug: string,
 ): { prev?: { slug: string; title: string }; next?: { slug: string; title: string } } {
   const posts = readAllPosts(locale); // already sorted by date desc
   const idx = posts.findIndex((p) => p.slug === slug);
@@ -13,7 +13,7 @@ export function getPrevNext(
 
   return {
     prev: prev ? { slug: prev.slug, title: prev.title } : undefined,
-    next: next ? { slug: next.slug, title: next.title } : undefined
+    next: next ? { slug: next.slug, title: next.title } : undefined,
   };
 }
 

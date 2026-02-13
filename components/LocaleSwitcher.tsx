@@ -17,7 +17,7 @@ export default function LocaleSwitcher({ current }: { current: AppLocale }) {
           className={`rounded-full border px-3 py-1.5 text-sm ${
             l === current
               ? "border-cyan-400/40 bg-cyan-500/10 text-cyan-700 dark:text-cyan-200"
-              : "border-black/10 dark:border-white/10 text-muted hover:text-white"
+              : "text-muted border-black/10 hover:text-white dark:border-white/10"
           }`}
         >
           {l.toUpperCase()}

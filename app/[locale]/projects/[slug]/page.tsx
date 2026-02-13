@@ -16,11 +16,7 @@ function absolutizeUrl(pathOrUrl: string, base: string) {
   return `${base}/${pathOrUrl}`;
 }
 
-export async function generateMetadata({
-  params
-}: {
-  params: Promise<Params>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug, locale } = await params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
@@ -43,7 +39,7 @@ export async function generateMetadata({
   // Regardless of the current locale, we always expose both language versions so crawlers can discover them.
   const languages = {
     en: `${siteUrl}/en/projects/${slug}`,
-    fr: `${siteUrl}/fr/projects/${slug}`
+    fr: `${siteUrl}/fr/projects/${slug}`,
   } as const;
 
   return {
@@ -58,23 +54,23 @@ export async function generateMetadata({
       siteName,
       locale,
       type: "article",
-      images: [{ url: ogImage }]
+      images: [{ url: ogImage }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage]
-    }
+      images: [ogImage],
+    },
   };
 }
 
 function Stat({ label, value, note }: { label: string; value: string; note?: string }) {
   return (
     <div className="card p-5">
-      <div className="text-xs text-muted-2">{label}</div>
+      <div className="text-muted-2 text-xs">{label}</div>
       <div className="mt-2 text-2xl font-semibold">{value}</div>
-      {note ? <div className="mt-2 text-sm text-muted-2">{note}</div> : null}
+      {note ? <div className="text-muted-2 mt-2 text-sm">{note}</div> : null}
     </div>
   );
 }
@@ -83,7 +79,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   return (
     <section className="mt-10">
       <h2 className="text-xl font-semibold">{title}</h2>
-      <div className="mt-4 card p-6">{children}</div>
+      <div className="card mt-4 p-6">{children}</div>
     </section>
   );
 }
@@ -101,165 +97,173 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<P
 
   return (
     <section className="py-12">
-        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-          <div className="min-w-0">
-            <div className="text-sm text-muted-2">{t("labelProject")}</div>
-            <h1 className="mt-2 text-4xl font-semibold leading-tight">{project.title}</h1>
-            <p className="mt-4 max-w-3xl text-muted">{localized?.heroSubtitle ?? project.excerpt}</p>
+      <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+        <div className="min-w-0">
+          <div className="text-muted-2 text-sm">{t("labelProject")}</div>
+          <h1 className="mt-2 text-4xl font-semibold leading-tight">{project.title}</h1>
+          <p className="text-muted mt-4 max-w-3xl">{localized?.heroSubtitle ?? project.excerpt}</p>
 
-            <div className="mt-5 flex flex-wrap gap-2">
-              {project.tags.map((t) => (
-                <span key={t} className="chip">
-                  {tTag(t, locale as "en" | "fr")}
-                </span>
-              ))}
-            </div>
-
-
-
-            {project.highlights && project.highlights.length > 0 ? (
-              <div className="mt-6 max-w-3xl">
-                <div className="text-sm font-semibold text-strong">{t("highlightsTitle")}</div>
-                <ul className="mt-3 list-disc pl-5 text-muted space-y-2">
-                  {project.highlights.slice(0, 6).map((h, i) => (
-                    <li key={`${slug}-hl-${i}`}>{h}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link
-                href={`/${locale}/#projects`}
-                className="rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm hover:bg-black/10 dark:border-white/15 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
-              >
-                {t("backToProjects")}
-              </Link>
-
-              {project.pdfUrl && (
-                <a
-                  href={project.pdfUrl}
-                  className="rounded-full bg-cyan-500 px-5 py-2 text-sm font-medium text-black hover:opacity-90 soft-ring"
-                >
-                  {t("requirements")}
-                </a>
-              )}
-            </div>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {project.tags.map((t) => (
+              <span key={t} className="chip">
+                {tTag(t, locale as "en" | "fr")}
+              </span>
+            ))}
           </div>
 
-          <div className="grid w-full gap-3 md:max-w-sm">
-            <Stat label={t("trackLabel")} value={project.track === "salesforce" ? t("trackSalesforce") : t("trackItOps")} />
-            <Stat label={t("typeLabel")} value={(project.categories[0] ? tCategory(project.categories[0], locale as "en" | "fr") : "—")} />
-            <Stat label={t("scopeLabel")} value={(project.badge?.label ? tBadge(project.badge.label, locale as "en" | "fr") : "—")} />
+          {project.highlights && project.highlights.length > 0 ? (
+            <div className="mt-6 max-w-3xl">
+              <div className="text-strong text-sm font-semibold">{t("highlightsTitle")}</div>
+              <ul className="text-muted mt-3 list-disc space-y-2 pl-5">
+                {project.highlights.slice(0, 6).map((h, i) => (
+                  <li key={`${slug}-hl-${i}`}>{h}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link
+              href={`/${locale}/#projects`}
+              className="soft-ring rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm hover:bg-black/10 dark:border-white/15 dark:bg-white/5 dark:hover:bg-white/10"
+            >
+              {t("backToProjects")}
+            </Link>
+
+            {project.pdfUrl && (
+              <a
+                href={project.pdfUrl}
+                className="soft-ring rounded-full bg-cyan-500 px-5 py-2 text-sm font-medium text-black hover:opacity-90"
+              >
+                {t("requirements")}
+              </a>
+            )}
           </div>
         </div>
 
-        {extra?.gallery?.length ? (
-          <Section title={t("overview")}>
-            <ImageGallery images={extra.gallery} />
-          </Section>
-        ) : null}
+        <div className="grid w-full gap-3 md:max-w-sm">
+          <Stat
+            label={t("trackLabel")}
+            value={project.track === "salesforce" ? t("trackSalesforce") : t("trackItOps")}
+          />
+          <Stat
+            label={t("typeLabel")}
+            value={
+              project.categories[0] ? tCategory(project.categories[0], locale as "en" | "fr") : "—"
+            }
+          />
+          <Stat
+            label={t("scopeLabel")}
+            value={project.badge?.label ? tBadge(project.badge.label, locale as "en" | "fr") : "—"}
+          />
+        </div>
+      </div>
 
-        {(localized?.sections ?? []).map((s, idx) => {
-          if (s.type === "bullets") {
-            return (
-              <Section key={`${s.title}-${idx}`} title={s.title}>
-                <ul className="list-disc pl-5 text-muted space-y-2">
-                  {s.items.map((it, i) => (
-                    <li key={`${i}-${it.slice(0, 16)}`}>{it}</li>
-                  ))}
-                </ul>
-              </Section>
-            );
-          }
+      {extra?.gallery?.length ? (
+        <Section title={t("overview")}>
+          <ImageGallery images={extra.gallery} />
+        </Section>
+      ) : null}
 
-          if (s.type === "text") {
-            return (
-              <Section key={`${s.title}-${idx}`} title={s.title}>
-                <div className="text-muted space-y-3">
-                  {s.paragraphs.map((p, i) => (
-                    <p key={`${i}-${p.slice(0, 16)}`}>{p}</p>
-                  ))}
-                </div>
-              </Section>
-            );
-          }
+      {(localized?.sections ?? []).map((s, idx) => {
+        if (s.type === "bullets") {
+          return (
+            <Section key={`${s.title}-${idx}`} title={s.title}>
+              <ul className="text-muted list-disc space-y-2 pl-5">
+                {s.items.map((it, i) => (
+                  <li key={`${i}-${it.slice(0, 16)}`}>{it}</li>
+                ))}
+              </ul>
+            </Section>
+          );
+        }
 
-          if (s.type === "metrics") {
-            return (
-              <section key={`${s.title}-${idx}`} className="mt-10">
-                <h2 className="text-xl font-semibold">{s.title}</h2>
-                <div className="mt-4 grid gap-4 md:grid-cols-3">
-                  {s.items.map((m, i) => (
-                    <Stat key={`${m.label}-${i}`} label={m.label} value={m.value} note={m.note} />
-                  ))}
-                </div>
-              </section>
-            );
-          }
+        if (s.type === "text") {
+          return (
+            <Section key={`${s.title}-${idx}`} title={s.title}>
+              <div className="text-muted space-y-3">
+                {s.paragraphs.map((p, i) => (
+                  <p key={`${i}-${p.slice(0, 16)}`}>{p}</p>
+                ))}
+              </div>
+            </Section>
+          );
+        }
 
-          if (s.type === "timeline") {
-            return (
-              <Section key={`${s.title}-${idx}`} title={s.title}>
-                <ol className="relative border-l border-black/10 pl-5 text-muted space-y-4 dark:border-white/10">
-                  {s.steps.map((st, i) => (
-                    <li key={`${st.title}-${i}`} className="relative">
-                      <div className="absolute -left-[6px] mt-1 h-3 w-3 rounded-full bg-cyan-400/70" />
-                      <div className="font-medium text-strong">{st.title}</div>
-                      <div className="text-sm">{st.description}</div>
-                    </li>
-                  ))}
-                </ol>
-              </Section>
-            );
-          }
+        if (s.type === "metrics") {
+          return (
+            <section key={`${s.title}-${idx}`} className="mt-10">
+              <h2 className="text-xl font-semibold">{s.title}</h2>
+              <div className="mt-4 grid gap-4 md:grid-cols-3">
+                {s.items.map((m, i) => (
+                  <Stat key={`${m.label}-${i}`} label={m.label} value={m.value} note={m.note} />
+                ))}
+              </div>
+            </section>
+          );
+        }
 
+        if (s.type === "timeline") {
+          return (
+            <Section key={`${s.title}-${idx}`} title={s.title}>
+              <ol className="text-muted relative space-y-4 border-l border-black/10 pl-5 dark:border-white/10">
+                {s.steps.map((st, i) => (
+                  <li key={`${st.title}-${i}`} className="relative">
+                    <div className="absolute -left-[6px] mt-1 h-3 w-3 rounded-full bg-cyan-400/70" />
+                    <div className="text-strong font-medium">{st.title}</div>
+                    <div className="text-sm">{st.description}</div>
+                  </li>
+                ))}
+              </ol>
+            </Section>
+          );
+        }
 
-          if (s.type === "resources") {
-            return (
-              <Section key={`${s.title}-${idx}`} title={s.title}>
-                <ul className="space-y-3">
-                  {s.items.map((it, i) => (
-                    <li key={`${it.label}-${i}`} className="flex flex-col gap-1">
-                      <a
-                        href={it.href}
-                        className="text-sm font-medium text-cyan-700 hover:underline dark:text-cyan-300"
-                      >
-                        {it.label}
-                      </a>
-                      {it.note ? <div className="text-sm text-muted-2">{it.note}</div> : null}
-                    </li>
-                  ))}
-                </ul>
-              </Section>
-            );
-          }
-
-          if (s.type === "code") {
-            return (
-              <Section key={`${s.title}-${idx}`} title={s.title}>
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div className="text-xs text-muted-2">
-                    {s.language ? s.language.toUpperCase() : "CODE"}
-                  </div>
-                  {s.downloadUrl ? (
+        if (s.type === "resources") {
+          return (
+            <Section key={`${s.title}-${idx}`} title={s.title}>
+              <ul className="space-y-3">
+                {s.items.map((it, i) => (
+                  <li key={`${it.label}-${i}`} className="flex flex-col gap-1">
                     <a
-                      href={s.downloadUrl}
-                      className="rounded-full border border-black/10 bg-black/5 px-4 py-1.5 text-xs hover:bg-black/10 dark:border-white/15 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
+                      href={it.href}
+                      className="text-sm font-medium text-cyan-700 hover:underline dark:text-cyan-300"
                     >
-                      {t("downloadCode")}
+                      {it.label}
                     </a>
-                  ) : null}
-                </div>
-                <pre className="mt-4 max-h-[520px] overflow-auto rounded-xl border border-black/10 bg-black/5 p-4 text-sm text-strong dark:border-white/10 dark:bg-white/5">
-                  <code>{s.code}</code>
-                </pre>
-              </Section>
-            );
-          }
+                    {it.note ? <div className="text-muted-2 text-sm">{it.note}</div> : null}
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          );
+        }
 
-          return null;
-        })}
+        if (s.type === "code") {
+          return (
+            <Section key={`${s.title}-${idx}`} title={s.title}>
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div className="text-muted-2 text-xs">
+                  {s.language ? s.language.toUpperCase() : "CODE"}
+                </div>
+                {s.downloadUrl ? (
+                  <a
+                    href={s.downloadUrl}
+                    className="soft-ring rounded-full border border-black/10 bg-black/5 px-4 py-1.5 text-xs hover:bg-black/10 dark:border-white/15 dark:bg-white/5 dark:hover:bg-white/10"
+                  >
+                    {t("downloadCode")}
+                  </a>
+                ) : null}
+              </div>
+              <pre className="text-strong mt-4 max-h-[520px] overflow-auto rounded-xl border border-black/10 bg-black/5 p-4 text-sm dark:border-white/10 dark:bg-white/5">
+                <code>{s.code}</code>
+              </pre>
+            </Section>
+          );
+        }
+
+        return null;
+      })}
     </section>
   );
 }

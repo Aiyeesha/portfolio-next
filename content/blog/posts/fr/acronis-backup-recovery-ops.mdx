@@ -5,7 +5,6 @@ date: "2025-02-20"
 tags: ["Backup", "Acronis", "Monitoring", "Runbooks", "IT Ops"]
 ---
 
-
 ## Objectif
 
 Mettre en place et exploiter des sauvegardes **fiables** via **Acronis Cyber Protect Cloud** :
@@ -36,6 +35,7 @@ Mettre en place et exploiter des sauvegardes **fiables** via **Acronis Cyber Pro
    - identifiants (stockés dans un coffre / manager de secrets)
 
 **Bonnes pratiques**
+
 - Dossier par client, puis par périmètre (Serveurs/VM/Workstations).
 - Sur le NAS : snapshots + contrôle d’intégrité si possible.
 
@@ -72,9 +72,9 @@ Chaque jour :
 
 1. Ouvrez **Tableau de bord / Alerts**.
 2. Traitez dans cet ordre :
-   1) Critique
-   2) Erreur
-   3) Avertissement
+   1. Critique
+   2. Erreur
+   3. Avertissement
 3. Pour chaque alerte :
    - identifiez le plan + la machine
    - ouvrez le détail d’exécution
@@ -84,9 +84,11 @@ Chaque jour :
 ### 5.1 Quota dépassé (Cloud ou NAS)
 
 **Symptômes**
+
 - “quota dépassé”, “not enough space”, “storage limit reached”
 
 **Actions**
+
 1. Vérifiez la destination :
    - Cloud : quota tenant + consommation
    - NAS : espace disque + snapshots
@@ -100,9 +102,11 @@ Chaque jour :
 ### 5.2 CBT / snapshots VMware (warning)
 
 **Symptôme**
+
 - warning lié à CBT (Changed Block Tracking) à cause de snapshots existants
 
 **Actions**
+
 1. Dans vCenter : vérifiez s’il y a des snapshots “orphelins”.
 2. Supprimez/Consolidez si possible (fenêtre de maintenance).
 3. Relancez le job.

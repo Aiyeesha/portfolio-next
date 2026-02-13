@@ -60,7 +60,7 @@ export function readAllPosts(locale: BlogLocale): BlogPostMeta[] {
       date,
       tags,
       cover,
-      file: abs
+      file: abs,
     });
   }
 
@@ -84,6 +84,6 @@ export function readPostMeta(locale: BlogLocale, slug: string): BlogPostMeta | n
     date: fm.date || "1970-01-01",
     tags: Array.isArray(fm.tags) ? fm.tags : [],
     cover: fm.cover,
-    file: abs
+    file: abs,
   };
 }

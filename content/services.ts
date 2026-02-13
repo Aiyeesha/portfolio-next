@@ -18,8 +18,8 @@ export function getServices(locale: Locale, track: Track): ServiceCard[] {
           bullets: [
             "Audit d’org & bilan de santé",
             "Optimisation de processus & workflows",
-            "Revue sécurité & conformité"
-          ]
+            "Revue sécurité & conformité",
+          ],
         },
         {
           title: "Développement & administration",
@@ -28,8 +28,8 @@ export function getServices(locale: Locale, track: Track): ServiceCard[] {
           bullets: [
             "Conception d’objets custom & modèles de données",
             "Automatisation avec Flows & Apex",
-            "Configuration des environnements & de la sécurité"
-          ]
+            "Configuration des environnements & de la sécurité",
+          ],
         },
         {
           title: "Intégrations & APIs",
@@ -38,8 +38,8 @@ export function getServices(locale: Locale, track: Track): ServiceCard[] {
           bullets: [
             "Intégration via API REST / SOAP",
             "Configuration ETL & synchronisation de données",
-            "Supervision & gestion des erreurs"
-          ]
+            "Supervision & gestion des erreurs",
+          ],
         },
         {
           title: "Formation & support",
@@ -48,9 +48,9 @@ export function getServices(locale: Locale, track: Track): ServiceCard[] {
           bullets: [
             "Formations utilisateurs & administrateurs",
             "Documentation & bonnes pratiques",
-            "Support post-déploiement"
-          ]
-        }
+            "Support post-déploiement",
+          ],
+        },
       ];
     }
 
@@ -64,8 +64,8 @@ export function getServices(locale: Locale, track: Track): ServiceCard[] {
           "Évaluation d’infrastructure & bilan de santé",
           "Durcissement & bonnes pratiques de sécurité",
           "Mise en place de supervision & alerting",
-          "Planification de runbooks & de sauvegardes"
-        ]
+          "Planification de runbooks & de sauvegardes",
+        ],
       },
       {
         title: "Mise en place & administration",
@@ -75,8 +75,8 @@ export function getServices(locale: Locale, track: Track): ServiceCard[] {
           "Installation de serveurs Windows & Linux",
           "Active Directory & services réseau (DNS, DHCP)",
           "Virtualisation & conteneurisation",
-          "Configuration pfSense & sécurité"
-        ]
+          "Configuration pfSense & sécurité",
+        ],
       },
       {
         title: "Pipelines CI/CD & DevOps",
@@ -86,8 +86,8 @@ export function getServices(locale: Locale, track: Track): ServiceCard[] {
           "Conception de pipelines CI/CD",
           "Automatisation avec GitHub Actions",
           "Dockerisation & provisionnement d’environnements",
-          "Collaboration & gestion de versions"
-        ]
+          "Collaboration & gestion de versions",
+        ],
       },
       {
         title: "Support, formation & documentation",
@@ -96,9 +96,9 @@ export function getServices(locale: Locale, track: Track): ServiceCard[] {
         bullets: [
           "Formation & transfert de connaissances",
           "Runbooks & documentation",
-          "Réponse aux incidents & dépannage"
-        ]
-      }
+          "Réponse aux incidents & dépannage",
+        ],
+      },
     ];
   }
 
@@ -109,26 +109,42 @@ export function getServices(locale: Locale, track: Track): ServiceCard[] {
         title: "Salesforce audit & advisory",
         description:
           "Review the org and processes, identify optimization opportunities, and deliver actionable recommendations.",
-        bullets: ["Org health check", "Process & workflow optimization", "Security & compliance review"]
+        bullets: [
+          "Org health check",
+          "Process & workflow optimization",
+          "Security & compliance review",
+        ],
       },
       {
         title: "Development & administration",
         description:
           "Design data models, automate business logic, and manage environments from sandbox to production.",
-        bullets: ["Custom objects & data models", "Automation with Flows & Apex", "Environment & security configuration"]
+        bullets: [
+          "Custom objects & data models",
+          "Automation with Flows & Apex",
+          "Environment & security configuration",
+        ],
       },
       {
         title: "Integrations & APIs",
         description:
           "Connect Salesforce to external systems and keep data consistent across platforms.",
-        bullets: ["REST / SOAP integrations", "ETL configuration & data sync", "Monitoring & error handling"]
+        bullets: [
+          "REST / SOAP integrations",
+          "ETL configuration & data sync",
+          "Monitoring & error handling",
+        ],
       },
       {
         title: "Training & support",
         description:
           "Enable users and admins with practical training, clear documentation and post-go-live support.",
-        bullets: ["User/admin training", "Documentation & best practices", "Post-deployment support"]
-      }
+        bullets: [
+          "User/admin training",
+          "Documentation & best practices",
+          "Post-deployment support",
+        ],
+      },
     ];
   }
 
@@ -137,25 +153,43 @@ export function getServices(locale: Locale, track: Track): ServiceCard[] {
       title: "Infra audit & hardening",
       description:
         "Assess and secure your infrastructure: monitoring, hardening, backups and runbooks.",
-      bullets: ["Infrastructure health check", "Hardening & security best practices", "Monitoring & alerting", "Runbooks & backup planning"]
+      bullets: [
+        "Infrastructure health check",
+        "Hardening & security best practices",
+        "Monitoring & alerting",
+        "Runbooks & backup planning",
+      ],
     },
     {
       title: "Setup & administration",
       description:
         "Deploy and manage servers, networks, virtualization and cloud environments on Windows/Linux.",
-      bullets: ["Windows & Linux server installation", "Active Directory & network services (DNS, DHCP)", "Virtualization & containerization", "pfSense configuration & security"]
+      bullets: [
+        "Windows & Linux server installation",
+        "Active Directory & network services (DNS, DHCP)",
+        "Virtualization & containerization",
+        "pfSense configuration & security",
+      ],
     },
     {
       title: "CI/CD & DevOps pipelines",
-      description:
-        "Implement automated pipelines with solid delivery and versioning practices.",
-      bullets: ["CI/CD pipeline design", "Automation with GitHub Actions", "Dockerization & environment provisioning", "Collaboration & version control"]
+      description: "Implement automated pipelines with solid delivery and versioning practices.",
+      bullets: [
+        "CI/CD pipeline design",
+        "Automation with GitHub Actions",
+        "Dockerization & environment provisioning",
+        "Collaboration & version control",
+      ],
     },
     {
       title: "Support, training & documentation",
       description:
         "Provide user support, documentation and guidance for operations and incident handling.",
-      bullets: ["Training & knowledge transfer", "Runbooks & documentation", "Incident response & troubleshooting"]
-    }
+      bullets: [
+        "Training & knowledge transfer",
+        "Runbooks & documentation",
+        "Incident response & troubleshooting",
+      ],
+    },
   ];
 }

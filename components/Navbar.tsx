@@ -13,11 +13,18 @@ import TrackToggle from "./TrackToggle";
 import useActiveSection from "./useActiveSection";
 import useHashSync from "./useHashSync";
 
-const SECTION_IDS = ["skills","experience","services","testimonials","projects","blog","contact"] as const;
+const SECTION_IDS = [
+  "skills",
+  "experience",
+  "services",
+  "testimonials",
+  "projects",
+  "blog",
+  "contact",
+] as const;
 
 const MENU_ID = "mobile-menu";
 const BRAND_INITIALS = (process.env.NEXT_PUBLIC_BRAND_INITIALS || "A").toUpperCase();
-
 
 export default function Navbar() {
   const t = useTranslations();
@@ -43,10 +50,9 @@ export default function Navbar() {
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  
   const menuRef = useRef<HTMLDivElement | null>(null);
   const menuButtonRef = useRef<HTMLButtonElement | null>(null);
-// Close on Escape + prevent background scroll when menu is open
+  // Close on Escape + prevent background scroll when menu is open
   useEffect(() => {
     if (!mobileOpen) return;
 
@@ -64,67 +70,66 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  
-useEffect(() => {
-  // Focus management for mobile menu: trap focus when open and restore focus when closed.
-  const onKeyDown = (e: KeyboardEvent) => {
-    if (!mobileOpen) return;
+  useEffect(() => {
+    // Focus management for mobile menu: trap focus when open and restore focus when closed.
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (!mobileOpen) return;
 
-    if (e.key === "Escape") {
-      e.preventDefault();
-      // Close by clicking the menu button if present, so state stays consistent.
-      menuButtonRef.current?.click();
-      return;
-    }
-
-    if (e.key !== "Tab") return;
-
-    const container = menuRef.current;
-    if (!container) return;
-
-    const focusables = Array.from(
-      container.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
-      )
-    ).filter((el) => !el.hasAttribute("disabled"));
-
-    if (focusables.length === 0) return;
-
-    const first = focusables[0];
-    const last = focusables[focusables.length - 1];
-    const active = document.activeElement as HTMLElement | null;
-
-    if (e.shiftKey) {
-      if (active === first || !container.contains(active)) {
+      if (e.key === "Escape") {
         e.preventDefault();
-        last.focus();
+        // Close by clicking the menu button if present, so state stays consistent.
+        menuButtonRef.current?.click();
+        return;
       }
-    } else {
-      if (active === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    }
-  };
 
-  document.addEventListener("keydown", onKeyDown);
-  return () => document.removeEventListener("keydown", onKeyDown);
-}, [mobileOpen]);
+      if (e.key !== "Tab") return;
 
-useEffect(() => {
-  if (mobileOpen) {
-    // Focus first focusable element inside menu on open.
-    setTimeout(() => {
       const container = menuRef.current;
-      const first = container?.querySelector<HTMLElement>('a[href], button:not([disabled])');
-      first?.focus();
-    }, 0);
-  } else {
-    // Restore focus to menu button on close.
-    menuButtonRef.current?.focus();
-  }
-}, [mobileOpen]);
-const linkClass = (id: string) =>
+      if (!container) return;
+
+      const focusables = Array.from(
+        container.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((el) => !el.hasAttribute("disabled"));
+
+      if (focusables.length === 0) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+
+      if (e.shiftKey) {
+        if (active === first || !container.contains(active)) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (active === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    if (mobileOpen) {
+      // Focus first focusable element inside menu on open.
+      setTimeout(() => {
+        const container = menuRef.current;
+        const first = container?.querySelector<HTMLElement>("a[href], button:not([disabled])");
+        first?.focus();
+      }, 0);
+    } else {
+      // Restore focus to menu button on close.
+      menuButtonRef.current?.focus();
+    }
+  }, [mobileOpen]);
+  const linkClass = (id: string) =>
     `relative z-10 rounded-full px-3 py-2 text-sm leading-none transition-colors soft-ring ${
       activeId === id
         ? "text-cyan-700 dark:text-cyan-200"
@@ -145,7 +150,7 @@ const linkClass = (id: string) =>
     { id: "testimonials", label: t("nav.testimonials") },
     { id: "projects", label: t("nav.projects") },
     { id: "blog", label: t("nav.blog") },
-    { id: "contact", label: t("nav.contact") }
+    { id: "contact", label: t("nav.contact") },
   ] as const;
 
   const hrefFor = (id: (typeof SECTION_IDS)[number]) => {
@@ -163,9 +168,7 @@ const linkClass = (id: string) =>
     <>
       <ScrollProgress />
 
-      <header
-        className="fixed inset-x-0 top-0 z-50 h-[var(--nav-h)] border-b border-black/10 bg-white/70 backdrop-blur dark:border-white/10 dark:bg-[#070B1A]/70"
-      >
+      <header className="fixed inset-x-0 top-0 z-50 h-[var(--nav-h)] border-b border-black/10 bg-white/70 backdrop-blur dark:border-white/10 dark:bg-[#070B1A]/70">
         {/*
           Desktop layout (robust against truncation):
           - Left: brand
@@ -175,25 +178,24 @@ const linkClass = (id: string) =>
         <div className="mx-auto flex h-full max-w-7xl items-center gap-3 px-4 lg:px-6">
           <Link
             href={`/${locale}`}
-            className="flex flex-shrink-0 items-center gap-3 rounded-2xl soft-ring"
+            className="soft-ring flex flex-shrink-0 items-center gap-3 rounded-2xl"
             aria-label={t("nav.home")}
           >
-            <div className="grid h-10 w-10 place-items-center rounded-full bg-cyan-500/15 text-cyan-700 dark:text-cyan-200 font-semibold">
+            <div className="grid h-10 w-10 place-items-center rounded-full bg-cyan-500/15 font-semibold text-cyan-700 dark:text-cyan-200">
               {BRAND_INITIALS}
             </div>
             {/* On small screens, keep the brand compact to avoid pushing controls off-screen */}
-            <div className="hidden sm:block leading-tight">
+            <div className="hidden leading-tight sm:block">
               <div className="text-sm font-semibold">Aïcha Imène DAHOUMANE</div>
-              <div className="text-xs text-muted-2">{t("nav.tagline")}</div>
+              <div className="text-muted-2 text-xs">{t("nav.tagline")}</div>
             </div>
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex flex-1 min-w-0 items-center justify-center">
+          <div className="hidden min-w-0 flex-1 items-center justify-center lg:flex">
             <div
               id="desktop-nav"
-              className="relative flex h-11 max-w-full min-w-0 items-center gap-2 overflow-x-auto rounded-full px-1
-                         [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              className="relative flex h-11 min-w-0 max-w-full items-center gap-2 overflow-x-auto rounded-full px-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             >
               <NavbarPill activeId={activeId} containerId="desktop-nav" />
               {sections.map((s) => (
@@ -215,7 +217,7 @@ const linkClass = (id: string) =>
               Desktop / tablet controls. On very small screens we move these into the mobile drawer
               to prevent them from being pushed out of view by the brand.
             */}
-            <div className="hidden sm:flex items-center gap-3">
+            <div className="hidden items-center gap-3 sm:flex">
               <TrackToggle />
               <ThemeToggle />
               <LocaleSwitcher current={locale} />
@@ -223,16 +225,15 @@ const linkClass = (id: string) =>
             {/* Desktop: single CTA (keep the decision simple) */}
             <Link
               href={hrefFor("contact")}
-              className="hidden sm:inline-flex items-center gap-2 rounded-full bg-cyan-500 px-5 py-2 text-sm font-medium text-black hover:opacity-90 soft-ring"
+              className="soft-ring hidden items-center gap-2 rounded-full bg-cyan-500 px-5 py-2 text-sm font-medium text-black hover:opacity-90 sm:inline-flex"
             >
               {t("cta.workWithMe")}
             </Link>
 
-
             {/* Mobile menu button (always visible on small screens) */}
             <button
               type="button"
-              className="inline-flex lg:hidden rounded-full border border-black/10 bg-black/5 px-4 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
+              className="soft-ring inline-flex rounded-full border border-black/10 bg-black/5 px-4 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 lg:hidden"
               ref={menuButtonRef}
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={t("a11y.openMenu")}
@@ -255,17 +256,19 @@ const linkClass = (id: string) =>
             onClick={() => setMobileOpen(false)}
             aria-label={t("a11y.closeMenuOverlay")}
           />
-          <div className="absolute right-0 top-0 h-full w-[85%] max-w-sm border-l border-black/10 bg-white p-5 shadow-xl dark:border-white/10 dark:bg-[#070B1A]"
+          <div
+            className="absolute right-0 top-0 h-full w-[85%] max-w-sm border-l border-black/10 bg-white p-5 shadow-xl dark:border-white/10 dark:bg-[#070B1A]"
             id={MENU_ID}
             role="dialog"
             aria-modal="true"
             aria-label={t("nav.menu")}
-            ref={menuRef}>
+            ref={menuRef}
+          >
             <div className="flex items-center justify-between">
               <div className="text-sm font-semibold">{t("nav.menu")}</div>
               <button
                 type="button"
-                className="rounded-full border border-black/10 bg-black/5 px-3 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
+                className="soft-ring rounded-full border border-black/10 bg-black/5 px-3 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
                 onClick={() => setMobileOpen(false)}
                 aria-label={t("a11y.closeMenu")}
               >
@@ -291,7 +294,6 @@ const linkClass = (id: string) =>
                   className={mobileLinkClass(s.id)}
                   onClick={() => setMobileOpen(false)}
                   aria-current={activeId === s.id ? "page" : undefined}
-
                 >
                   {s.label}
                 </Link>
@@ -302,7 +304,7 @@ const linkClass = (id: string) =>
               <div className="grid gap-2">
                 <Link
                   href={hrefFor("contact")}
-                  className="inline-flex w-full justify-center rounded-xl bg-cyan-500 px-5 py-3 text-sm font-medium text-black hover:opacity-90 soft-ring"
+                  className="soft-ring inline-flex w-full justify-center rounded-xl bg-cyan-500 px-5 py-3 text-sm font-medium text-black hover:opacity-90"
                   onClick={() => setMobileOpen(false)}
                 >
                   {t("cta.workWithMe")}
@@ -313,7 +315,7 @@ const linkClass = (id: string) =>
                   target={calendlyUrl ? "_blank" : undefined}
                   rel={calendlyUrl ? "noreferrer" : undefined}
                   aria-disabled={!calendlyUrl}
-                  className={`inline-flex w-full justify-center rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-5 py-3 text-sm hover:bg-black/10 dark:hover:bg-white/10 soft-ring ${
+                  className={`soft-ring inline-flex w-full justify-center rounded-xl border border-black/10 bg-black/5 px-5 py-3 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 ${
                     calendlyUrl ? "" : "pointer-events-none opacity-50"
                   }`}
                   onClick={() => setMobileOpen(false)}

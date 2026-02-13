@@ -11,7 +11,7 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
   if (!items.length) return null;
 
   return (
-    <aside className="hidden lg:block lg:sticky lg:top-24 lg:h-[calc(100vh-7rem)]">
+    <aside className="hidden lg:sticky lg:top-24 lg:block lg:h-[calc(100vh-7rem)]">
       <div className="card p-6">
         <div className="text-sm font-semibold">{t("blogToc.title")}</div>
 
@@ -21,8 +21,8 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
               key={`${it.depth}-${it.id}`}
               href={`#${it.id}`}
               className={[
-                "block text-muted hover:text-slate-900 dark:hover:text-white",
-                it.depth === 3 ? "pl-4" : ""
+                "text-muted block hover:text-slate-900 dark:hover:text-white",
+                it.depth === 3 ? "pl-4" : "",
               ].join(" ")}
             >
               {it.text}
@@ -31,7 +31,10 @@ export default function TableOfContents({ items }: { items: TocItem[] }) {
         </nav>
 
         <div className="mt-5 border-t border-black/10 pt-4 dark:border-white/10">
-          <Link href={`/${locale}/blog`} className="text-xs text-cyan-700 dark:text-cyan-200 hover:opacity-90">
+          <Link
+            href={`/${locale}/blog`}
+            className="text-xs text-cyan-700 hover:opacity-90 dark:text-cyan-200"
+          >
             ← {t("blogToc.backToList")}
           </Link>
         </div>

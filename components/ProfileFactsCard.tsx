@@ -22,7 +22,7 @@ export default function ProfileFactsCard({ delayMs = 120 }: { delayMs?: number }
     { label: t("profile.basedInLabel"), value: t("profile.basedInValue") },
     { label: t("profile.languagesLabel"), value: t("profile.languagesValue") },
     { label: t("profile.rolesLabel"), value: t("profile.rolesValue") },
-    { label: t("profile.availabilityLabel"), value: t("profile.availabilityValue") }
+    { label: t("profile.availabilityLabel"), value: t("profile.availabilityValue") },
   ];
 
   return (
@@ -33,8 +33,8 @@ export default function ProfileFactsCard({ delayMs = 120 }: { delayMs?: number }
         <dl className="mt-4 space-y-4">
           {facts.map((f) => (
             <div key={f.label}>
-              <dt className="text-xs uppercase tracking-wider text-muted-2">{f.label}</dt>
-              <dd className="mt-1 text-sm text-muted">{f.value}</dd>
+              <dt className="text-muted-2 text-xs uppercase tracking-wider">{f.label}</dt>
+              <dd className="text-muted mt-1 text-sm">{f.value}</dd>
             </div>
           ))}
         </dl>

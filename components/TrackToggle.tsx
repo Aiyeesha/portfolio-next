@@ -11,7 +11,7 @@ export default function TrackToggle() {
     <div
       role="group"
       aria-label={t("a11y.chooseTrack")}
-      className="flex rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 p-1"
+      className="flex rounded-full border border-black/10 bg-black/5 p-1 dark:border-white/10 dark:bg-white/5"
     >
       <button
         type="button"
@@ -21,7 +21,7 @@ export default function TrackToggle() {
         className={`rounded-full px-3 py-1.5 text-sm ${
           track === "itops"
             ? "bg-cyan-500/20 text-cyan-700 dark:text-cyan-200"
-            : "text-slate-600 dark:text-white/70 hover:text-slate-900 dark:hover:text-white"
+            : "text-slate-600 hover:text-slate-900 dark:text-white/70 dark:hover:text-white"
         }`}
       >
         {t("tracks.itops")}
@@ -34,7 +34,7 @@ export default function TrackToggle() {
         className={`rounded-full px-3 py-1.5 text-sm ${
           track === "salesforce"
             ? "bg-cyan-500/20 text-cyan-700 dark:text-cyan-200"
-            : "text-slate-600 dark:text-white/70 hover:text-slate-900 dark:hover:text-white"
+            : "text-slate-600 hover:text-slate-900 dark:text-white/70 dark:hover:text-white"
         }`}
       >
         {t("tracks.salesforce")}

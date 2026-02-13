@@ -14,8 +14,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
  */
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")
-  )
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000"),
+  ),
 };
 
 function buildJsonLd(locale: string) {
@@ -36,16 +37,16 @@ function buildJsonLd(locale: string) {
         "@type": "WebSite",
         name: siteName,
         url: siteUrl,
-        inLanguage: locale
+        inLanguage: locale,
       },
       {
         "@type": "Person",
         name: personName,
         url: siteUrl,
         jobTitle: headline,
-        sameAs
-      }
-    ]
+        sameAs,
+      },
+    ],
   };
 }
 
@@ -57,11 +58,11 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       <head>
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}
+      <body>
+        {children}
         <Analytics />
         <SpeedInsights />
       </body>

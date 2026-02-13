@@ -33,7 +33,7 @@ export type AccordionItem = {
  */
 export default function Accordion({
   items,
-  defaultOpenId
+  defaultOpenId,
 }: {
   items: AccordionItem[];
   defaultOpenId?: string;
@@ -61,7 +61,7 @@ export default function Accordion({
               aria-expanded={isOpen}
               aria-controls={panelId}
               onClick={() => setOpenId(isOpen ? null : item.id)}
-              className="w-full px-5 py-4 text-left transition-colors hover:bg-black/5 dark:hover:bg-white/5 soft-ring"
+              className="soft-ring w-full px-5 py-4 text-left transition-colors hover:bg-black/5 dark:hover:bg-white/5"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-start gap-3">
@@ -70,7 +70,7 @@ export default function Accordion({
                       className={[
                         "mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-black/10 bg-white",
                         "dark:border-white/10",
-                        item.logoContainerClassName || ""
+                        item.logoContainerClassName || "",
                       ].join(" ")}
                       aria-hidden="true"
                     >
@@ -94,21 +94,21 @@ export default function Accordion({
                       ) : null}
                     </div>
                     {item.subtitle ? (
-                      <div className="mt-1 text-sm text-muted-2">{item.subtitle}</div>
+                      <div className="text-muted-2 mt-1 text-sm">{item.subtitle}</div>
                     ) : null}
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
                   {item.rightMeta ? (
-                    <span className="text-xs text-muted-2">{item.rightMeta}</span>
+                    <span className="text-muted-2 text-xs">{item.rightMeta}</span>
                   ) : null}
 
                   <span
                     className={[
-                      "grid h-8 w-8 place-items-center rounded-full border border-black/10 bg-black/5 text-muted transition-transform",
+                      "text-muted grid h-8 w-8 place-items-center rounded-full border border-black/10 bg-black/5 transition-transform",
                       "dark:border-white/10 dark:bg-white/5",
-                      isOpen ? "rotate-180" : "rotate-0"
+                      isOpen ? "rotate-180" : "rotate-0",
                     ].join(" ")}
                     aria-hidden="true"
                   >
@@ -125,11 +125,11 @@ export default function Accordion({
               className={[
                 "px-5",
                 "grid transition-[grid-template-rows] duration-500 ease-out",
-                isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
               ].join(" ")}
             >
               <div className="overflow-hidden">
-                <div className="pb-5 pt-1 text-sm text-muted leading-relaxed">
+                <div className="text-muted pb-5 pt-1 text-sm leading-relaxed">
                   {typeof item.content === "string" ? <p>{item.content}</p> : item.content}
                 </div>
               </div>

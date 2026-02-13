@@ -12,7 +12,7 @@ import { tBadge, tCategory, tTag } from "@/i18n/projectTaxonomy";
 const tones: Record<string, string> = {
   client: "badge badge-client",
   personal: "badge badge-personal",
-  training: "badge badge-training"
+  training: "badge badge-training",
 };
 
 type ProjectsSectionProps = {
@@ -63,7 +63,7 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder={t("search")}
-          className="w-full rounded-full border border-black/10 bg-black/5 px-5 py-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 hover:bg-black/10 focus:border-cyan-400/40 soft-ring dark:border-white/10 dark:bg-white/5 dark:text-white/80 dark:placeholder:text-white/40 dark:hover:bg-white/10"
+          className="soft-ring w-full rounded-full border border-black/10 bg-black/5 px-5 py-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 hover:bg-black/10 focus:border-cyan-400/40 dark:border-white/10 dark:bg-white/5 dark:text-white/80 dark:placeholder:text-white/40 dark:hover:bg-white/10"
         />
       </div>
 
@@ -73,7 +73,7 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
             key={c}
             type="button"
             onClick={() => setActive(c)}
-            className={`rounded-full border px-4 py-2 text-sm soft-ring ${
+            className={`soft-ring rounded-full border px-4 py-2 text-sm ${
               active === c
                 ? "border-cyan-400/40 bg-cyan-500/10 text-cyan-700 dark:text-cyan-200"
                 : "border-black/10 bg-black/5 text-slate-700 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:text-white/80 dark:hover:bg-white/10"
@@ -95,7 +95,7 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
                 ) : null}
               </div>
 
-              <p className="mt-3 text-sm text-muted">{p.excerpt}</p>
+              <p className="text-muted mt-3 text-sm">{p.excerpt}</p>
 
               <div className="mt-4 flex flex-wrap gap-2">
                 {p.tags.map((tag) => (
@@ -107,9 +107,9 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
 
               {/* Highlights / outcomes (if provided). Display up to 3 bullet points. */}
               {p.highlights && p.highlights.length > 0 && (
-                <ul className="mt-3 space-y-1 text-xs text-muted">
+                <ul className="text-muted mt-3 space-y-1 text-xs">
                   {p.highlights.slice(0, 3).map((h, i) => (
-                    <li key={i} className="list-disc list-inside">
+                    <li key={i} className="list-inside list-disc">
                       {h}
                     </li>
                   ))}
@@ -120,7 +120,7 @@ export default function ProjectsSection({ locale: localeProp }: ProjectsSectionP
               <div className="mt-5">
                 <Link
                   href={`/${locale}/projects/${p.slug}`}
-                  className="inline-flex items-center rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-black hover:opacity-90 soft-ring"
+                  className="soft-ring inline-flex items-center rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-black hover:opacity-90"
                 >
                   {t("details")}
                 </Link>

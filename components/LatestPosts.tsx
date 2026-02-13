@@ -42,9 +42,9 @@ export default function LatestPosts({ className = "", locale }: LatestPostsProps
               <Link
                 key={p.slug}
                 href={`/${locale}/blog/${p.slug}`}
-                className="card p-6 hover:bg-black/10 dark:hover:bg-white/5 soft-ring"
+                className="card soft-ring p-6 hover:bg-black/10 dark:hover:bg-white/5"
               >
-                <div className="flex items-center gap-2 text-xs text-muted-2">
+                <div className="text-muted-2 flex items-center gap-2 text-xs">
                   <span>{p.date}</span>
                   <span aria-hidden="true">·</span>
                   <span>
@@ -53,7 +53,7 @@ export default function LatestPosts({ className = "", locale }: LatestPostsProps
                 </div>
 
                 <div className="mt-2 text-xl font-semibold">{p.title}</div>
-                <div className="mt-2 text-muted">{p.excerpt}</div>
+                <div className="text-muted mt-2">{p.excerpt}</div>
 
                 <div className="mt-4 flex flex-wrap gap-2">
                   {p.tags.slice(0, 4).map((tag) => (
@@ -66,14 +66,14 @@ export default function LatestPosts({ className = "", locale }: LatestPostsProps
             );
           })
         ) : (
-          <div className="card p-6 text-muted md:col-span-2">{t("blog.latest_empty")}</div>
+          <div className="card text-muted p-6 md:col-span-2">{t("blog.latest_empty")}</div>
         )}
       </div>
 
       <div className="mt-5">
         <Link
           href={`/${locale}/blog`}
-          className="text-sm text-cyan-700 dark:text-cyan-200 hover:opacity-90"
+          className="text-sm text-cyan-700 hover:opacity-90 dark:text-cyan-200"
         >
           {t("blog.latest_cta")} →
         </Link>

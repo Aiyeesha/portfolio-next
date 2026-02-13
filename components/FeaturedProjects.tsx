@@ -42,7 +42,7 @@ export default function FeaturedProjects() {
               ) : null}
             </div>
 
-            <p className="mt-3 text-sm text-muted">{p.excerpt}</p>
+            <p className="text-muted mt-3 text-sm">{p.excerpt}</p>
 
             <div className="mt-4 flex flex-wrap gap-2">
               {p.tags.slice(0, 4).map((tag) => (
@@ -56,7 +56,7 @@ export default function FeaturedProjects() {
             <div className="mt-6">
               <Link
                 href={`/${locale}/projects/${p.slug}`}
-                className="inline-flex items-center rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-black hover:opacity-90 soft-ring"
+                className="soft-ring inline-flex items-center rounded-full bg-cyan-500 px-4 py-2 text-sm font-medium text-black hover:opacity-90"
               >
                 {t("projects.details")}
               </Link>

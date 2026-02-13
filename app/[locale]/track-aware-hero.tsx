@@ -22,22 +22,19 @@ export default function TrackAwareHero() {
       process.env.NEXT_PUBLIC_CV_URL ||
       process.env.NEXT_PUBLIC_PROFILE_PDF_URL ||
       "/cv.pdf",
-    []
+    [],
   );
 
   // Public env var (optional). If not set, we use the bundled avatar in /public/avatar.webp
-  const avatarUrl = useMemo(
-    () => process.env.NEXT_PUBLIC_AVATAR_URL || "/avatar.webp",
-    []
-  );
+  const avatarUrl = useMemo(() => process.env.NEXT_PUBLIC_AVATAR_URL || "/avatar.webp", []);
   const [src, setSrc] = useState<string>(avatarUrl);
 
   return (
     <div className="grid items-center gap-8 lg:grid-cols-[120px_1fr_380px] xl:grid-cols-[120px_1fr_420px]">
       {/* Avatar */}
       <div className="mx-auto lg:mx-0">
-        <div className="relative h-[112px] w-[112px] overflow-hidden rounded-full ring-1 ring-black/10 dark:ring-white/10 shadow-[0_0_0_6px_rgba(34,211,238,0.08)]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+        <div className="relative h-[112px] w-[112px] overflow-hidden rounded-full shadow-[0_0_0_6px_rgba(34,211,238,0.08)] ring-1 ring-black/10 dark:ring-white/10">
+          {}
           <Image
             src={src}
             alt={t("hero.avatar_alt")}
@@ -57,16 +54,16 @@ export default function TrackAwareHero() {
           {track === "salesforce" ? t("hero.value_salesforce") : t("hero.value_itops")}
         </p>
 
-        <h1 className="mt-2 text-4xl sm:text-5xl font-semibold leading-tight">
+        <h1 className="mt-2 text-4xl font-semibold leading-tight sm:text-5xl">
           <span className="block">
             {track === "salesforce" ? t("hero.title_salesforce") : t("hero.title_itops")}
           </span>
-          <span className="mt-1 block text-xl sm:text-2xl font-semibold text-cyan-700 dark:text-cyan-200">
+          <span className="mt-1 block text-xl font-semibold text-cyan-700 dark:text-cyan-200 sm:text-2xl">
             {track === "salesforce" ? t("hero.subtitle_salesforce") : t("hero.subtitle_itops")}
           </span>
         </h1>
 
-        <p className="mt-3 max-w-2xl text-muted text-base sm:text-lg">
+        <p className="text-muted mt-3 max-w-2xl text-base sm:text-lg">
           {track === "salesforce" ? t("hero.intro_salesforce") : t("hero.intro_itops")}
         </p>
 
@@ -80,14 +77,14 @@ export default function TrackAwareHero() {
         {/* CTAs (keep decision simple: 1 primary + 1 secondary + 1 tertiary) */}
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <a
-            className="rounded-full bg-cyan-500 px-5 py-2 text-sm font-medium text-black hover:opacity-90 soft-ring"
+            className="soft-ring rounded-full bg-cyan-500 px-5 py-2 text-sm font-medium text-black hover:opacity-90"
             href="#contact"
           >
             {t("cta.workWithMe")}
           </a>
 
           <a
-            className={`rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring ${
+            className={`soft-ring rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 ${
               calendlyUrl ? "" : "pointer-events-none opacity-50"
             }`}
             href={calendlyUrl || "#"}
@@ -100,7 +97,7 @@ export default function TrackAwareHero() {
           </a>
 
           <a
-            className="rounded-full px-2 py-1 text-sm text-cyan-800 hover:underline dark:text-cyan-200 soft-ring"
+            className="soft-ring rounded-full px-2 py-1 text-sm text-cyan-800 hover:underline dark:text-cyan-200"
             href={cvPdfUrl}
             target="_blank"
             rel="noreferrer"
@@ -110,8 +107,8 @@ export default function TrackAwareHero() {
         </div>
 
         {/* Quick navigation (reduces scrolling friction) */}
-        <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-2">
-          <span className="font-medium text-muted">{t("hero.startHere")}</span>
+        <div className="text-muted-2 mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+          <span className="text-muted font-medium">{t("hero.startHere")}</span>
           <a className="text-cyan-800 hover:underline dark:text-cyan-200" href="#projects">
             {t("cta.projects")}
           </a>
@@ -122,8 +119,6 @@ export default function TrackAwareHero() {
             {t("nav.contact")}
           </a>
         </div>
-
-
       </div>
 
       {/* At a glance (desktop: right column) */}

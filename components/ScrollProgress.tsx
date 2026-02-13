@@ -38,10 +38,7 @@ export default function ScrollProgress() {
 
   return (
     <div className="fixed inset-x-0 top-0 z-[60] h-[2px] bg-transparent">
-      <div
-        className="h-full bg-cyan-400/70"
-        style={{ width: `${Math.round(p * 1000) / 10}%` }}
-      />
+      <div className="h-full bg-cyan-400/70" style={{ width: `${Math.round(p * 1000) / 10}%` }} />
     </div>
   );
 }

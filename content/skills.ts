@@ -17,8 +17,8 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
             "Flow Builder & bonnes pratiques d’automatisation",
             "Lightning App Builder & Lightning Web Components",
             "Modélisation de données & sécurité (types d’enregistrement, rôles, profils, permission sets)",
-            "Déploiements via Change Sets & Salesforce CLI"
-          ]
+            "Déploiements via Change Sets & Salesforce CLI",
+          ],
         },
         {
           title: "Programmation & plateformes",
@@ -27,8 +27,8 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
             "Concepts d’API REST / SOAP",
             "Tests unitaires & assertions",
             "Git & workflows GitHub",
-            "VS Code, développement piloté par la CLI"
-          ]
+            "VS Code, développement piloté par la CLI",
+          ],
         },
         {
           title: "Systèmes, DevOps & sécurité",
@@ -37,8 +37,8 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
             "Fondamentaux réseau & supervision",
             "Pipelines CI/CD avec Salesforce CLI & GitHub Actions",
             "Pratiques de sauvegarde et restauration",
-            "Culture sécurité (contrôle d’accès, ransomware)"
-          ]
+            "Culture sécurité (contrôle d’accès, ransomware)",
+          ],
         },
         {
           title: "Soft skills & manière de travailler",
@@ -47,9 +47,9 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
             "Communication active avec des interlocuteurs non techniques",
             "Collaboration à distance (multi-fuseaux horaires)",
             "Apprentissage rapide avec auto-formation structurée",
-            "Approche centrée utilisateur pour la collecte de besoins"
-          ]
-        }
+            "Approche centrée utilisateur pour la collecte de besoins",
+          ],
+        },
       ];
     }
 
@@ -62,8 +62,8 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
           "Fondamentaux réseau & supervision",
           "Sauvegarde / restauration & PRA (bonnes pratiques)",
           "Culture sécurité (contrôle d’accès, ransomware)",
-          "Documentation, runbooks & gestion d’incidents"
-        ]
+          "Documentation, runbooks & gestion d’incidents",
+        ],
       },
       {
         title: "Pipelines & automatisation",
@@ -72,8 +72,8 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
           "Automatisation par scripts (approche pragmatique)",
           "Dockerisation & environnements reproductibles",
           "Monitoring & alerting",
-          "Gestion de versions (Git)"
-        ]
+          "Gestion de versions (Git)",
+        ],
       },
       {
         title: "Support & exploitation",
@@ -82,8 +82,8 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
           "Standardisation des procédures",
           "Amélioration continue (réduction dette d’exploitation)",
           "Gestion des changements",
-          "Communication claire en situation d’incident"
-        ]
+          "Communication claire en situation d’incident",
+        ],
       },
       {
         title: "Langues & collaboration",
@@ -92,9 +92,9 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
           "Collaboration à distance",
           "Communication structurée",
           "Autonomie",
-          "Transparence & apprentissage continu"
-        ]
-      }
+          "Transparence & apprentissage continu",
+        ],
+      },
     ];
   }
 
@@ -108,8 +108,8 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
           "Flow Builder & automation best practices",
           "Lightning App Builder & Lightning Web Components",
           "Data modeling & security (record types, roles, profiles, permission sets)",
-          "Deployments via Change Sets & Salesforce CLI"
-        ]
+          "Deployments via Change Sets & Salesforce CLI",
+        ],
       },
       {
         title: "Programming & platforms",
@@ -118,8 +118,8 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
           "REST / SOAP API concepts",
           "Unit tests & assertions",
           "Git & GitHub workflows",
-          "VS Code, CLI-driven development"
-        ]
+          "VS Code, CLI-driven development",
+        ],
       },
       {
         title: "Systems, DevOps & security",
@@ -128,8 +128,8 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
           "Networking fundamentals & monitoring",
           "CI/CD pipelines with Salesforce CLI & GitHub Actions",
           "Backup & restore practices",
-          "Security culture (access control, ransomware awareness)"
-        ]
+          "Security culture (access control, ransomware awareness)",
+        ],
       },
       {
         title: "Ways of working",
@@ -138,9 +138,9 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
           "Active communication with non-technical stakeholders",
           "Remote collaboration across time zones",
           "Fast learning with structured self-training",
-          "User-centered approach for requirement gathering"
-        ]
-      }
+          "User-centered approach for requirement gathering",
+        ],
+      },
     ];
   }
 
@@ -152,8 +152,8 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
         "Networking fundamentals & monitoring",
         "Backup/restore & DR best practices",
         "Security culture (access control, ransomware awareness)",
-        "Documentation, runbooks & incident handling"
-      ]
+        "Documentation, runbooks & incident handling",
+      ],
     },
     {
       title: "Pipelines & automation",
@@ -162,8 +162,8 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
         "Pragmatic scripting & automation",
         "Docker & reproducible environments",
         "Monitoring & alerting",
-        "Version control (Git)"
-      ]
+        "Version control (Git)",
+      ],
     },
     {
       title: "Operations & support",
@@ -172,8 +172,8 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
         "Procedure standardization",
         "Continuous improvement (reducing ops debt)",
         "Change management",
-        "Clear communication during incidents"
-      ]
+        "Clear communication during incidents",
+      ],
     },
     {
       title: "Languages & collaboration",
@@ -182,8 +182,8 @@ export function getSkillGroups(locale: Locale, track: Track): SkillGroup[] {
         "Remote collaboration",
         "Structured communication",
         "Autonomy",
-        "Transparency & continuous learning"
-      ]
-    }
+        "Transparency & continuous learning",
+      ],
+    },
   ];
 }

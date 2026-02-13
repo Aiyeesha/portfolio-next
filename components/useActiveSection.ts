@@ -53,8 +53,8 @@ export default function useActiveSection(sectionIds: string[]) {
           // With a fixed navbar, the "active zone" is slightly below the top.
           // The negative bottom margin prevents distant sections from taking over too early.
           rootMargin: "-20% 0px -70% 0px",
-          threshold: [0.01, 0.05, 0.1, 0.2, 0.35]
-        }
+          threshold: [0.01, 0.05, 0.1, 0.2, 0.35],
+        },
       );
 
       elements.forEach((el) => obs!.observe(el));

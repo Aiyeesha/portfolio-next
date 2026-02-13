@@ -13,12 +13,11 @@ type Status =
 const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "";
 const LINKEDIN_URL = process.env.NEXT_PUBLIC_LINKEDIN_URL || "";
 const LINKEDIN_HREF = LINKEDIN_URL
-  ? (LINKEDIN_URL.startsWith("http") ? LINKEDIN_URL : `https://${LINKEDIN_URL}`)
+  ? LINKEDIN_URL.startsWith("http")
+    ? LINKEDIN_URL
+    : `https://${LINKEDIN_URL}`
   : "";
-const CV_URL =
-  process.env.NEXT_PUBLIC_CV_PDF_URL ||
-  process.env.NEXT_PUBLIC_CV_URL ||
-  "/cv.pdf";
+const CV_URL = process.env.NEXT_PUBLIC_CV_PDF_URL || process.env.NEXT_PUBLIC_CV_URL || "/cv.pdf";
 
 // Convert API error codes into i18n keys
 function errorToKey(code: string) {
@@ -87,14 +86,14 @@ export default function ContactForm() {
       email: String(form.get("email") || ""),
       topic: String(form.get("topic") || "general"),
       message: String(form.get("message") || ""),
-      company
+      company,
     };
 
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
       });
 
       if (!res.ok) {
@@ -114,41 +113,47 @@ export default function ContactForm() {
 
   return (
     <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_420px]">
-      <form onSubmit={onSubmit} className="card p-6 space-y-3">
+      <form onSubmit={onSubmit} className="card space-y-3 p-6">
         <div>
-          <label htmlFor="contact-name" className="text-xs text-muted-2">{t("contact.nameLabel")}</label>
+          <label htmlFor="contact-name" className="text-muted-2 text-xs">
+            {t("contact.nameLabel")}
+          </label>
           <input
             id="contact-name"
             name="name"
             autoComplete="name"
             required
-            className="mt-2 w-full rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-4 py-2 text-sm text-slate-900 dark:text-white outline-none focus:border-cyan-400/40 soft-ring"
+            className="soft-ring mt-2 w-full rounded-xl border border-black/10 bg-black/5 px-4 py-2 text-sm text-slate-900 outline-none focus:border-cyan-400/40 dark:border-white/10 dark:bg-white/5 dark:text-white"
             placeholder={t("contact.namePlaceholder")}
           />
         </div>
 
         <div>
-          <label htmlFor="contact-email" className="text-xs text-muted-2">{t("contact.emailLabel")}</label>
+          <label htmlFor="contact-email" className="text-muted-2 text-xs">
+            {t("contact.emailLabel")}
+          </label>
           <input
             id="contact-email"
             name="email"
             type="email"
             autoComplete="email"
             required
-            className="mt-2 w-full rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-4 py-2 text-sm text-slate-900 dark:text-white outline-none focus:border-cyan-400/40 soft-ring"
+            className="soft-ring mt-2 w-full rounded-xl border border-black/10 bg-black/5 px-4 py-2 text-sm text-slate-900 outline-none focus:border-cyan-400/40 dark:border-white/10 dark:bg-white/5 dark:text-white"
             placeholder={t("contact.emailPlaceholder")}
           />
         </div>
 
         <div>
-          <label htmlFor="contact-topic" className="text-xs text-muted-2">{t("contact.topicLabel")}</label>
+          <label htmlFor="contact-topic" className="text-muted-2 text-xs">
+            {t("contact.topicLabel")}
+          </label>
           <select
             id="contact-topic"
             name="topic"
             autoComplete="off"
             required
             defaultValue="general"
-            className="mt-2 w-full rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-4 py-2 text-sm text-slate-900 dark:text-white outline-none focus:border-cyan-400/40 soft-ring [color-scheme:light] dark:[color-scheme:dark]"
+            className="soft-ring mt-2 w-full rounded-xl border border-black/10 bg-black/5 px-4 py-2 text-sm text-slate-900 outline-none [color-scheme:light] focus:border-cyan-400/40 dark:border-white/10 dark:bg-white/5 dark:text-white dark:[color-scheme:dark]"
           >
             <option value="general">{t("contact.topicGeneral")}</option>
             <option value="salesforce">{t("contact.topicSalesforce")}</option>
@@ -159,17 +164,25 @@ export default function ContactForm() {
         </div>
 
         {/* Honeypot (hidden for humans) */}
-        <input name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+        <input
+          name="company"
+          tabIndex={-1}
+          autoComplete="off"
+          className="hidden"
+          aria-hidden="true"
+        />
 
         <div>
-          <label htmlFor="contact-message" className="text-xs text-muted-2">{t("contact.messageLabel")}</label>
+          <label htmlFor="contact-message" className="text-muted-2 text-xs">
+            {t("contact.messageLabel")}
+          </label>
           <textarea
             id="contact-message"
             name="message"
             autoComplete="off"
             required
             rows={5}
-            className="mt-2 w-full rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-4 py-2 text-sm text-slate-900 dark:text-white outline-none focus:border-cyan-400/40 soft-ring"
+            className="soft-ring mt-2 w-full rounded-xl border border-black/10 bg-black/5 px-4 py-2 text-sm text-slate-900 outline-none focus:border-cyan-400/40 dark:border-white/10 dark:bg-white/5 dark:text-white"
             placeholder={t("contact.messagePlaceholder")}
           />
         </div>
@@ -178,14 +191,16 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={status.kind === "sending"}
-            className="rounded-full bg-cyan-500 px-5 py-2 text-sm font-medium text-black hover:opacity-90 soft-ring disabled:opacity-60"
+            className="soft-ring rounded-full bg-cyan-500 px-5 py-2 text-sm font-medium text-black hover:opacity-90 disabled:opacity-60"
           >
             {status.kind === "sending" ? t("contact.sending") : t("contact.send")}
           </button>
 
           <div aria-live="polite" className="min-h-[20px]">
             {status.kind === "success" && (
-              <span className="text-sm text-emerald-700 dark:text-emerald-200">{t("contact.success")}</span>
+              <span className="text-sm text-emerald-700 dark:text-emerald-200">
+                {t("contact.success")}
+              </span>
             )}
             {status.kind === "error" && (
               <span className="text-sm text-rose-700 dark:text-rose-200">{status.message}</span>
@@ -193,17 +208,21 @@ export default function ContactForm() {
           </div>
         </div>
 
-        <p className="pt-2 text-xs text-muted-2">{t("contact.privacyNote")}</p>
+        <p className="text-muted-2 pt-2 text-xs">{t("contact.privacyNote")}</p>
       </form>
 
       <div className="card p-6">
-        <div className="text-sm text-slate-900 dark:text-white font-semibold">{t("contact.homeMethodsTitle")}</div>
-        <p className="mt-2 text-sm text-slate-900 dark:text-white text-muted-2">{t("contact.homeIntro")}</p>
+        <div className="text-sm font-semibold text-slate-900 dark:text-white">
+          {t("contact.homeMethodsTitle")}
+        </div>
+        <p className="text-muted-2 mt-2 text-sm text-slate-900 dark:text-white">
+          {t("contact.homeIntro")}
+        </p>
 
         <div className="mt-4">
           <div className="mt-3 flex flex-wrap gap-3">
             <a
-              className="rounded-full bg-cyan-500 px-5 py-2 text-sm text-slate-900 dark:text-white font-medium text-black hover:opacity-90 soft-ring"
+              className="soft-ring rounded-full bg-cyan-500 px-5 py-2 text-sm font-medium text-black text-slate-900 hover:opacity-90 dark:text-white"
               href={CONTACT_EMAIL ? `mailto:${CONTACT_EMAIL}` : "#"}
               aria-disabled={!CONTACT_EMAIL}
               onClick={(e) => {
@@ -215,7 +234,7 @@ export default function ContactForm() {
             </a>
 
             <a
-              className="rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm text-slate-900 dark:text-white hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
+              className="soft-ring rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm text-slate-900 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
               href={LINKEDIN_HREF || "#"}
               target="_blank"
               rel="noreferrer"
@@ -223,13 +242,21 @@ export default function ContactForm() {
               onClick={(e) => {
                 if (!LINKEDIN_HREF) e.preventDefault();
               }}
-              title={!LINKEDIN_HREF ? t(process.env.NODE_ENV === "production" ? "contact.linkedInMissing" : "contact.envHint") : undefined}
+              title={
+                !LINKEDIN_HREF
+                  ? t(
+                      process.env.NODE_ENV === "production"
+                        ? "contact.linkedInMissing"
+                        : "contact.envHint",
+                    )
+                  : undefined
+              }
             >
               {t("contact.homeLinkedIn")}
             </a>
 
             <a
-              className="rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm text-slate-900 dark:text-white hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
+              className="soft-ring rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm text-slate-900 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
               href={CV_URL}
               target="_blank"
               rel="noreferrer"
@@ -240,35 +267,37 @@ export default function ContactForm() {
         </div>
 
         <div className="mt-6 border-t border-black/10 pt-6 dark:border-white/10">
-          <div className="text-sm text-slate-900 dark:text-white font-semibold">{t("contact.otherWays")}</div>
+          <div className="text-sm font-semibold text-slate-900 dark:text-white">
+            {t("contact.otherWays")}
+          </div>
           <div className="mt-4 space-y-3">
-          {/* Calendly as an embedded modal (falls back if env is missing inside the component) */}
-          <CalendlyModal />
+            {/* Calendly as an embedded modal (falls back if env is missing inside the component) */}
+            <CalendlyModal />
 
-          {!process.env.NEXT_PUBLIC_CALENDLY_URL ? (
-            <div className="rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-4 py-3 text-sm text-slate-900 dark:text-white text-muted-2">
-              {t("contact.bookCallMissing")}
-            </div>
-          ) : null}
+            {!process.env.NEXT_PUBLIC_CALENDLY_URL ? (
+              <div className="text-muted-2 rounded-xl border border-black/10 bg-black/5 px-4 py-3 text-sm text-slate-900 dark:border-white/10 dark:bg-white/5 dark:text-white">
+                {t("contact.bookCallMissing")}
+              </div>
+            ) : null}
 
-          {CONTACT_EMAIL ? (
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="flex items-center justify-between rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-4 py-3 text-sm text-slate-900 dark:text-white hover:bg-black/10 dark:hover:bg-white/10 soft-ring"
-            >
-              <span>{t("contact.emailMe")}</span>
-              <span className="text-xs text-muted-2">{CONTACT_EMAIL}</span>
-            </a>
-          ) : (
-            <div className="rounded-xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-4 py-3 text-sm text-slate-900 dark:text-white text-muted-2">
-              {t("contact.emailMissing")}
-            </div>
-          )}
+            {CONTACT_EMAIL ? (
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="soft-ring flex items-center justify-between rounded-xl border border-black/10 bg-black/5 px-4 py-3 text-sm text-slate-900 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+              >
+                <span>{t("contact.emailMe")}</span>
+                <span className="text-muted-2 text-xs">{CONTACT_EMAIL}</span>
+              </a>
+            ) : (
+              <div className="text-muted-2 rounded-xl border border-black/10 bg-black/5 px-4 py-3 text-sm text-slate-900 dark:border-white/10 dark:bg-white/5 dark:text-white">
+                {t("contact.emailMissing")}
+              </div>
+            )}
           </div>
         </div>
 
         {showEnvHint ? (
-          <div className="mt-5 text-xs text-muted-2">{t("contact.envHint")}</div>
+          <div className="text-muted-2 mt-5 text-xs">{t("contact.envHint")}</div>
         ) : null}
       </div>
     </div>
