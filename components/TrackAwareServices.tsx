@@ -14,8 +14,8 @@ export default function TrackAwareServices({ locale }: { locale: Locale }) {
         <Reveal key={c.title} delayMs={110 + idx * 60}>
           <div className="card p-6">
             <h3 className="font-semibold">{c.title}</h3>
-            <p className="mt-2 text-sm text-muted">{c.description}</p>
-            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted">
+            <p className="text-muted mt-2 text-sm">{c.description}</p>
+            <ul className="text-muted mt-3 list-disc space-y-1 pl-5 text-sm">
               {c.bullets.map((b) => (
                 <li key={b}>{b}</li>
               ))}

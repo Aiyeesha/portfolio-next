@@ -23,7 +23,6 @@ const MIN_MESSAGE_LEN = 10;
 
 const ALLOWED_TOPICS = new Set(["general", "salesforce", "itops", "availability", "other"]);
 
-
 // In-memory rate limit (good for dev / single instance; for multi-instance use Redis/Upstash)
 const WINDOW_SECONDS = Number(process.env.CONTACT_RATE_LIMIT_WINDOW_SECONDS || "600");
 const MAX_REQUESTS = Number(process.env.CONTACT_RATE_LIMIT_MAX_REQUESTS || "5");
@@ -62,7 +61,7 @@ function validate({
   name,
   email,
   message,
-  topic
+  topic,
 }: {
   name: string;
   email: string;
@@ -105,7 +104,7 @@ export async function POST(req: Request) {
   if (!rl.ok) {
     return NextResponse.json(
       { ok: false, error: "rate_limited", retryAfterSeconds: rl.retryAfterSeconds },
-      { status: 429, headers: { "Retry-After": String(rl.retryAfterSeconds) } }
+      { status: 429, headers: { "Retry-After": String(rl.retryAfterSeconds) } },
     );
   }
 
@@ -128,8 +127,8 @@ export async function POST(req: Request) {
   if (FORMSPREE_ENDPOINT) {
     const resp = await fetch(FORMSPREE_ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify({ name, email, topic, message, source: "portfolio-next" })
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ name, email, topic, message, source: "portfolio-next" }),
     });
 
     if (!resp.ok) {
@@ -139,10 +138,7 @@ export async function POST(req: Request) {
 
       // Map to a stable error code for UI
       // (We keep it generic; full details remain server-side)
-      return NextResponse.json(
-        { ok: false, error: "upstream_failed" },
-        { status: 502 }
-      );
+      return NextResponse.json({ ok: false, error: "upstream_failed" }, { status: 502 });
     }
 
     return NextResponse.json({ ok: true }, { status: 200 });

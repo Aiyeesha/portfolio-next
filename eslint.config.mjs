@@ -1,12 +1,18 @@
-import { FlatCompat } from "@eslint/eslintrc";
-import { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+import prettier from "eslint-config-prettier/flat";
+import { defineConfig, globalIgnores } from "eslint/config";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+export default defineConfig([
+  // Next.js + React + hooks + Core Web Vitals (flat config)
+  ...nextVitals,
 
-const compat = new FlatCompat({ baseDirectory: __dirname });
+  // TypeScript (flat config)
+  ...nextTs,
 
-export default [
-  ...compat.extends("next/core-web-vitals")
-];
+  // Désactive les règles ESLint qui entrent en conflit avec Prettier
+  prettier,
+
+  // Dossiers/fichiers à ignorer (équivalent flat de .eslintignore)
+  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
+]);

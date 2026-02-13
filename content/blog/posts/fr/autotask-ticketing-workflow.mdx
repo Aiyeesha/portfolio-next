@@ -5,7 +5,6 @@ date: "2025-02-14"
 tags: ["Ticketing", "IT Ops", "SLA", "Runbooks", "Support"]
 ---
 
-
 ## Objectif
 
 Standardiser le traitement des incidents et demandes dans **Autotask** :
@@ -26,12 +25,13 @@ Standardiser le traitement des incidents et demandes dans **Autotask** :
 4. Vérifiez que l’email reçu a bien généré un ticket :
    - Sujet email → titre du ticket
    - Corps email → description / note initiale
-   - Pièces jointes → onglet *Attachments*
+   - Pièces jointes → onglet _Attachments_
 
 **Bonnes pratiques**
+
 - Une adresse unique : `support@...`
 - Un objet email explicite : `[Client] - [Service] - [Symptôme]`
-- Un champ *Company / Contact* correctement mappé (sinon le faire dès la qualification).
+- Un champ _Company / Contact_ correctement mappé (sinon le faire dès la qualification).
 
 ## Étape 2 — Qualification (3 minutes max)
 
@@ -47,10 +47,10 @@ Ouvrez le ticket et complétez immédiatement :
 
 ### Mini grille Impact × Urgence (exemple)
 
-- Impact *élevé* + Urgence *élevée* → **P1**
-- Impact *élevé* + Urgence *moyenne* → **P2**
-- Impact *moyen* + Urgence *élevée* → **P2**
-- Impact *moyen* + Urgence *moyenne* → **P3**
+- Impact _élevé_ + Urgence _élevée_ → **P1**
+- Impact _élevé_ + Urgence _moyenne_ → **P2**
+- Impact _moyen_ + Urgence _élevée_ → **P2**
+- Impact _moyen_ + Urgence _moyenne_ → **P3**
 - Tout le reste → **P4**
 
 ## Étape 3 — SLA : timers et escalade
@@ -63,6 +63,7 @@ Ouvrez le ticket et complétez immédiatement :
    - Prévenez via canal interne (Teams/Slack) selon runbook
 
 **Anti-bruit**
+
 - P1 réservé au vrai “business down”
 - Requalifier dès que vous avez des éléments (évite les escalades inutiles)
 
@@ -113,7 +114,7 @@ Ensuite :
 1. Changez l’**Assigned Resource** vers `N2` (ou queue dédiée).
 2. Ajoutez une note interne “ESCALADE” + pack.
 3. Si vendor (ex. Webroot/Malwarebytes/Microsoft) :
-   - Créez un *case* vendor
+   - Créez un _case_ vendor
    - Ajoutez l’ID du case dans le ticket
 
 ## Étape 6 — Clôture (qualité)

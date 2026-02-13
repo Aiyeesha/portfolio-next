@@ -1,6 +1,6 @@
 import createMiddleware from "next-intl/middleware";
 import type { NextRequest } from "next/server";
-import {routing} from "./i18n/routing";
+import { routing } from "./i18n/routing";
 
 /**
  * Next.js 16: `middleware.ts` file convention is deprecated in favor of `proxy.ts`.
@@ -11,7 +11,7 @@ import {routing} from "./i18n/routing";
 const handler = createMiddleware({
   locales: routing.locales,
   defaultLocale: routing.defaultLocale,
-  localePrefix: "always"
+  localePrefix: "always",
 });
 
 export function proxy(request: NextRequest) {
@@ -19,5 +19,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next|.*\\..*).*)"]
+  matcher: ["/((?!api|_next|.*\\..*).*)"],
 };

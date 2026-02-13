@@ -13,5 +13,5 @@ export const mdxComponents = {
   pre: (props: ComponentProps<"pre">) => <CodeBlock>{props.children}</CodeBlock>,
   a: (props: ComponentProps<"a">) => (
     <a {...props} className={["mdx-link", props.className || ""].join(" ")} />
-  )
+  ),
 };

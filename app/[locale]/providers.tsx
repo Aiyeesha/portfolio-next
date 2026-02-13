@@ -25,7 +25,7 @@ export function useTrack() {
  */
 export default function Providers({
   children,
-  initialTrack
+  initialTrack,
 }: {
   children: ReactNode;
   initialTrack: Track;
@@ -47,8 +47,10 @@ export default function Providers({
 
     // Persist for SSR so the server can render the correct track immediately.
     const isHttps = typeof window !== "undefined" && window.location.protocol === "https:";
-document.cookie = `track=${t}; Path=/; Max-Age=31536000; SameSite=Lax${isHttps ? "; Secure" : ""}`;
 
+    document.cookie = `track=${t}; Path=/; Max-Age=31536000; SameSite=Lax${
+      isHttps ? "; Secure" : ""
+    }`;
   };
 
   const value = useMemo(() => ({ track, setTrack }), [track]);

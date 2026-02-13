@@ -4,14 +4,14 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"]
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
 };
 
 // MDX pipeline
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [remarkFrontmatter]
-  }
+    remarkPlugins: [remarkFrontmatter],
+  },
 });
 
 // next-intl plugin (generates `next-intl/config` at build time)

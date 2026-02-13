@@ -26,19 +26,17 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
     <div className="grid gap-4 lg:grid-cols-[1fr_320px]">
       <Reveal>
         <div className="card p-6">
-          <div className="text-sm text-muted-2">{t("testimonials.kicker")}</div>
-          <p className="mt-4 text-lg leading-relaxed text-strong">
-            “{current.quote}”
-          </p>
+          <div className="text-muted-2 text-sm">{t("testimonials.kicker")}</div>
+          <p className="text-strong mt-4 text-lg leading-relaxed">“{current.quote}”</p>
 
           {current.context ? (
-            <div className="mt-3 text-sm text-muted-2">{current.context}</div>
+            <div className="text-muted-2 mt-3 text-sm">{current.context}</div>
           ) : null}
 
           <div className="mt-6 flex items-center justify-between gap-4">
             <div>
               <div className="font-semibold">{current.name}</div>
-              <div className="text-sm text-muted-2">
+              <div className="text-muted-2 text-sm">
                 {current.role}
                 {current.company ? ` · ${current.company}` : ""}
               </div>
@@ -48,7 +46,7 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
               <button
                 type="button"
                 onClick={prev}
-                className="rounded-full border border-black/10 bg-black/5 px-4 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
+                className="soft-ring rounded-full border border-black/10 bg-black/5 px-4 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
                 aria-label={t("a11y.previousTestimonial")}
               >
                 ←
@@ -56,7 +54,7 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
               <button
                 type="button"
                 onClick={next}
-                className="rounded-full border border-black/10 bg-black/5 px-4 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 soft-ring"
+                className="soft-ring rounded-full border border-black/10 bg-black/5 px-4 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
                 aria-label={t("a11y.nextTestimonial")}
               >
                 →
@@ -68,7 +66,7 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
 
       <Reveal delayMs={120}>
         <div className="card p-6">
-          <div className="text-sm text-muted-2">{t("testimonials.all")}</div>
+          <div className="text-muted-2 text-sm">{t("testimonials.all")}</div>
           <div className="mt-4 space-y-2">
             {items.map((t, i) => (
               <button
@@ -76,14 +74,14 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
                 type="button"
                 onClick={() => setIndex(i)}
                 className={[
-                  "w-full text-left rounded-xl border px-4 py-3 transition-colors",
+                  "w-full rounded-xl border px-4 py-3 text-left transition-colors",
                   i === index
                     ? "border-cyan-400/40 bg-cyan-500/10 text-cyan-700 dark:text-cyan-200"
-                    : "border-black/10 bg-black/5 text-slate-700 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:text-white/80 dark:hover:bg-white/10 soft-ring"
+                    : "soft-ring border-black/10 bg-black/5 text-slate-700 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:text-white/80 dark:hover:bg-white/10",
                 ].join(" ")}
               >
                 <div className="text-sm font-semibold">{t.name}</div>
-                <div className="text-xs text-muted-2">
+                <div className="text-muted-2 text-xs">
                   {t.role}
                   {t.company ? ` · ${t.company}` : ""}
                 </div>

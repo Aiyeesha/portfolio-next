@@ -13,7 +13,7 @@ function extractText(node: any): string {
 
 export default function CodeBlock({
   children,
-  className = ""
+  className = "",
 }: {
   children: any;
   className?: string;
@@ -40,7 +40,9 @@ export default function CodeBlock({
         <button type="button" onClick={onCopy} className="mdx-code__copy soft-ring">
           {copied ? t("mdx.copied") : t("mdx.copy")}
         </button>
-        <span className="sr-only" aria-live="polite">{copied ? t("mdx.copied") : ""}</span>
+        <span className="sr-only" aria-live="polite">
+          {copied ? t("mdx.copied") : ""}
+        </span>
       </div>
       <pre className="mdx-code__pre">{children}</pre>
     </div>

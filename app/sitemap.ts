@@ -13,15 +13,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/en/blog`, lastModified: STATIC_LAST_MODIFIED },
     { url: `${base}/fr/blog`, lastModified: STATIC_LAST_MODIFIED },
     { url: `${base}/en/blog/tags`, lastModified: STATIC_LAST_MODIFIED },
-    { url: `${base}/fr/blog/tags`, lastModified: STATIC_LAST_MODIFIED }
+    { url: `${base}/fr/blog/tags`, lastModified: STATIC_LAST_MODIFIED },
   ];
 
-  for (const locale of ["en","fr"] as const) {
+  for (const locale of ["en", "fr"] as const) {
     const posts = readAllPosts(locale);
     for (const p of posts) {
       pages.push({
         url: `${base}/${locale}/blog/${p.slug}`,
-        lastModified: new Date(p.date)
+        lastModified: new Date(p.date),
       });
     }
 
@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const proj of projects) {
       pages.push({
         url: `${base}/${locale}/projects/${proj.slug}`,
-        lastModified: STATIC_LAST_MODIFIED
+        lastModified: STATIC_LAST_MODIFIED,
       });
     }
   }

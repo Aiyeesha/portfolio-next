@@ -45,138 +45,138 @@ export default function Home() {
         </div>
       </section>
 
-{/* SKILLS */}
+      {/* SKILLS */}
       <section id="skills" className="py-14">
-            <Reveal>
-              <h2 className="text-3xl font-semibold">{t("sections.skills_title")}</h2>
-            </Reveal>
-            <Reveal delayMs={70}>
-              <p className="mt-3 text-muted">{t("sections.skills_subtitle")}</p>
-            </Reveal>
+        <Reveal>
+          <h2 className="text-3xl font-semibold">{t("sections.skills_title")}</h2>
+        </Reveal>
+        <Reveal delayMs={70}>
+          <p className="text-muted mt-3">{t("sections.skills_subtitle")}</p>
+        </Reveal>
 
-                        <TrackAwareSkills locale={locale} />
+        <TrackAwareSkills locale={locale} />
       </section>
 
-          {/* EXPERIENCE */}
+      {/* EXPERIENCE */}
       <section id="experience" className="py-14">
-            <Reveal>
-              <h2 className="text-3xl font-semibold">{t("sections.experience_title")}</h2>
-            </Reveal>
-            <Reveal delayMs={70}>
-              <p className="mt-3 text-muted">{t("sections.experience_subtitle")}</p>
-            </Reveal>
+        <Reveal>
+          <h2 className="text-3xl font-semibold">{t("sections.experience_title")}</h2>
+        </Reveal>
+        <Reveal delayMs={70}>
+          <p className="text-muted mt-3">{t("sections.experience_subtitle")}</p>
+        </Reveal>
 
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
-              <Reveal delayMs={110}>
-                <div>
-                  <h3 className="text-xl font-semibold">{t("sections.roles_title")}</h3>
-                  <div className="mt-4">
-                    <Accordion items={experienceItems} defaultOpenId="exp-1" />
-                  </div>
-                </div>
-              </Reveal>
-
-              <Reveal delayMs={170}>
-                <div>
-                  <h3 className="text-xl font-semibold">{t("sections.certifications_title")}</h3>
-                  <div className="mt-4">
-                    <Accordion items={certificationItems} />
-                  </div>
-                </div>
-              </Reveal>
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <Reveal delayMs={110}>
+            <div>
+              <h3 className="text-xl font-semibold">{t("sections.roles_title")}</h3>
+              <div className="mt-4">
+                <Accordion items={experienceItems} defaultOpenId="exp-1" />
+              </div>
             </div>
+          </Reveal>
+
+          <Reveal delayMs={170}>
+            <div>
+              <h3 className="text-xl font-semibold">{t("sections.certifications_title")}</h3>
+              <div className="mt-4">
+                <Accordion items={certificationItems} />
+              </div>
+            </div>
+          </Reveal>
+        </div>
       </section>
 
-          {/* SERVICES */}
+      {/* SERVICES */}
       <section id="services" className="py-14">
-            <Reveal>
-              <h2 className="text-3xl font-semibold">{t("sections.services_title")}</h2>
-            </Reveal>
-            <Reveal delayMs={70}>
-              <p className="mt-3 text-muted">{t("sections.services_subtitle")}</p>
-            </Reveal>
+        <Reveal>
+          <h2 className="text-3xl font-semibold">{t("sections.services_title")}</h2>
+        </Reveal>
+        <Reveal delayMs={70}>
+          <p className="text-muted mt-3">{t("sections.services_subtitle")}</p>
+        </Reveal>
 
-                        <TrackAwareServices locale={locale} />
+        <TrackAwareServices locale={locale} />
       </section>
 
-          {/* TESTIMONIALS */}
+      {/* TESTIMONIALS */}
       <section id="testimonials" className="py-14">
-            <Reveal>
-              <h2 className="text-3xl font-semibold">{t("sections.testimonials_title")}</h2>
-            </Reveal>
-            <Reveal delayMs={70}>
-              <p className="mt-3 text-muted">{t("sections.testimonials_subtitle")}</p>
-            </Reveal>
+        <Reveal>
+          <h2 className="text-3xl font-semibold">{t("sections.testimonials_title")}</h2>
+        </Reveal>
+        <Reveal delayMs={70}>
+          <p className="text-muted mt-3">{t("sections.testimonials_subtitle")}</p>
+        </Reveal>
 
-            <div className="mt-8">
-              <Testimonials items={testimonials} />
-            </div>
+        <div className="mt-8">
+          <Testimonials items={testimonials} />
+        </div>
       </section>
 
-          {/* PROJECTS */}
+      {/* PROJECTS */}
       <section id="projects" className="py-14">
-            <Reveal>
-              <h2 className="text-3xl font-semibold">{t("sections.projects_title")}</h2>
-            </Reveal>
-            <Reveal delayMs={70}>
-              <p className="mt-3 text-muted">{t("sections.projects_subtitle")}</p>
-            </Reveal>
+        <Reveal>
+          <h2 className="text-3xl font-semibold">{t("sections.projects_title")}</h2>
+        </Reveal>
+        <Reveal delayMs={70}>
+          <p className="text-muted mt-3">{t("sections.projects_subtitle")}</p>
+        </Reveal>
 
-            <div className="mt-8">
-              <Reveal>
-                <h3 className="text-xl font-semibold">{t("projects.featured")}</h3>
-              </Reveal>
-              <Reveal delayMs={60}>
-                <p className="mt-2 text-sm text-muted">{t("projects.featuredSubtitle")}</p>
-              </Reveal>
+        <div className="mt-8">
+          <Reveal>
+            <h3 className="text-xl font-semibold">{t("projects.featured")}</h3>
+          </Reveal>
+          <Reveal delayMs={60}>
+            <p className="text-muted mt-2 text-sm">{t("projects.featuredSubtitle")}</p>
+          </Reveal>
 
-              <div className="mt-5">
-                <FeaturedProjects />
-              </div>
+          <div className="mt-5">
+            <FeaturedProjects />
+          </div>
 
-              <div className="mt-10">
-                <ProjectsSection locale={locale} />
-              </div>
-            </div>
+          <div className="mt-10">
+            <ProjectsSection locale={locale} />
+          </div>
+        </div>
       </section>
 
-          {/* BLOG */}
+      {/* BLOG */}
       <section id="blog" className="py-14">
-            <Reveal>
-              <h2 className="text-3xl font-semibold">{t("sections.blog_title")}</h2>
-            </Reveal>
-            <Reveal delayMs={70}>
-              <p className="mt-3 text-muted">{t("sections.blog_subtitle")}</p>
-            </Reveal>
+        <Reveal>
+          <h2 className="text-3xl font-semibold">{t("sections.blog_title")}</h2>
+        </Reveal>
+        <Reveal delayMs={70}>
+          <p className="text-muted mt-3">{t("sections.blog_subtitle")}</p>
+        </Reveal>
 
-            <div className="mt-8">
-              <LatestPosts locale={locale} />
-            </div>
+        <div className="mt-8">
+          <LatestPosts locale={locale} />
+        </div>
 
-            <div className="mt-6">
-              <Link
-                className="inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-5 py-2 text-sm hover:bg-black/10 dark:hover:bg-white/10 soft-ring"
-                href={`/${locale}/blog`}
-              >
-                {t("blogIndex.ctaAllPosts")} →
-              </Link>
-            </div>
+        <div className="mt-6">
+          <Link
+            className="soft-ring inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-5 py-2 text-sm hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+            href={`/${locale}/blog`}
+          >
+            {t("blogIndex.ctaAllPosts")} →
+          </Link>
+        </div>
       </section>
 
-          {/* CONTACT */}
+      {/* CONTACT */}
       <section id="contact" className="py-14">
-            <Reveal>
-              <h2 className="text-3xl font-semibold">{t("sections.contact_title")}</h2>
-            </Reveal>
-            <Reveal delayMs={70}>
-              <p className="mt-3 text-muted">{t("sections.contact_subtitle")}</p>
-            </Reveal>
+        <Reveal>
+          <h2 className="text-3xl font-semibold">{t("sections.contact_title")}</h2>
+        </Reveal>
+        <Reveal delayMs={70}>
+          <p className="text-muted mt-3">{t("sections.contact_subtitle")}</p>
+        </Reveal>
 
-            <div className="mt-6">
-              <Reveal delayMs={110}>
-                <ContactForm />
-              </Reveal>
-            </div>
+        <div className="mt-6">
+          <Reveal delayMs={110}>
+            <ContactForm />
+          </Reveal>
+        </div>
       </section>
     </>
   );

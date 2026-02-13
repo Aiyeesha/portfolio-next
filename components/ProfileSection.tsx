@@ -17,7 +17,7 @@ export default function ProfileSection() {
     { label: t("profile.languagesLabel"), value: t("profile.languagesValue") },
     { label: t("profile.rolesLabel"), value: t("profile.rolesValue") },
     { label: t("profile.availabilityLabel"), value: t("profile.availabilityValue") },
-    { label: t("profile.goalLabel"), value: t("profile.goalValue") }
+    { label: t("profile.goalLabel"), value: t("profile.goalValue") },
   ];
 
   return (
@@ -29,15 +29,15 @@ export default function ProfileSection() {
         </Reveal>
 
         <Reveal delayMs={60}>
-          <p className="mt-4 text-muted">{t("profile.p2")}</p>
+          <p className="text-muted mt-4">{t("profile.p2")}</p>
         </Reveal>
 
         <Reveal delayMs={90}>
-          <p className="mt-4 text-muted">{t("profile.p3")}</p>
+          <p className="text-muted mt-4">{t("profile.p3")}</p>
         </Reveal>
 
         <Reveal delayMs={120}>
-          <p className="mt-4 text-muted">{t("profile.p4")}</p>
+          <p className="text-muted mt-4">{t("profile.p4")}</p>
         </Reveal>
       </div>
 
@@ -49,8 +49,8 @@ export default function ProfileSection() {
           <dl className="mt-4 space-y-4">
             {facts.map((f) => (
               <div key={f.label}>
-                <dt className="text-xs uppercase tracking-wider text-muted-2">{f.label}</dt>
-                <dd className="mt-1 text-sm text-muted">{f.value}</dd>
+                <dt className="text-muted-2 text-xs uppercase tracking-wider">{f.label}</dt>
+                <dd className="text-muted mt-1 text-sm">{f.value}</dd>
               </div>
             ))}
           </dl>

@@ -14,7 +14,7 @@ export default function TrackAwareSkills({ locale }: { locale: Locale }) {
         <Reveal key={g.title} delayMs={110 + idx * 60}>
           <div className="card p-6">
             <h3 className="font-semibold">{g.title}</h3>
-            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted">
+            <ul className="text-muted mt-3 list-disc space-y-1 pl-5 text-sm">
               {g.items.map((it) => (
                 <li key={it}>{it}</li>
               ))}

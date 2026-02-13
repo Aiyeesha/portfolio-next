@@ -17,7 +17,7 @@ import SkipToContent from "@/components/SkipToContent";
  */
 
 export async function generateMetadata({
-  params
+  params,
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
@@ -41,8 +41,8 @@ export async function generateMetadata({
       canonical,
       languages: {
         en: `${siteUrl}/en`,
-        fr: `${siteUrl}/fr`
-      }
+        fr: `${siteUrl}/fr`,
+      },
     },
     openGraph: {
       type: "website",
@@ -55,22 +55,22 @@ export async function generateMetadata({
           url: "/opengraph-image",
           width: 1200,
           height: 630,
-          alt: title
-        }
-      ]
+          alt: title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/twitter-image"]
-    }
+      images: ["/twitter-image"],
+    },
   };
 }
 
 export default async function LocaleLayout({
   children,
-  params
+  params,
 }: {
   children: ReactNode;
   params: Promise<{ locale: string }>;
@@ -105,14 +105,14 @@ export default async function LocaleLayout({
               {children}
             </main>
 
-            <footer className="border-t border-black/10 dark:border-white/10 py-10 mt-14">
-              <div className="mx-auto max-w-6xl px-6 text-sm text-muted-2">
+            <footer className="mt-14 border-t border-black/10 py-10 dark:border-white/10">
+              <div className="text-muted-2 mx-auto max-w-6xl px-6 text-sm">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <span>
                     © {new Date().getFullYear()} Aïcha Imène DAHOUMANE — {t("footer.builtWith")}
                   </span>
                   <a
-                    className="underline underline-offset-4 hover:opacity-80 soft-ring rounded"
+                    className="soft-ring rounded underline underline-offset-4 hover:opacity-80"
                     href={`/${locale}/privacy`}
                   >
                     {t("footer.privacy")}
