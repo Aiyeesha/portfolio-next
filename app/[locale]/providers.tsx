@@ -46,8 +46,12 @@ export default function Providers({
     window.localStorage.setItem("track", t);
 
     // Persist for SSR so the server can render the correct track immediately.
-    const isHttps = typeof window !== "undefined" && window.location.protocol === "https:";
-document.cookie = `track=${t}; Path=/; Max-Age=31536000; SameSite=Lax${isHttps ? "; Secure" : ""}`;
+    const isHttps =
+  typeof window !== "undefined" && window.location.protocol === "https:";
+
+document.cookie = `track=${t}; Path=/; Max-Age=31536000; SameSite=Lax${
+  isHttps ? "; Secure" : ""
+}`;
 
   };
 
